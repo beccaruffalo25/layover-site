@@ -36,7 +36,7 @@ const IMAGES = {
   /* ── Seville photos ────────────────────────────────────────
      Upload all files below to your layover_assets/ folder.
   ─────────────────────────────────────────────────────────── */
-  "seville-hero":              "layover_assets/seville-01-flamenco.jpg",
+  "seville-hero":              "layover_assets/seville-08-carriages.jpg",
   "seville-plaza":             "layover_assets/seville-02-plaza.jpg",
   "seville-03-alcazar":        "layover_assets/seville-03-alcazar.jpg",
   "seville-04-setas":          "layover_assets/seville-04-setas.jpg",
@@ -49,6 +49,7 @@ const IMAGES = {
   "seville-11-cathedral-altar":"layover_assets/seville-11-cathedral-altar.jpg",
   "seville-12-columbus-tomb":  "layover_assets/seville-12-columbus-tomb.jpg",
   "seville-13-park-sign":      "layover_assets/seville-13-park-sign.jpg",
+  "seville-flamenco":          "layover_assets/seville-01-flamenco.jpg",
 
   /* ── ADD NEW IMAGES HERE ───────────────────────────────────
      Example:
