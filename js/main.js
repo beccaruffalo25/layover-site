@@ -34,13 +34,21 @@ const IMAGES = {
   "milan-food-3":    "layover_assets/milan-food-3.jpg",
 
   /* ── Seville photos ────────────────────────────────────────
-     Upload these 5 files to your layover_assets/ folder.
+     Upload all files below to your layover_assets/ folder.
   ─────────────────────────────────────────────────────────── */
-  "seville-hero":    "layover_assets/seville-01-flamenco.jpg",
-  "seville-plaza":   "layover_assets/seville-02-plaza.jpg",
-  "seville-alcazar": "layover_assets/seville-03-alcazar.jpg",
-  "seville-setas":   "layover_assets/seville-04-setas.jpg",
-  "seville-oranges": "layover_assets/seville-05-oranges.jpg",
+  "seville-hero":              "layover_assets/seville-01-flamenco.jpg",
+  "seville-plaza":             "layover_assets/seville-02-plaza.jpg",
+  "seville-03-alcazar":        "layover_assets/seville-03-alcazar.jpg",
+  "seville-04-setas":          "layover_assets/seville-04-setas.jpg",
+  "seville-oranges":           "layover_assets/seville-05-oranges.jpg",
+  "seville-06-plaza-fountain": "layover_assets/seville-06-plaza-fountain.jpg",
+  "seville-07-plaza-becca":    "layover_assets/seville-07-plaza-becca.jpg",
+  "seville-08-carriages":      "layover_assets/seville-08-carriages.jpg",
+  "seville-09-alcazar-inside": "layover_assets/seville-09-alcazar-inside.jpg",
+  "seville-10-torre-night":    "layover_assets/seville-10-torre-night.jpg",
+  "seville-11-cathedral-altar":"layover_assets/seville-11-cathedral-altar.jpg",
+  "seville-12-columbus-tomb":  "layover_assets/seville-12-columbus-tomb.jpg",
+  "seville-13-park-sign":      "layover_assets/seville-13-park-sign.jpg",
 
   /* ── ADD NEW IMAGES HERE ───────────────────────────────────
      Example:
@@ -60,12 +68,11 @@ function loadImages() {
 
 
 /* ── Page navigation (SPA) ─────────────────────────────────── */
-/* Usage: go('home') | go('milan') | go('planning') etc.       */
 function go(id) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.getElementById(id).classList.add('active');
   window.scrollTo({ top: 0, behavior: 'smooth' });
-  loadImages(); // re-run after page switch
+  loadImages();
 }
 
 
