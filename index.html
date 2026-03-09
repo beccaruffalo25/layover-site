@@ -207,15 +207,20 @@
     <section class="sec">
       <div class="wrap">
 
-        <!-- Coming soon state — remove this once you add your first itinerary card -->
-        <div style="text-align:center; padding: 4rem 0;">
-          <span class="label">Coming Soon</span>
-          <h2 class="h-sec">Itineraries are on the way.</h2>
-          <p style="font-family:'Jost',sans-serif; font-size:.88rem; font-weight:300; color:var(--mid); max-width:420px; margin:1.2rem auto; line-height:1.9;">I&rsquo;m working on detailed day-by-day itineraries for the destinations I know best. Check back soon.</p>
-        </div>
-
-        <!-- ADD ITINERARY CARDS HERE when ready:
         <div class="grid-2">
+
+          <!-- Itinerary card: Seville -->
+          <div class="card" onclick="go('seville')">
+            <div class="card-img">
+              <img src="" data-k="seville-hero" alt="Plaza de España, Seville" />
+            </div>
+            <p class="card-tag">Spain &middot; Weekend Itinerary</p>
+            <h3 class="card-title">Seville, Planned</h3>
+            <p class="card-exc">A warm, romantic weekend in Spain&rsquo;s most colorful city &mdash; golden plazas, live flamenco, and tapas bars that go until midnight.</p>
+            <span class="arrow">View Itinerary &rarr;</span>
+          </div>
+
+          <!-- ADD MORE ITINERARY CARDS HERE:
           <div class="card" onclick="go('amalfi-5day')">
             <div class="card-img">
               <img src="" data-k="positano" alt="Amalfi Coast" />
@@ -225,8 +230,9 @@
             <p class="card-exc">Your excerpt here.</p>
             <span class="arrow">View Itinerary &rarr;</span>
           </div>
+          -->
+
         </div>
-        -->
 
       </div>
     </section>
@@ -354,15 +360,6 @@
         <img src="" data-k="milan-food-2" alt="Milan food" />
         <img src="" data-k="milan-food-3" alt="Milan food" />
       </div>
-
-      <!-- ── HEIC photos: once converted, remove these comments ──
-      <div class="img-trio">
-        <img src="" data-k="milan-pizza"     alt="Burrata pizza, Milan" />
-        <img src="" data-k="milan-flowers"   alt="Flower market, Milan" />
-        <img src="" data-k="milan-carbonara" alt="Carbonara at Osteria Da Fortunata" />
-      </div>
-      <p class="cap">Pizza burrata &middot; Flower market &middot; Carbonara at Da Fortunata</p>
-      ────────────────────────────────────────────────────────── -->
 
     </div><!-- /wrap-sm -->
 
@@ -594,6 +591,176 @@
 
 
   <!-- ═══════════════════════════════════════════════════════
+       PAGE: SEVILLE (individual itinerary)
+       Reached from: Itineraries index → Seville card
+  ════════════════════════════════════════════════════════════ -->
+  <div id="seville" class="page">
+
+    <div class="art-hero">
+      <img src="" data-k="seville-hero" alt="Plaza de España, Seville" />
+      <div class="art-hero-veil"></div>
+      <div class="art-hero-text">
+        <span class="label" style="color:var(--tan)">Spain &middot; Weekend Itinerary</span>
+        <h1>Seville, Planned</h1>
+        <p class="sub">Warm, colorful, and romantic &mdash; a fairytale town frozen in time.</p>
+      </div>
+    </div>
+
+    <div class="wrap-sm art-body">
+      <a class="back" onclick="go('itineraries')">All Itineraries</a>
+
+      <p class="lede" style="margin-top:2.4rem">Seville is warm, colorful, and romantic. With tile and warm brick illuminated by golden sunlight, lush gardens filled with orange trees, and every corner bursting with flamenco culture, Seville feels like a fairytale town frozen in time.</p>
+
+      <div class="img-full">
+        <img src="" data-k="seville-plaza" alt="Plaza de España, Seville" />
+        <p class="cap">Plaza de España &mdash; a sweeping tiled plaza where arches glow gold at sunset.</p>
+      </div>
+
+      <h2>The Moment</h2>
+      <p>My most memorable moment in Seville was wandering through the stunning Plaza de España during golden hour and discovering some local flamenco dancers performing underneath the arches. We watched for an hour, completely mesmerized by the moment.</p>
+
+      <div class="img-trio">
+        <img src="" data-k="seville-alcazar" alt="Royal Alcázar gardens, Seville" />
+        <img src="" data-k="seville-setas" alt="Metropol Parasol, Seville" />
+        <img src="" data-k="seville-oranges" alt="Orange trees, Seville" />
+      </div>
+      <p class="cap">Alcázar gardens &middot; Metropol Parasol &middot; The orange trees of Seville</p>
+
+      <span class="orn">&#10022; &#10022; &#10022;</span>
+
+      <h2>The Plan</h2>
+      <p>Seville is small and walkable &mdash; you can get almost everywhere on foot. This is a three-day weekend itinerary designed to move at a relaxed pace while hitting the city&rsquo;s best moments. Further details on every place mentioned are provided at the bottom.</p>
+
+      <h3>Friday &mdash; Arrive &amp; Orient</h3>
+      <p>Arrive late morning or early afternoon and drop your bags before heading straight into the historic center. Start with the <strong>Catedral de Sevilla</strong> &mdash; make sure to go inside. It is stunning, and it is also where Christopher Columbus is buried, which adds an additional layer of historical significance. Afterwards, climb <strong>La Giralda</strong> for sweeping views over the entire city. Then wander through <strong>Barrio Santa Cruz</strong> and soak in the gorgeous architecture and calm atmosphere.</p>
+      <p>For your first evening, visit the iconic wooden structure <strong>Metropol Parasol</strong> (also known as Setas de Seville) and see the iconic &ldquo;I Love Seville&rdquo; sign at the top. Getting a bird&rsquo;s-eye view the first evening gives you a completely different perspective of the city. If you prefer a rooftop bar, <strong>La Terraza de EME</strong> or <strong>Antico Lobby</strong> offer similar perspectives.</p>
+      <p>Dinner is around 8:30, so lean into the late schedule. For tapas, <strong>Eslava</strong>, <strong>Pan y Circo</strong>, <strong>San Marco</strong>, <strong>La Brunilda</strong>, and <strong>Bar Postiguillo Tapas</strong> are all solid options depending on the vibe you want. For drinks, <strong>El Rinconcillo</strong> is the oldest bar in Seville. Street flamenco is amazing and feels authentic, but you can also book a show &mdash; <strong>La Carbonería</strong> has a free show with a drink purchase and gets packed. There is also underground flamenco, or a traditional <em>tablao</em> where you can order sherry cocktails &mdash; wine from the south of Spain.</p>
+
+      <h3>Saturday &mdash; Palaces, Parks &amp; the Plaza</h3>
+      <p>Start at the <strong>Royal Alcázar of Seville</strong> &mdash; book in advance. The gardens are lush and gorgeous and absolutely worth the reservation. From there, walk south into <strong>Parque de María Luisa</strong> and continue to <strong>Plaza de España</strong>. Don&rsquo;t forget to take a ride in one of the Plaza&rsquo;s iconic rowboats to give your feet a rest.</p>
+      <p>After the Plaza, walk along the river and stop at <strong>Torre del Oro</strong> for a quick visit before heading back toward the old town for tapas and drinks. Spend the evening at El Rinconcillo, explore <strong>Calle Betis</strong>, or bar hop and socialize.</p>
+
+      <h3>Sunday &mdash; Slow Morning, Then Home</h3>
+      <p>Sunday should feel slow. Visit <strong>Palacio de las Dueñas</strong> if you want one last architectural stop, or simply wander. <strong>Churros</strong> are a must &mdash; especially at <strong>Bar El Comercio</strong>. Leave in the evening and grab a taxi to the airport, which takes about 20&ndash;25 minutes.</p>
+
+      <span class="orn">&#10022; &#10022; &#10022;</span>
+
+      <h2>Getting Here &amp; Getting Around</h2>
+      <p>Fly into Seville Airport and take a taxi, Uber, or the bus into the city center &mdash; about 20&ndash;25 minutes. The buses offer tap to pay, making public transportation affordable and easily accessible. Stay near the cathedral or in Barrio Santa Cruz so you can walk everywhere. Look for boutique hotels or Airbnbs with interior courtyards or rooftop views.</p>
+
+      <span class="orn">&#10022; &#10022; &#10022;</span>
+
+      <h2>A Quick Guide to the Places Mentioned</h2>
+
+      <span class="sub-label">Sights</span>
+
+      <div class="rec">
+        <p class="rec-n">Plaza de España</p>
+        <p class="rec-d">A sweeping, tiled plaza built for the 1929 Ibero-American Exposition, where bridges curve over the canal and the arches glow at sunset.</p>
+      </div>
+      <div class="rec">
+        <p class="rec-n">Catedral de Sevilla</p>
+        <p class="rec-d">The largest Gothic cathedral in the world, monumental in scale and detail, and the resting place of Christopher Columbus.</p>
+      </div>
+      <div class="rec">
+        <p class="rec-n">La Giralda</p>
+        <p class="rec-d">Once a Moorish minaret, now the cathedral&rsquo;s bell tower, offering wide rooftop views after a slow, winding climb.</p>
+      </div>
+      <div class="rec">
+        <p class="rec-n">Barrio Santa Cruz</p>
+        <p class="rec-d">The former Jewish quarter filled with narrow alleyways, hidden courtyards, and quiet pockets of shade.</p>
+      </div>
+      <div class="rec">
+        <p class="rec-n">Metropol Parasol / Setas de Seville</p>
+        <p class="rec-d">A dramatic wooden structure rising above the old town, giving you a modern contrast and panoramic views.</p>
+      </div>
+      <div class="rec">
+        <p class="rec-n">Royal Alcázar of Seville</p>
+        <p class="rec-d">A palace of intricate tilework, archways, and lush gardens that reflect the city&rsquo;s Moorish past. Book in advance.</p>
+      </div>
+      <div class="rec">
+        <p class="rec-n">Parque de María Luisa</p>
+        <p class="rec-d">A shaded park filled with palms, fountains, and quiet walking paths.</p>
+      </div>
+      <div class="rec">
+        <p class="rec-n">Torre del Oro</p>
+        <p class="rec-d">A golden-hued watchtower along the river that once guarded the city.</p>
+      </div>
+      <div class="rec">
+        <p class="rec-n">Palacio de las Dueñas</p>
+        <p class="rec-d">An elegant historic palace with peaceful courtyards and layered history.</p>
+      </div>
+
+      <span class="sub-label" style="margin-top:2rem">Eats &amp; Drinks</span>
+
+      <div class="rec">
+        <p class="rec-n">Eslava</p>
+        <p class="rec-d">Known for creative tapas that feel refined but still rooted in tradition.</p>
+      </div>
+      <div class="rec">
+        <p class="rec-n">Pan y Circo</p>
+        <p class="rec-d">A casual neighborhood spot that feels easy and unpretentious.</p>
+      </div>
+      <div class="rec">
+        <p class="rec-n">San Marco</p>
+        <p class="rec-d">Italian dishes served inside a historic setting, blending cultures in the heart of Seville.</p>
+      </div>
+      <div class="rec">
+        <p class="rec-n">La Brunilda</p>
+        <p class="rec-d">A lively tapas restaurant ideal for sharing plates and lingering over dinner.</p>
+      </div>
+      <div class="rec">
+        <p class="rec-n">Bar Postiguillo Tapas</p>
+        <p class="rec-d">Traditional Spanish tapas served in a classic setting near the cathedral.</p>
+      </div>
+      <div class="rec">
+        <p class="rec-n">La Terraza de EME</p>
+        <p class="rec-d">A rooftop bar with cathedral views and a front-row seat to golden hour.</p>
+      </div>
+      <div class="rec">
+        <p class="rec-n">Antico Lobby</p>
+        <p class="rec-d">An elevated terrace with a slightly more modern feel and relaxed evening energy.</p>
+      </div>
+      <div class="rec">
+        <p class="rec-n">El Rinconcillo</p>
+        <p class="rec-d">The oldest bar in Seville, lined with historic tiles and full of old-world character.</p>
+      </div>
+      <div class="rec">
+        <p class="rec-n">Calle Betis</p>
+        <p class="rec-d">A riverside stretch known for its nightlife, colorful facades, and late-evening energy.</p>
+      </div>
+      <div class="rec">
+        <p class="rec-n">Bar El Comercio</p>
+        <p class="rec-d">A classic Seville café known for crisp churros and thick hot chocolate. A Sunday morning must.</p>
+      </div>
+
+      <span class="sub-label" style="margin-top:2rem">Flamenco</span>
+
+      <div class="rec">
+        <p class="rec-n">La Carbonería</p>
+        <p class="rec-d">An intimate flamenco venue where performances feel raw and close to the audience. Free show with a drink purchase &mdash; gets packed, so arrive early.</p>
+      </div>
+
+    </div><!-- /wrap-sm -->
+
+    <section class="nl">
+      <span class="label" style="color:var(--tan)">More to come</span>
+      <h2>Subscribe for new destination guides.</h2>
+      <p>New city guides, planning tools, and trip reports to your inbox.</p>
+      <form class="nl-form" onsubmit="return false">
+        <input type="email" placeholder="your@email.com" />
+        <button>Subscribe</button>
+      </form>
+    </section>
+
+    <footer>
+      <span class="f-logo">LAYOVER</span>
+      <span class="f-copy">&copy; 2025 Becca Ruffalo &middot; All Rights Reserved</span>
+    </footer>
+  </div><!-- /seville -->
+
+
+  <!-- ═══════════════════════════════════════════════════════
        HOW TO ADD A NEW CITY GUIDE
        ─────────────────────────────────────────────────────
        Step 1: Add a card in the #city-guides section above
@@ -625,29 +792,9 @@
        HOW TO ADD A NEW ITINERARY
        ─────────────────────────────────────────────────────
        Step 1: Add a card in the #itineraries section above
-       Step 2: Add the full page here (copy template below)
+       Step 2: Add the full page here (copy this seville page as a template)
        Step 3: Add image key to js/main.js
        ─────────────────────────────────────────────────────
-
-  <div id="amalfi-5day" class="page">
-    <div class="art-hero">
-      <img src="" data-k="amalfi-hero" alt="Amalfi Coast" />
-      <div class="art-hero-veil"></div>
-      <div class="art-hero-text">
-        <span class="label" style="color:var(--tan)">Italy · 5 Days</span>
-        <h1>Amalfi Coast in 5 Days</h1>
-        <p class="sub">Your subtitle here.</p>
-      </div>
-    </div>
-    <div class="wrap-sm art-body">
-      <a class="back" onclick="go('itineraries')">All Itineraries</a>
-      <p class="lede" style="margin-top:2.4rem">Your intro paragraph here...</p>
-    </div>
-    <footer>
-      <span class="f-logo">LAYOVER</span>
-      <span class="f-copy">© 2025 Becca Ruffalo · All Rights Reserved</span>
-    </footer>
-  </div>
 
   ════════════════════════════════════════════════════════════ -->
 
