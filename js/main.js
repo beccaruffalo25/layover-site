@@ -68,8 +68,29 @@ function loadImages() {
 }
 
 
+/* ── Mobile menu toggle ────────────────────────────────────── */
+function toggleMenu() {
+  const nav    = document.getElementById('nav');
+  const toggle = document.getElementById('nav-toggle');
+  const open   = nav.classList.toggle('open');
+  toggle.classList.toggle('open', open);
+  toggle.setAttribute('aria-expanded', open);
+  document.body.style.overflow = open ? 'hidden' : '';
+}
+
+function closeMenu() {
+  const nav    = document.getElementById('nav');
+  const toggle = document.getElementById('nav-toggle');
+  nav.classList.remove('open');
+  toggle.classList.remove('open');
+  toggle.setAttribute('aria-expanded', 'false');
+  document.body.style.overflow = '';
+}
+
+
 /* ── Page navigation (SPA) ─────────────────────────────────── */
 function go(id) {
+  closeMenu();
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.getElementById(id).classList.add('active');
   window.scrollTo({ top: 0, behavior: 'smooth' });

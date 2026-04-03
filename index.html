@@ -23,7 +23,7 @@
   ════════════════════════════════════════════════════════════ -->
   <nav id="nav">
     <span class="logo" onclick="go('home')">LAYOVER</span>
-    <ul class="nav-links">
+    <ul class="nav-links" id="nav-links">
       <li><a onclick="go('home')">Home</a></li>
       <li><a onclick="go('city-guides')">City Guides</a></li>
       <li><a onclick="go('itineraries')">Itineraries</a></li>
@@ -31,6 +31,11 @@
       <li><a onclick="go('bucket')">Bucket List</a></li>
       <li><a onclick="go('about')">About</a></li>
     </ul>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
   </nav>
 
 

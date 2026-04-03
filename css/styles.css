@@ -92,6 +92,33 @@ nav.on .logo { color: var(--brown); }
 nav.on .nav-links a { color: var(--mid); }
 .nav-links a:hover   { opacity: .5; }
 
+/* Hamburger toggle (mobile only) */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px 4px;
+  z-index: 101;
+  min-width: 44px;
+  min-height: 44px;
+  align-items: flex-end;
+}
+.nav-toggle span {
+  display: block;
+  width: 22px;
+  height: 1px;
+  background: rgba(255,255,255,.85);
+  transition: transform .3s, opacity .3s;
+}
+nav.on .nav-toggle span { background: var(--mid); }
+.nav-toggle.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.nav-toggle.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.nav-toggle.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
 
 /* ── 3. Hero (Homepage) ────────────────────────────────────── */
 .hero {
@@ -778,22 +805,122 @@ footer {
 
 
 /* ── 13. Responsive ────────────────────────────────────────── */
+
+/* ── Tablet (≤ 860px) ──────────────────────────────────────── */
 @media (max-width: 860px) {
-  nav, nav.on { padding: 1.1rem 1.8rem; }
-  .nav-links  { gap: 1.5rem; }
-  .grid-2,
-  .split,
-  .about-grid,
-  .bucket-grid { grid-template-columns: 1fr; }
-  .split-img   { min-height: 280px; }
-  .split-body  { padding: 2.2rem 1.8rem; }
-  .img-duo,
-  .img-trio    { grid-template-columns: 1fr; }
+  nav, nav.on { padding: 1.1rem 2.2rem; }
+  .about-grid  { grid-template-columns: 1fr; gap: 3rem; padding: 4rem 0; }
   .sticky-img  { position: static; }
+  .bucket-grid { grid-template-columns: 1fr; gap: 2.5rem 0; }
   footer {
     flex-direction: column;
     gap: .8rem;
     text-align: center;
     padding: 2.5rem 2rem;
   }
+}
+
+/* ── Mobile (≤ 768px) ──────────────────────────────────────── */
+@media (max-width: 768px) {
+  /* Hamburger nav */
+  .nav-toggle { display: flex; }
+  .nav-links {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: var(--mist);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2.4rem;
+    z-index: 100;
+    list-style: none;
+  }
+  nav.open .nav-links { display: flex; }
+  .nav-links a {
+    font-size: .8rem;
+    letter-spacing: .32em;
+    color: var(--mid);
+    padding: .5rem 0;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+
+  /* Layout */
+  .wrap, .wrap-sm { padding: 0 1.4rem; }
+  .sec    { padding: 3.8rem 0; }
+  .grid-2 { grid-template-columns: 1fr; gap: 2.6rem; }
+
+  /* Split */
+  .split           { grid-template-columns: 1fr; }
+  .split-img       { min-height: 260px; }
+  .split-body      { padding: 2.2rem 1.6rem; }
+
+  /* Hero */
+  .hero            { min-height: 560px; }
+
+  /* Intro */
+  .intro { padding: 3.8rem 1.4rem; }
+
+  /* Newsletter */
+  .nl      { padding: 3.8rem 1.4rem; }
+  .nl-form { max-width: 100%; }
+
+  /* Article hero */
+  .art-hero        { height: 52vh; min-height: 300px; }
+  .art-hero-text   { width: 92%; bottom: 2rem; }
+  .art-hero-text .sub { font-size: .95rem; }
+
+  /* Article body */
+  .art-body { padding: 3rem 0 4.5rem; }
+
+  /* Image layouts — stack on mobile */
+  .img-duo,
+  .img-trio        { grid-template-columns: 1fr; gap: .7rem; }
+  .img-duo img     { aspect-ratio: 16/9; }
+  .img-trio img    { aspect-ratio: 16/9; }
+
+  /* About */
+  .about-grid      { gap: 2rem; padding: 3rem 0; }
+  .bucket-grid     { margin-top: 2rem; }
+}
+
+/* ── Small mobile (≤ 480px) ────────────────────────────────── */
+@media (max-width: 480px) {
+  nav, nav.on { padding: 1rem 1.4rem; }
+  .wrap, .wrap-sm { padding: 0 1rem; }
+  .sec         { padding: 3rem 0; }
+
+  /* Hero */
+  .hero        { min-height: 520px; }
+  .hero-by     { font-size: 1rem; }
+
+  /* Intro / NL */
+  .intro       { padding: 3rem 1rem; }
+  .nl          { padding: 3rem 1rem; }
+  .nl-form input,
+  .nl-form button { padding: 1rem 1.2rem; }
+
+  /* Split */
+  .split-body  { padding: 1.8rem 1.2rem; }
+  .split-img   { min-height: 220px; }
+
+  /* Art hero */
+  .art-hero    { height: 46vh; min-height: 260px; }
+
+  /* Article */
+  .art-body    { padding: 2.4rem 0 3.5rem; }
+  .back        { margin: 2rem 0 0; }
+
+  /* Bucket */
+  .bucket-grid { gap: 2rem; }
+
+  /* About */
+  .about-grid  { padding: 2.5rem 0; }
+
+  /* Cards gap */
+  .grid-2      { gap: 2rem; }
 }
