@@ -1078,6 +1078,125 @@ footer {
 }
 
 
+/* ── Image shimmer (loading placeholder) ──────────────────── */
+.img-shimmer {
+  background: linear-gradient(90deg,
+    var(--parchment) 25%,
+    rgba(201,181,146,.45) 50%,
+    var(--parchment) 75%);
+  background-size: 300% 100%;
+  animation: shimmer 1.6s ease-in-out infinite;
+}
+@keyframes shimmer {
+  0%   { background-position: 100% 0; }
+  100% { background-position: -100% 0; }
+}
+
+/* ── Lightbox ──────────────────────────────────────────────── */
+#lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(15,8,3,.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .35s ease;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  padding: 2rem;
+}
+#lightbox.open {
+  opacity: 1;
+  pointer-events: all;
+}
+#lightbox img {
+  max-width: min(90vw, 1100px);
+  max-height: 88vh;
+  object-fit: contain;
+  display: block;
+  box-shadow: 0 30px 80px rgba(0,0,0,.6);
+  transition: transform .35s cubic-bezier(.22,1,.36,1);
+  transform: scale(.96);
+}
+#lightbox.open img { transform: scale(1); }
+#lb-close {
+  position: absolute;
+  top: 1.4rem;
+  right: 1.8rem;
+  background: none;
+  border: none;
+  color: rgba(247,242,232,.55);
+  font-size: 1.4rem;
+  cursor: pointer;
+  font-family: 'Jost', sans-serif;
+  font-weight: 200;
+  transition: color .2s;
+  padding: .5rem;
+  line-height: 1;
+}
+#lb-close:hover { color: var(--cream); }
+#lb-caption {
+  position: absolute;
+  bottom: 1.8rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Jost', sans-serif;
+  font-size: .62rem;
+  font-weight: 300;
+  letter-spacing: .18em;
+  color: rgba(247,242,232,.4);
+  text-align: center;
+  white-space: nowrap;
+  max-width: 80vw;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+/* Clickable article images get a pointer + subtle hover overlay */
+.art-body img,
+.img-full img,
+.img-duo img,
+.img-trio img { cursor: zoom-in; }
+
+/* ── Share bar (article pages) ─────────────────────────────── */
+.share-bar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 3rem 0 1rem;
+  padding: 1.2rem 1.6rem;
+  border: 1px solid rgba(168,132,58,.18);
+  background: var(--parchment);
+}
+.share-label {
+  font-family: 'Jost', sans-serif;
+  font-size: .56rem;
+  font-weight: 300;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  color: var(--tan);
+  margin-right: .4rem;
+}
+.share-btn {
+  font-family: 'Jost', sans-serif;
+  font-size: .58rem;
+  font-weight: 300;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--mid);
+  background: none;
+  border: 1px solid rgba(107,79,56,.28);
+  padding: .45rem .9rem;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: background .2s, color .2s;
+}
+.share-btn:hover    { background: var(--brown); color: var(--cream); }
+.share-btn--copy.copied { color: var(--terra); border-color: var(--terra); }
+
 /* ── 13. Responsive ────────────────────────────────────────── */
 
 /* ── Tablet (≤ 860px) ──────────────────────────────────────── */

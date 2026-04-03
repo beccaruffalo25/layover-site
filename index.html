@@ -29,6 +29,13 @@
   <div id="cursor-dot"  aria-hidden="true"></div>
   <div id="cursor-ring" aria-hidden="true"></div>
 
+  <!-- Lightbox -->
+  <div id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+    <button id="lb-close" aria-label="Close" onclick="closeLightbox()">&times;</button>
+    <img id="lb-img" src="" alt="" />
+    <span id="lb-caption"></span>
+  </div>
+
   <!-- ═══════════════════════════════════════════════════════
        NAVIGATION
        To add a new page: add a nav link here + create a

@@ -73,6 +73,92 @@ function loadImages() {
 }
 
 
+/* ── Lightbox ──────────────────────────────────────────────── */
+function openLightbox(src, alt) {
+  const lb  = document.getElementById('lightbox');
+  const img = document.getElementById('lb-img');
+  const cap = document.getElementById('lb-caption');
+  img.src = src;
+  img.alt = alt || '';
+  cap.textContent = alt || '';
+  lb.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// Close on backdrop click
+document.addEventListener('click', e => {
+  if (e.target.id === 'lightbox') closeLightbox();
+});
+// Close on Escape
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeLightbox();
+});
+
+function initLightbox(pageEl) {
+  const imgs = pageEl.querySelectorAll(
+    '.art-body img, .img-full img, .img-duo img, .img-trio img'
+  );
+  imgs.forEach(img => {
+    // Remove any previously attached listener by cloning
+    const fresh = img.cloneNode(true);
+    img.replaceWith(fresh);
+    fresh.addEventListener('click', () => {
+      if (fresh.src) openLightbox(fresh.src, fresh.alt);
+    });
+  });
+}
+
+
+/* ── Image shimmer placeholders ────────────────────────────── */
+function initShimmer(pageEl) {
+  pageEl.querySelectorAll('img[data-k]').forEach(img => {
+    if (img.complete && img.naturalWidth > 0) return; // already loaded
+    img.classList.add('img-shimmer');
+    const remove = () => img.classList.remove('img-shimmer');
+    img.addEventListener('load',  remove, { once: true });
+    img.addEventListener('error', remove, { once: true });
+  });
+}
+
+
+/* ── Share bar ─────────────────────────────────────────────── */
+function buildShareBar(pageEl) {
+  if (pageEl.querySelector('.share-bar')) return; // already injected
+  const body = pageEl.querySelector('.art-body, .wrap-sm.art-body');
+  if (!body) return;
+
+  const bar = document.createElement('div');
+  bar.className = 'share-bar';
+  bar.innerHTML = `
+    <span class="share-label">Share</span>
+    <a class="share-btn share-btn--pinterest"
+       href="https://pinterest.com/pin/create/button/?url=${encodeURIComponent(window.location.href)}"
+       target="_blank" rel="noopener">Save to Pinterest</a>
+    <button class="share-btn share-btn--copy" onclick="copyLink(this)">Copy Link</button>`;
+
+  // Insert before the newsletter section or at end of article body
+  const nl = pageEl.querySelector('.nl');
+  if (nl) nl.insertAdjacentElement('beforebegin', bar);
+  else body.appendChild(bar);
+}
+
+function copyLink(btn) {
+  navigator.clipboard.writeText(window.location.href).then(() => {
+    btn.textContent = 'Copied!';
+    btn.classList.add('copied');
+    setTimeout(() => {
+      btn.textContent = 'Copy Link';
+      btn.classList.remove('copied');
+    }, 2000);
+  });
+}
+
+
 /* ── Mobile menu toggle ────────────────────────────────────── */
 function toggleMenu() {
   const nav    = document.getElementById('nav');
@@ -100,9 +186,12 @@ function go(id) {
   const pageEl = document.getElementById(id);
   pageEl.classList.add('active');
   window.scrollTo({ top: 0, behavior: 'instant' });
+  initShimmer(pageEl);
   loadImages();
   addReadingTime(pageEl);
   buildTOC(pageEl);
+  buildShareBar(pageEl);
+  initLightbox(pageEl);
   initReveal();
   setActiveNav(id);
 }
@@ -317,10 +406,13 @@ function initReveal() {
 /* ── Init on load ──────────────────────────────────────────── */
 document.addEventListener('DOMContentLoaded', () => {
   buildFooters();
-  loadImages();
   const homeEl = document.getElementById('home');
+  initShimmer(homeEl);
+  loadImages();
   addReadingTime(homeEl);
   buildTOC(homeEl);
+  buildShareBar(homeEl);
+  initLightbox(homeEl);
   initReveal();
   setActiveNav('home');
   initCursor();
