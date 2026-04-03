@@ -63,7 +63,12 @@ const IMAGES = {
 function loadImages() {
   document.querySelectorAll('img[data-k]').forEach(img => {
     const key = img.getAttribute('data-k');
-    if (IMAGES[key]) img.src = IMAGES[key];
+    if (!IMAGES[key]) return;
+    // Hero images (inside .hero or .art-hero) load eagerly; all others lazy
+    const isHero = img.closest('.hero, .art-hero');
+    if (!isHero) img.loading = 'lazy';
+    img.decoding = 'async';
+    img.src = IMAGES[key];
   });
 }
 

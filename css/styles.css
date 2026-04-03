@@ -42,7 +42,12 @@ body  {
   font-size: 18px;
   line-height: 1.75;
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
+
+/* Smooth photo rendering across browsers */
+img { image-rendering: auto; }
 
 /* Pages (SPA-style show/hide) */
 .page         { display: none; }
@@ -137,6 +142,10 @@ nav.on .nav-toggle span { background: var(--mid); }
   object-fit: cover;
   object-position: center 55%;
   animation: zoom 22s ease-in-out infinite alternate;
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translateZ(0);
 }
 @keyframes zoom {
   from { transform: scale(1.03); }
@@ -327,8 +336,11 @@ nav.on .nav-toggle span { background: var(--mid); }
 .card-img img {
   width: 100%; height: 100%;
   object-fit: cover;
+  object-position: center top;
   display: block;
   transition: transform .8s cubic-bezier(.25,.46,.45,.94);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 .card:hover .card-img img { transform: scale(1.05); }
 .card-img::after {
