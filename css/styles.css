@@ -113,8 +113,23 @@ nav.on .logo { color: var(--brown); }
   text-decoration: none;
   transition: opacity .2s;
 }
-nav.on .nav-links a { color: var(--mid); }
-.nav-links a:hover   { opacity: .5; }
+nav.on .nav-links a           { color: var(--mid); }
+.nav-links a:hover            { opacity: .5; }
+/* Active page indicator */
+.nav-links a.active           { opacity: 1; }
+.nav-links a.active::after {
+  content: '';
+  display: block;
+  height: 1px;
+  background: currentColor;
+  margin-top: 3px;
+  transform-origin: left;
+  animation: navUnderline .3s ease both;
+}
+@keyframes navUnderline {
+  from { transform: scaleX(0); opacity: 0; }
+  to   { transform: scaleX(1); opacity: 1; }
+}
 
 /* Hamburger toggle (mobile only) */
 .nav-toggle {
@@ -143,6 +158,43 @@ nav.on .nav-toggle span { background: var(--mid); }
 .nav-toggle.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
 .nav-toggle.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
 
+
+/* ── Custom cursor ─────────────────────────────────────────── */
+@media (pointer: fine) {
+  /* Hide default cursor sitewide when JS applies cursor class */
+  body.custom-cursor,
+  body.custom-cursor * { cursor: none !important; }
+
+  #cursor-dot,
+  #cursor-ring {
+    position: fixed;
+    top: 0; left: 0;
+    pointer-events: none;
+    z-index: 9999;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: opacity .25s;
+  }
+  #cursor-dot {
+    width: 5px; height: 5px;
+    background: var(--gold);
+    transition: transform .1s ease, opacity .25s;
+  }
+  #cursor-ring {
+    width: 28px; height: 28px;
+    border: 1px solid rgba(168,132,58,.5);
+    transition: transform .18s ease, width .25s ease, height .25s ease,
+                border-color .25s, opacity .25s;
+  }
+  /* Expand ring on hoverable elements */
+  body.cursor-hover #cursor-ring {
+    width: 46px; height: 46px;
+    border-color: var(--gold);
+  }
+  body.cursor-hover #cursor-dot {
+    transform: translate(-50%, -50%) scale(1.6);
+  }
+}
 
 /* ── 3. Hero (Homepage) ────────────────────────────────────── */
 .hero {
@@ -422,8 +474,32 @@ nav.on .nav-toggle span { background: var(--mid); }
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(30,15,6,.3), transparent 55%);
+  background: linear-gradient(to top, rgba(30,15,6,.45), transparent 60%);
   pointer-events: none;
+  transition: background .5s ease;
+}
+.card:hover .card-img::after {
+  background: linear-gradient(to top, rgba(30,15,6,.65), rgba(30,15,6,.1) 70%);
+}
+/* Hover tag reveal inside card image */
+.card-img-label {
+  position: absolute;
+  bottom: 1.1rem;
+  left: 1.1rem;
+  z-index: 2;
+  font-family: 'Jost', sans-serif;
+  font-size: .55rem;
+  font-weight: 300;
+  letter-spacing: .32em;
+  text-transform: uppercase;
+  color: rgba(247,242,232,.9);
+  transform: translateY(6px);
+  opacity: 0;
+  transition: opacity .4s ease, transform .4s ease;
+}
+.card:hover .card-img-label {
+  opacity: 1;
+  transform: translateY(0);
 }
 .card-tag {
   font-family: 'Jost', sans-serif;

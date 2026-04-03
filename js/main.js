@@ -101,6 +101,7 @@ function go(id) {
   window.scrollTo({ top: 0, behavior: 'instant' });
   loadImages();
   initReveal();
+  setActiveNav(id);
 }
 
 
@@ -108,6 +109,71 @@ function go(id) {
 window.addEventListener('scroll', () => {
   document.getElementById('nav').classList.toggle('on', window.scrollY > 50);
 });
+
+
+/* ── Active nav link ───────────────────────────────────────── */
+function setActiveNav(id) {
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    a.classList.remove('active');
+    // Match the nav link by its onclick target
+    if (a.getAttribute('onclick') === `go('${id}')`) {
+      a.classList.add('active');
+    }
+  });
+}
+
+
+/* ── Custom cursor (desktop / pointer: fine only) ──────────── */
+function initCursor() {
+  // Only activate on non-touch devices
+  if (!window.matchMedia('(pointer: fine)').matches) return;
+
+  const dot  = document.getElementById('cursor-dot');
+  const ring = document.getElementById('cursor-ring');
+  if (!dot || !ring) return;
+
+  document.body.classList.add('custom-cursor');
+
+  let mx = -100, my = -100;   // off-screen until first move
+  let rx = -100, ry = -100;   // ring position (lagging)
+  let rafId;
+
+  document.addEventListener('mousemove', e => {
+    mx = e.clientX;
+    my = e.clientY;
+    dot.style.transform = `translate(${mx - 2.5}px, ${my - 2.5}px) translate(0,0)`;
+  });
+
+  (function animateRing() {
+    rx += (mx - rx) * 0.14;
+    ry += (my - ry) * 0.14;
+    ring.style.transform = `translate(${rx - 14}px, ${ry - 14}px) translate(0,0)`;
+    rafId = requestAnimationFrame(animateRing);
+  })();
+
+  // Expand on interactive elements
+  const hoverSelectors = 'a, button, .card, .btn, .arrow, .back, .logo, .split, [onclick]';
+  document.addEventListener('mouseover', e => {
+    if (e.target.closest(hoverSelectors)) {
+      document.body.classList.add('cursor-hover');
+    }
+  });
+  document.addEventListener('mouseout', e => {
+    if (e.target.closest(hoverSelectors)) {
+      document.body.classList.remove('cursor-hover');
+    }
+  });
+
+  // Hide when leaving window
+  document.addEventListener('mouseleave', () => {
+    dot.style.opacity  = '0';
+    ring.style.opacity = '0';
+  });
+  document.addEventListener('mouseenter', () => {
+    dot.style.opacity  = '1';
+    ring.style.opacity = '1';
+  });
+}
 
 
 /* ── Photo upload (homepage gallery) ──────────────────────── */
@@ -179,4 +245,6 @@ function initReveal() {
 document.addEventListener('DOMContentLoaded', () => {
   loadImages();
   initReveal();
+  setActiveNav('home');
+  initCursor();
 });

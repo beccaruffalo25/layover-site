@@ -25,6 +25,9 @@
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
+  <!-- Custom cursor (desktop only — hidden via CSS on touch devices) -->
+  <div id="cursor-dot"  aria-hidden="true"></div>
+  <div id="cursor-ring" aria-hidden="true"></div>
 
   <!-- ═══════════════════════════════════════════════════════
        NAVIGATION
@@ -105,6 +108,7 @@
           <div class="card" onclick="go('city-guides')">
             <div class="card-img">
               <img src="" data-k="duomo" alt="Duomo di Milano" />
+              <span class="card-img-label">Explore &rarr;</span>
             </div>
             <p class="card-tag">City Guides</p>
             <h3 class="card-title">City Guides</h3>
@@ -116,6 +120,7 @@
           <div class="card" onclick="go('itineraries')">
             <div class="card-img">
               <img src="" data-k="positano" alt="Positano, Amalfi Coast" />
+              <span class="card-img-label">Explore &rarr;</span>
             </div>
             <p class="card-tag">Itineraries</p>
             <h3 class="card-title">Itineraries</h3>
@@ -190,6 +195,7 @@
           <div class="card" onclick="go('milan')">
             <div class="card-img">
               <img src="" data-k="duomo" alt="Duomo di Milano" />
+              <span class="card-img-label">Read Guide &rarr;</span>
             </div>
             <p class="card-tag">Italy &middot; City Guide</p>
             <h3 class="card-title">Milan, Planned</h3>
@@ -247,6 +253,7 @@
           <div class="card" onclick="go('seville')">
             <div class="card-img">
               <img src="" data-k="seville-hero" alt="Plaza de España, Seville" />
+              <span class="card-img-label">View Itinerary &rarr;</span>
             </div>
             <p class="card-tag">Spain &middot; Weekend Itinerary</p>
             <h3 class="card-title">Seville, Planned</h3>
