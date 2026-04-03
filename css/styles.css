@@ -50,8 +50,27 @@ body  {
 img { image-rendering: auto; }
 
 /* Pages (SPA-style show/hide) */
-.page         { display: none; }
-.page.active  { display: block; }
+.page        { display: none; }
+.page.active { display: block; animation: pageIn .5s cubic-bezier(.22,1,.36,1) both; }
+@keyframes pageIn {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Scroll reveal ─────────────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity .75s ease, transform .75s ease;
+}
+.reveal.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* Stagger for sibling reveals (cards in a grid) */
+.reveal:nth-child(2) { transition-delay: .1s; }
+.reveal:nth-child(3) { transition-delay: .18s; }
+.reveal:nth-child(4) { transition-delay: .26s; }
 
 
 /* ── 2. Navigation ─────────────────────────────────────────── */
@@ -234,6 +253,62 @@ nav.on .nav-toggle span { background: var(--mid); }
   50%       { opacity: .9; }
 }
 
+
+/* Film grain overlay on hero images */
+.hero::after,
+.art-hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  pointer-events: none;
+  opacity: .18;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='256' height='256'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 220px 220px;
+  mix-blend-mode: overlay;
+  animation: grain 1.4s steps(2) infinite;
+}
+@keyframes grain {
+  0%   { background-position: 0 0; }
+  25%  { background-position: 40px -30px; }
+  50%  { background-position: -30px 40px; }
+  75%  { background-position: 20px 20px; }
+  100% { background-position: 0 0; }
+}
+
+/* Marquee ticker */
+.ticker-wrap {
+  overflow: hidden;
+  background: var(--brown);
+  padding: .85rem 0;
+  border-top: 1px solid rgba(168,132,58,.18);
+  border-bottom: 1px solid rgba(168,132,58,.18);
+}
+.ticker {
+  display: flex;
+  white-space: nowrap;
+  animation: tickerScroll 32s linear infinite;
+  will-change: transform;
+}
+.ticker span {
+  font-family: 'Jost', sans-serif;
+  font-size: .56rem;
+  font-weight: 300;
+  letter-spacing: .38em;
+  text-transform: uppercase;
+  color: rgba(247,242,232,.38);
+  padding: 0 2.4rem;
+}
+.ticker .t-sep {
+  color: var(--gold);
+  opacity: .45;
+  padding: 0;
+  letter-spacing: 0;
+}
+@keyframes tickerScroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
 
 /* ── 4. Sections & Layout ──────────────────────────────────── */
 .wrap    { max-width: 1180px; margin: 0 auto; padding: 0 2.5rem; }

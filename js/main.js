@@ -98,8 +98,9 @@ function go(id) {
   closeMenu();
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.getElementById(id).classList.add('active');
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  window.scrollTo({ top: 0, behavior: 'instant' });
   loadImages();
+  initReveal();
 }
 
 
@@ -125,5 +126,57 @@ function addPhotos(e) {
 }
 
 
+/* ── Scroll reveal (IntersectionObserver) ──────────────────── */
+let revealObserver = null;
+
+function initReveal() {
+  // Detach previous observer if any
+  if (revealObserver) revealObserver.disconnect();
+
+  // Remove stale classes from any previously revealed elements
+  // so re-visiting a page re-animates cleanly
+  document.querySelectorAll('.reveal').forEach(el => {
+    el.classList.remove('reveal', 'in-view');
+  });
+
+  const targets = document.querySelectorAll(
+    '.page.active .card, ' +
+    '.page.active .split, ' +
+    '.page.active .intro, ' +
+    '.page.active .nl, ' +
+    '.page.active .art-body h2, ' +
+    '.page.active .art-body h3, ' +
+    '.page.active .img-full, ' +
+    '.page.active .img-duo, ' +
+    '.page.active .img-trio, ' +
+    '.page.active .rec, ' +
+    '.page.active .tool, ' +
+    '.page.active .bucket-col, ' +
+    '.page.active .b-item, ' +
+    '.page.active .about-text > p, ' +
+    '.page.active .mantra, ' +
+    '.page.active .lede, ' +
+    '.page.active .tool-cat'
+  );
+
+  revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in-view');
+        revealObserver.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+  targets.forEach(el => {
+    el.classList.add('reveal');
+    revealObserver.observe(el);
+  });
+}
+
+
 /* ── Init on load ──────────────────────────────────────────── */
-document.addEventListener('DOMContentLoaded', loadImages);
+document.addEventListener('DOMContentLoaded', () => {
+  loadImages();
+  initReveal();
+});
