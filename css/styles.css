@@ -697,20 +697,131 @@ footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 2rem;
+  border-top: 1px solid rgba(168,132,58,.1);
 }
+.f-brand { display: flex; flex-direction: column; gap: .35rem; }
 .f-logo {
   font-family: 'Cormorant SC', serif;
   font-size: 1rem;
   letter-spacing: .4em;
   color: rgba(247,242,232,.45);
+  cursor: pointer;
+  transition: color .2s;
 }
+.f-logo:hover { color: rgba(247,242,232,.7); }
 .f-copy {
   font-family: 'Jost', sans-serif;
-  font-size: .6rem;
+  font-size: .58rem;
   font-weight: 300;
   letter-spacing: .12em;
-  color: rgba(247,242,232,.25);
+  color: rgba(247,242,232,.2);
 }
+.f-nav {
+  display: flex;
+  gap: 1.8rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.f-nav a {
+  font-family: 'Jost', sans-serif;
+  font-size: .58rem;
+  font-weight: 300;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: rgba(247,242,232,.28);
+  cursor: pointer;
+  text-decoration: none;
+  transition: color .2s;
+}
+.f-nav a:hover { color: rgba(247,242,232,.65); }
+.f-social { display: flex; flex-direction: column; gap: .6rem; align-items: flex-end; }
+.f-soc {
+  font-family: 'Jost', sans-serif;
+  font-size: .56rem;
+  font-weight: 300;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: rgba(247,242,232,.22);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(247,242,232,.08);
+  padding-bottom: 1px;
+  transition: color .2s, border-color .2s;
+}
+.f-soc:hover { color: var(--gold); border-color: var(--gold); }
+
+/* Reading time badge */
+.read-time {
+  display: inline-block;
+  font-family: 'Jost', sans-serif;
+  font-size: .55rem;
+  font-weight: 300;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: rgba(247,242,232,.45);
+  margin-top: .85rem;
+  border: 1px solid rgba(247,242,232,.18);
+  padding: .28rem .7rem;
+}
+
+/* Table of contents */
+.toc {
+  margin: 2.8rem 0;
+  padding: 1.6rem 2rem;
+  border: 1px solid rgba(168,132,58,.22);
+  background: var(--parchment);
+}
+.toc-label {
+  font-family: 'Jost', sans-serif;
+  font-size: .58rem;
+  font-weight: 300;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  color: var(--terra);
+  display: block;
+  margin-bottom: 1rem;
+}
+.toc ol {
+  list-style: none;
+  counter-reset: toc-counter;
+  padding: 0;
+}
+.toc li {
+  counter-increment: toc-counter;
+  display: flex;
+  gap: .8rem;
+  align-items: baseline;
+  margin-bottom: .55rem;
+}
+.toc li::before {
+  content: counter(toc-counter, decimal-leading-zero);
+  font-family: 'Cormorant SC', serif;
+  font-size: .78rem;
+  color: var(--gold);
+  opacity: .6;
+  min-width: 1.6rem;
+}
+.toc a {
+  font-family: 'Jost', sans-serif;
+  font-size: .8rem;
+  font-weight: 300;
+  color: var(--mid);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color .2s, border-color .2s;
+  cursor: pointer;
+}
+.toc a:hover { color: var(--terra); border-color: rgba(184,101,74,.3); }
+
+/* Bucket list — done vs dream distinction */
+.bucket-col--done .b-num  { color: var(--gold); }
+.bucket-col--done .b-num::after {
+  content: ' ✓';
+  font-size: .6em;
+  vertical-align: super;
+  opacity: .65;
+}
+.bucket-col--dream .b-num { color: var(--mid); opacity: .7; }
 
 
 /* ── 10. Article / Sub-page styles ─────────────────────────── */
@@ -976,11 +1087,11 @@ footer {
   .sticky-img  { position: static; }
   .bucket-grid { grid-template-columns: 1fr; gap: 2.5rem 0; }
   footer {
-    flex-direction: column;
-    gap: .8rem;
-    text-align: center;
-    padding: 2.5rem 2rem;
+    flex-wrap: wrap;
+    gap: 2rem 1.5rem;
+    padding: 2.5rem 2.2rem;
   }
+  .f-social { align-items: flex-start; }
 }
 
 /* ── Mobile (≤ 768px) ──────────────────────────────────────── */
@@ -1031,6 +1142,11 @@ footer {
   /* Newsletter */
   .nl      { padding: 3.8rem 1.4rem; }
   .nl-form { max-width: 100%; }
+
+  /* Footer */
+  footer { flex-direction: column; align-items: flex-start; gap: 1.8rem; padding: 2.5rem 1.4rem; }
+  .f-nav  { gap: 1.2rem; }
+  .f-social { flex-direction: row; }
 
   /* Article hero */
   .art-hero        { height: 52vh; min-height: 300px; }

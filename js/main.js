@@ -97,9 +97,12 @@ function closeMenu() {
 function go(id) {
   closeMenu();
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
+  const pageEl = document.getElementById(id);
+  pageEl.classList.add('active');
   window.scrollTo({ top: 0, behavior: 'instant' });
   loadImages();
+  addReadingTime(pageEl);
+  buildTOC(pageEl);
   initReveal();
   setActiveNav(id);
 }
@@ -192,6 +195,76 @@ function addPhotos(e) {
 }
 
 
+/* ── Footer builder (runs once on load) ───────────────────── */
+function buildFooters() {
+  document.querySelectorAll('footer').forEach(f => {
+    f.innerHTML = `
+      <div class="f-brand">
+        <span class="f-logo" onclick="go('home')">LAYOVER</span>
+        <span class="f-copy">&copy; 2025 Becca Ruffalo &middot; All Rights Reserved</span>
+      </div>
+      <nav class="f-nav" aria-label="Footer">
+        <a onclick="go('city-guides')">City Guides</a>
+        <a onclick="go('itineraries')">Itineraries</a>
+        <a onclick="go('planning')">Planning</a>
+        <a onclick="go('bucket')">Bucket List</a>
+        <a onclick="go('about')">About</a>
+      </nav>
+      <div class="f-social">
+        <a href="#" class="f-soc" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
+        <a href="#" class="f-soc" target="_blank" rel="noopener" aria-label="Pinterest">Pinterest</a>
+      </div>`;
+  });
+}
+
+
+/* ── Reading time ──────────────────────────────────────────── */
+function addReadingTime(pageEl) {
+  const body = pageEl.querySelector('.art-body');
+  if (!body) return;
+  const words = body.innerText.trim().split(/\s+/).length;
+  const mins  = Math.max(1, Math.ceil(words / 200));
+  const sub   = pageEl.querySelector('.art-hero-text .sub');
+  if (!sub || sub.nextElementSibling?.classList.contains('read-time')) return;
+  const badge = document.createElement('span');
+  badge.className  = 'read-time';
+  badge.textContent = `${mins} min read`;
+  sub.insertAdjacentElement('afterend', badge);
+}
+
+
+/* ── Table of contents ─────────────────────────────────────── */
+function buildTOC(pageEl) {
+  // Remove any existing TOC first (re-navigation safety)
+  pageEl.querySelectorAll('.toc').forEach(t => t.remove());
+
+  const body = pageEl.querySelector('.art-body');
+  if (!body) return;
+  const headings = Array.from(body.querySelectorAll('h2'));
+  if (headings.length < 3) return;  // Only worth a TOC for longer articles
+
+  // Give each heading a stable ID for anchor links
+  headings.forEach((h, i) => {
+    if (!h.id) h.id = `sec-${i}-${h.textContent.trim().toLowerCase().replace(/[^a-z0-9]+/g, '-')}`;
+  });
+
+  const toc = document.createElement('div');
+  toc.className = 'toc reveal';
+  toc.innerHTML = `<span class="toc-label">In This Guide</span><ol>` +
+    headings.map(h =>
+      `<li><a onclick="document.getElementById('${h.id}').scrollIntoView({behavior:'smooth'})">${h.textContent}</a></li>`
+    ).join('') +
+    `</ol>`;
+
+  // Insert after .lede paragraph or after .back link
+  const lede = body.querySelector('.lede');
+  const back  = body.querySelector('.back');
+  const anchor = lede || back;
+  if (anchor) anchor.insertAdjacentElement('afterend', toc);
+  else body.prepend(toc);
+}
+
+
 /* ── Scroll reveal (IntersectionObserver) ──────────────────── */
 let revealObserver = null;
 
@@ -243,7 +316,11 @@ function initReveal() {
 
 /* ── Init on load ──────────────────────────────────────────── */
 document.addEventListener('DOMContentLoaded', () => {
+  buildFooters();
   loadImages();
+  const homeEl = document.getElementById('home');
+  addReadingTime(homeEl);
+  buildTOC(homeEl);
   initReveal();
   setActiveNav('home');
   initCursor();
