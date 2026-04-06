@@ -219,13 +219,13 @@ nav.on .nav-toggle span { background: var(--mid); }
   transform: translateZ(0);
 }
 @keyframes zoom {
-  from { transform: scale(1.03); }
-  to   { transform: scale(1.09); }
+  from { transform: scale(1.0); }
+  to   { transform: scale(1.03); }
 }
 .hero-veil {
   position: absolute;
   inset: 0;
-  background: linear-gradient(160deg, rgba(15,8,3,.25), rgba(15,8,3,.55) 55%, rgba(15,8,3,.82));
+  background: linear-gradient(160deg, rgba(15,8,3,.32), rgba(15,8,3,.62) 55%, rgba(15,8,3,.88));
 }
 .hero-text {
   position: relative;
@@ -835,7 +835,7 @@ footer {
 .art-hero-veil {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, rgba(15,8,3,.08), rgba(15,8,3,.6));
+  background: linear-gradient(to bottom, rgba(15,8,3,.15), rgba(15,8,3,.72));
 }
 .art-hero-text {
   position: absolute;

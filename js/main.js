@@ -237,8 +237,8 @@ function initCursor() {
   });
 
   (function animateRing() {
-    rx += (mx - rx) * 0.14;
-    ry += (my - ry) * 0.14;
+    rx += (mx - rx) * 0.38;
+    ry += (my - ry) * 0.38;
     ring.style.transform = `translate(${rx - 14}px, ${ry - 14}px) translate(0,0)`;
     rafId = requestAnimationFrame(animateRing);
   })();
