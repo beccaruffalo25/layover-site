@@ -159,42 +159,6 @@ nav.on .nav-toggle span { background: var(--mid); }
 .nav-toggle.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
 
 
-/* ── Custom cursor ─────────────────────────────────────────── */
-@media (pointer: fine) {
-  /* Hide default cursor sitewide when JS applies cursor class */
-  body.custom-cursor,
-  body.custom-cursor * { cursor: none !important; }
-
-  #cursor-dot,
-  #cursor-ring {
-    position: fixed;
-    top: 0; left: 0;
-    pointer-events: none;
-    z-index: 9999;
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    transition: opacity .25s;
-  }
-  #cursor-dot {
-    width: 5px; height: 5px;
-    background: var(--gold);
-    transition: transform .1s ease, opacity .25s;
-  }
-  #cursor-ring {
-    width: 28px; height: 28px;
-    border: 1px solid rgba(168,132,58,.5);
-    transition: transform .18s ease, width .25s ease, height .25s ease,
-                border-color .25s, opacity .25s;
-  }
-  /* Expand ring on hoverable elements */
-  body.cursor-hover #cursor-ring {
-    width: 46px; height: 46px;
-    border-color: var(--gold);
-  }
-  body.cursor-hover #cursor-dot {
-    transform: translate(-50%, -50%) scale(1.6);
-  }
-}
 
 /* ── 3. Hero (Homepage) ────────────────────────────────────── */
 .hero {
@@ -265,14 +229,14 @@ nav.on .nav-toggle span { background: var(--mid); }
   text-shadow: 0 2px 14px rgba(0,0,0,.5);
 }
 .hero-tag {
-  font-family: 'Jost', sans-serif;
-  font-size: .62rem;
-  font-weight: 200;
-  letter-spacing: .3em;
-  text-transform: uppercase;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.05rem;
+  font-weight: 300;
+  letter-spacing: .04em;
   color: var(--cream);
-  opacity: .85;
-  margin-top: 2rem;
+  opacity: .82;
+  margin-top: 1.6rem;
   text-shadow: 0 2px 14px rgba(0,0,0,.5);
 }
 .scroll-cue {
@@ -1197,6 +1161,99 @@ footer {
 .share-btn:hover    { background: var(--brown); color: var(--cream); }
 .share-btn--copy.copied { color: var(--terra); border-color: var(--terra); }
 
+/* ── Bio strip ─────────────────────────────────────────────── */
+.bio-strip {
+  padding: 5rem 0;
+  border-bottom: 1px solid rgba(168,132,58,.12);
+}
+.bio-inner {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+.bio-img {
+  aspect-ratio: 3/4;
+  overflow: hidden;
+}
+.bio-img img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+.bio-text p {
+  font-family: 'Jost', sans-serif;
+  font-size: .88rem;
+  font-weight: 300;
+  color: var(--mid);
+  line-height: 1.85;
+  margin-bottom: .9rem;
+}
+
+
+/* ── What's here (3-tile nav section) ─────────────────────── */
+.what-here {
+  background: var(--parchment);
+  border-top: 1px solid rgba(168,132,58,.13);
+  border-bottom: 1px solid rgba(168,132,58,.13);
+}
+.what-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.what-tile {
+  padding: 3rem 2.8rem;
+  border-right: 1px solid rgba(168,132,58,.13);
+  cursor: pointer;
+  transition: background .2s;
+}
+.what-tile:last-child { border-right: none; }
+.what-tile:hover { background: rgba(168,132,58,.06); }
+.what-num {
+  font-family: 'Cormorant SC', serif;
+  font-size: .78rem;
+  color: var(--gold);
+  opacity: .65;
+  display: block;
+  margin-bottom: .85rem;
+}
+.what-title {
+  font-family: 'Cormorant SC', serif;
+  font-size: 1.25rem;
+  font-weight: 400;
+  letter-spacing: .09em;
+  color: var(--brown);
+  margin-bottom: .55rem;
+}
+.what-desc {
+  font-family: 'Jost', sans-serif;
+  font-size: .83rem;
+  font-weight: 300;
+  color: var(--mid);
+  line-height: 1.75;
+  margin-bottom: 1rem;
+}
+
+
+/* ── Article metadata line ─────────────────────────────────── */
+.art-meta {
+  display: flex;
+  gap: .5rem;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: .9rem;
+  font-family: 'Jost', sans-serif;
+  font-size: .56rem;
+  font-weight: 300;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: rgba(247,242,232,.42);
+}
+.art-meta-sep { opacity: .3; }
+
+
 /* ── 13. Responsive ────────────────────────────────────────── */
 
 /* ── Tablet (≤ 860px) ──────────────────────────────────────── */
@@ -1284,6 +1341,15 @@ footer {
   /* About */
   .about-grid      { gap: 2rem; padding: 3rem 0; }
   .bucket-grid     { margin-top: 2rem; }
+
+  /* Bio strip */
+  .bio-inner { grid-template-columns: 1fr; gap: 2rem; }
+  .bio-img   { max-width: 180px; }
+
+  /* What's here */
+  .what-grid { grid-template-columns: 1fr; }
+  .what-tile { border-right: none; border-bottom: 1px solid rgba(168,132,58,.13); padding: 2.2rem 1.4rem; }
+  .what-tile:last-child { border-bottom: none; }
 }
 
 /* ── Small mobile (≤ 480px) ────────────────────────────────── */

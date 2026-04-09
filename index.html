@@ -25,10 +25,6 @@
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
-  <!-- Custom cursor (desktop only — hidden via CSS on touch devices) -->
-  <div id="cursor-dot"  aria-hidden="true"></div>
-  <div id="cursor-ring" aria-hidden="true"></div>
-
   <!-- Lightbox -->
   <div id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
     <button id="lb-close" aria-label="Close" onclick="closeLightbox()">&times;</button>
@@ -72,7 +68,7 @@
       <div class="hero-text">
         <h1 class="hero-title">LAYOVER</h1>
         <p class="hero-by">by Becca Ruffalo</p>
-        <p class="hero-tag">Plan &middot; Discover &middot; Repeat</p>
+        <p class="hero-tag">The in-between &mdash; real guides for trips worth taking.</p>
       </div>
     </section>
 
@@ -84,59 +80,90 @@
       <span class="btn" onclick="go('about')">Read My Story</span>
     </section>
 
-    <!-- Marquee ticker -->
-    <div class="ticker-wrap" aria-hidden="true">
-      <div class="ticker">
-        <span>Milan</span><span class="t-sep">·</span>
-        <span>Seville</span><span class="t-sep">·</span>
-        <span>Santorini</span><span class="t-sep">·</span>
-        <span>Positano</span><span class="t-sep">·</span>
-        <span>Bucket List</span><span class="t-sep">·</span>
-        <span>More Coming Soon</span><span class="t-sep">·</span>
-        <span>Milan</span><span class="t-sep">·</span>
-        <span>Seville</span><span class="t-sep">·</span>
-        <span>Santorini</span><span class="t-sep">·</span>
-        <span>Positano</span><span class="t-sep">·</span>
-        <span>Bucket List</span><span class="t-sep">·</span>
-        <span>More Coming Soon</span><span class="t-sep">·</span>
+    <!-- Bio strip — short intro with photo -->
+    <section class="bio-strip">
+      <div class="wrap">
+        <div class="bio-inner">
+          <div class="bio-img">
+            <img src="" data-k="becca-spain" alt="Becca Ruffalo" />
+          </div>
+          <div class="bio-text">
+            <span class="label">About Becca</span>
+            <p>I&rsquo;m Becca Ruffalo &mdash; a twenty-something who lives for traveling. Not cruises or all-inclusive resorts. I mean hidden gems, learning public transportation in a language I don&rsquo;t speak, and sometimes hitting three countries in one week.</p>
+            <p>My travel style lives somewhere between backpacking and luxury. I care about getting the best experience for the money spent, while staying safe, comfortable, and unhurried.</p>
+            <span class="arrow" onclick="go('about')">My full story &rarr;</span>
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
 
-    <!-- Latest posts grid -->
+    <!-- What's here — 3 tiles linking to main sections
+         To add a new section: copy a .what-tile block and update the onclick, title, and description -->
+    <section class="what-here">
+      <div class="what-grid">
+
+        <div class="what-tile" onclick="go('city-guides')">
+          <span class="what-num">01</span>
+          <h3 class="what-title">City Guides</h3>
+          <p class="what-desc">Neighborhood-by-neighborhood guides to cities I know well.</p>
+          <span class="arrow">Browse Guides &rarr;</span>
+        </div>
+
+        <div class="what-tile" onclick="go('itineraries')">
+          <span class="what-num">02</span>
+          <h3 class="what-title">Itineraries</h3>
+          <p class="what-desc">Day-by-day trip plans built from real experience.</p>
+          <span class="arrow">View Itineraries &rarr;</span>
+        </div>
+
+        <div class="what-tile" onclick="go('planning')">
+          <span class="what-num">03</span>
+          <h3 class="what-title">Planning Tools</h3>
+          <p class="what-desc">The free tools I use to find the best prices and experiences.</p>
+          <span class="arrow">See the Tools &rarr;</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Latest guides — individual content cards
+         To add a new guide: copy any .card block below, update onclick, image key, tag, title, excerpt, and arrow text -->
     <section class="sec">
       <div class="wrap">
         <div style="text-align:center; margin-bottom:4rem">
           <span class="label">Latest</span>
-          <h2 class="h-sec">From the Journal</h2>
+          <h2 class="h-sec">The Guides</h2>
         </div>
         <div class="grid-2">
 
-          <!-- Card: City Guides -->
-          <div class="card" onclick="go('city-guides')">
+          <!-- Guide card: Milan -->
+          <div class="card" onclick="go('milan')">
             <div class="card-img">
               <img src="" data-k="duomo" alt="Duomo di Milano" />
-              <span class="card-img-label">Explore &rarr;</span>
+              <span class="card-img-label">Read Guide &rarr;</span>
             </div>
-            <p class="card-tag">City Guides</p>
-            <h3 class="card-title">City Guides</h3>
-            <p class="card-exc">In-depth guides to cities I&rsquo;ve explored and come to love — neighborhood by neighborhood, meal by meal.</p>
-            <span class="arrow">Browse Guides &rarr;</span>
+            <p class="card-tag">Italy &middot; City Guide</p>
+            <h3 class="card-title">Milan, Planned</h3>
+            <p class="card-exc">Four months living here showed me how much beauty exists beneath the surface of Italy&rsquo;s most misunderstood city.</p>
+            <span class="arrow">Read the Guide &rarr;</span>
           </div>
 
-          <!-- Card: Itineraries -->
-          <div class="card" onclick="go('itineraries')">
+          <!-- Guide card: Seville -->
+          <div class="card" onclick="go('seville')">
             <div class="card-img">
-              <img src="" data-k="positano" alt="Positano, Amalfi Coast" />
-              <span class="card-img-label">Explore &rarr;</span>
+              <img src="" data-k="seville-hero" alt="Plaza de España, Seville" />
+              <span class="card-img-label">View Itinerary &rarr;</span>
             </div>
-            <p class="card-tag">Itineraries</p>
-            <h3 class="card-title">Itineraries</h3>
-            <p class="card-exc">Day-by-day trip plans built from real experience — so you can skip the research and get straight to the good part.</p>
-            <span class="arrow">Browse Itineraries &rarr;</span>
+            <p class="card-tag">Spain &middot; Weekend Itinerary</p>
+            <h3 class="card-title">Seville, Planned</h3>
+            <p class="card-exc">Golden plazas, live flamenco, and tapas bars that go until midnight &mdash; a warm weekend in Spain&rsquo;s most colorful city.</p>
+            <span class="arrow">View Itinerary &rarr;</span>
           </div>
 
-          <!-- ADD NEW CARDS HERE — copy the block above and change
-               the onclick="go('yourpage')" and the content -->
+          <!-- ADD NEW GUIDE CARDS HERE — copy a card block above and update:
+               onclick="go('yourpageid')"
+               data-k="your-image-key"
+               card-tag, card-title, card-exc, arrow text -->
 
         </div>
       </div>
@@ -305,6 +332,13 @@
         <span class="label" style="color:var(--tan)">Italy &middot; City Guide</span>
         <h1>Milan, Planned</h1>
         <p class="sub">A thoughtful weekend guide to Italy&rsquo;s most misunderstood city.</p>
+        <div class="art-meta">
+          <span>Milan, Italy</span>
+          <span class="art-meta-sep">&middot;</span>
+          <span>Weekend or longer</span>
+          <span class="art-meta-sep">&middot;</span>
+          <span>Best: April &ndash; June, Sept &ndash; Oct</span>
+        </div>
       </div>
     </div>
 
@@ -651,6 +685,13 @@
         <span class="label" style="color:var(--tan)">Spain &middot; Weekend Itinerary</span>
         <h1>Seville, Planned</h1>
         <p class="sub">Warm, colorful, and romantic &mdash; a fairytale town frozen in time.</p>
+        <div class="art-meta">
+          <span>Seville, Spain</span>
+          <span class="art-meta-sep">&middot;</span>
+          <span>3-day weekend</span>
+          <span class="art-meta-sep">&middot;</span>
+          <span>Best: March &ndash; May, Oct &ndash; Nov</span>
+        </div>
       </div>
     </div>
 
