@@ -46,8 +46,26 @@
     <span class="logo" onclick="go('home')">LAYOVER</span>
     <ul class="nav-links" id="nav-links">
       <li><a onclick="go('home')">Home</a></li>
-      <li><a onclick="go('city-guides')">City Guides</a></li>
-      <li><a onclick="go('itineraries')">Itineraries</a></li>
+      <li class="has-dropdown">
+        <a onclick="go('city-guides')">City Guides</a>
+        <div class="dropdown">
+          <a class="drop-item" onclick="go('milan')">
+            <span class="drop-city">Milan</span>
+            <span class="drop-meta">Italy &middot; City Guide</span>
+          </a>
+          <span class="drop-more">More coming soon</span>
+        </div>
+      </li>
+      <li class="has-dropdown">
+        <a onclick="go('itineraries')">Itineraries</a>
+        <div class="dropdown">
+          <a class="drop-item" onclick="go('seville')">
+            <span class="drop-city">Seville</span>
+            <span class="drop-meta">Spain &middot; Weekend Itinerary</span>
+          </a>
+          <span class="drop-more">More coming soon</span>
+        </div>
+      </li>
       <li><a onclick="go('planning')">Planning</a></li>
       <li><a onclick="go('bucket')">Bucket List</a></li>
       <li><a onclick="go('about')">About</a></li>

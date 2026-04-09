@@ -126,39 +126,6 @@ function initShimmer(pageEl) {
 }
 
 
-/* ── Share bar ─────────────────────────────────────────────── */
-function buildShareBar(pageEl) {
-  if (pageEl.querySelector('.share-bar')) return; // already injected
-  const body = pageEl.querySelector('.art-body, .wrap-sm.art-body');
-  if (!body) return;
-
-  const bar = document.createElement('div');
-  bar.className = 'share-bar';
-  bar.innerHTML = `
-    <span class="share-label">Share</span>
-    <a class="share-btn share-btn--pinterest"
-       href="https://pinterest.com/pin/create/button/?url=${encodeURIComponent(window.location.href)}"
-       target="_blank" rel="noopener">Save to Pinterest</a>
-    <button class="share-btn share-btn--copy" onclick="copyLink(this)">Copy Link</button>`;
-
-  // Insert before the newsletter section or at end of article body
-  const nl = pageEl.querySelector('.nl');
-  if (nl) nl.insertAdjacentElement('beforebegin', bar);
-  else body.appendChild(bar);
-}
-
-function copyLink(btn) {
-  navigator.clipboard.writeText(window.location.href).then(() => {
-    btn.textContent = 'Copied!';
-    btn.classList.add('copied');
-    setTimeout(() => {
-      btn.textContent = 'Copy Link';
-      btn.classList.remove('copied');
-    }, 2000);
-  });
-}
-
-
 /* ── Mobile menu toggle ────────────────────────────────────── */
 function toggleMenu() {
   const nav    = document.getElementById('nav');
@@ -182,6 +149,8 @@ function closeMenu() {
 /* ── Page navigation (SPA) ─────────────────────────────────── */
 function go(id) {
   closeMenu();
+  // Explicitly reset nav state — scroll event may lag a frame behind scrollTo
+  document.getElementById('nav').classList.remove('on');
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   const pageEl = document.getElementById(id);
   pageEl.classList.add('active');
@@ -190,7 +159,6 @@ function go(id) {
   loadImages();
   addReadingTime(pageEl);
   buildTOC(pageEl);
-  buildShareBar(pageEl);
   initLightbox(pageEl);
   initReveal();
   setActiveNav(id);
@@ -211,59 +179,6 @@ function setActiveNav(id) {
     if (a.getAttribute('onclick') === `go('${id}')`) {
       a.classList.add('active');
     }
-  });
-}
-
-
-/* ── Custom cursor (desktop / pointer: fine only) ──────────── */
-function initCursor() {
-  // Only activate on non-touch devices
-  if (!window.matchMedia('(pointer: fine)').matches) return;
-
-  const dot  = document.getElementById('cursor-dot');
-  const ring = document.getElementById('cursor-ring');
-  if (!dot || !ring) return;
-
-  document.body.classList.add('custom-cursor');
-
-  let mx = -100, my = -100;   // off-screen until first move
-  let rx = -100, ry = -100;   // ring position (lagging)
-  let rafId;
-
-  document.addEventListener('mousemove', e => {
-    mx = e.clientX;
-    my = e.clientY;
-    dot.style.transform = `translate(${mx - 2.5}px, ${my - 2.5}px) translate(0,0)`;
-  });
-
-  (function animateRing() {
-    rx += (mx - rx) * 0.14;
-    ry += (my - ry) * 0.14;
-    ring.style.transform = `translate(${rx - 14}px, ${ry - 14}px) translate(0,0)`;
-    rafId = requestAnimationFrame(animateRing);
-  })();
-
-  // Expand on interactive elements
-  const hoverSelectors = 'a, button, .card, .btn, .arrow, .back, .logo, .split, [onclick]';
-  document.addEventListener('mouseover', e => {
-    if (e.target.closest(hoverSelectors)) {
-      document.body.classList.add('cursor-hover');
-    }
-  });
-  document.addEventListener('mouseout', e => {
-    if (e.target.closest(hoverSelectors)) {
-      document.body.classList.remove('cursor-hover');
-    }
-  });
-
-  // Hide when leaving window
-  document.addEventListener('mouseleave', () => {
-    dot.style.opacity  = '0';
-    ring.style.opacity = '0';
-  });
-  document.addEventListener('mouseenter', () => {
-    dot.style.opacity  = '1';
-    ring.style.opacity = '1';
   });
 }
 
@@ -411,9 +326,7 @@ document.addEventListener('DOMContentLoaded', () => {
   loadImages();
   addReadingTime(homeEl);
   buildTOC(homeEl);
-  buildShareBar(homeEl);
   initLightbox(homeEl);
   initReveal();
   setActiveNav('home');
-  initCursor();
 });
