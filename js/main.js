@@ -126,8 +126,6 @@ function initShimmer(pageEl) {
 }
 
 
-
-
 /* ── Mobile menu toggle ────────────────────────────────────── */
 function toggleMenu() {
   const nav    = document.getElementById('nav');
@@ -151,6 +149,8 @@ function closeMenu() {
 /* ── Page navigation (SPA) ─────────────────────────────────── */
 function go(id) {
   closeMenu();
+  // Explicitly reset nav state — scroll event may lag a frame behind scrollTo
+  document.getElementById('nav').classList.remove('on');
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   const pageEl = document.getElementById(id);
   pageEl.classList.add('active');
@@ -159,7 +159,6 @@ function go(id) {
   loadImages();
   addReadingTime(pageEl);
   buildTOC(pageEl);
-
   initLightbox(pageEl);
   initReveal();
   setActiveNav(id);
@@ -327,7 +326,6 @@ document.addEventListener('DOMContentLoaded', () => {
   loadImages();
   addReadingTime(homeEl);
   buildTOC(homeEl);
-  buildShareBar(homeEl);
   initLightbox(homeEl);
   initReveal();
   setActiveNav('home');
