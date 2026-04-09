@@ -801,6 +801,44 @@ footer {
   inset: 0;
   background: linear-gradient(to bottom, rgba(15,8,3,.15), rgba(15,8,3,.72));
 }
+
+/* CSS-only title header — replaces photo banners on section pages */
+.art-hero--title {
+  background: linear-gradient(160deg, var(--ink) 0%, #2a1508 60%, var(--brown) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* Warm radial glow at center */
+.art-hero--title::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 70% 60% at 50% 60%, rgba(168,132,58,.1) 0%, transparent 100%);
+  pointer-events: none;
+}
+/* Thin gold rule above title text */
+.art-hero--title .art-hero-text::before {
+  content: '';
+  display: block;
+  width: 36px;
+  height: 1px;
+  background: var(--gold);
+  opacity: .5;
+  margin: 0 auto 1.4rem;
+}
+/* Position override: centered instead of bottom-anchored */
+.art-hero--title .art-hero-text {
+  position: relative;
+  bottom: auto;
+  left: auto;
+  transform: none;
+  text-align: center;
+  width: 85%;
+  max-width: 860px;
+  z-index: 2;
+}
+
 .art-hero-text {
   position: absolute;
   bottom: 3.5rem;
@@ -1124,42 +1162,6 @@ footer {
 .img-duo img,
 .img-trio img { cursor: zoom-in; }
 
-/* ── Share bar (article pages) ─────────────────────────────── */
-.share-bar {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin: 3rem 0 1rem;
-  padding: 1.2rem 1.6rem;
-  border: 1px solid rgba(168,132,58,.18);
-  background: var(--parchment);
-}
-.share-label {
-  font-family: 'Jost', sans-serif;
-  font-size: .56rem;
-  font-weight: 300;
-  letter-spacing: .3em;
-  text-transform: uppercase;
-  color: var(--tan);
-  margin-right: .4rem;
-}
-.share-btn {
-  font-family: 'Jost', sans-serif;
-  font-size: .58rem;
-  font-weight: 300;
-  letter-spacing: .22em;
-  text-transform: uppercase;
-  color: var(--mid);
-  background: none;
-  border: 1px solid rgba(107,79,56,.28);
-  padding: .45rem .9rem;
-  cursor: pointer;
-  text-decoration: none;
-  display: inline-block;
-  transition: background .2s, color .2s;
-}
-.share-btn:hover    { background: var(--brown); color: var(--cream); }
-.share-btn--copy.copied { color: var(--terra); border-color: var(--terra); }
 
 /* ── Bio strip ─────────────────────────────────────────────── */
 .bio-strip {

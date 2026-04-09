@@ -80,95 +80,6 @@
       <span class="btn" onclick="go('about')">Read My Story</span>
     </section>
 
-    <!-- Bio strip — short intro with photo -->
-    <section class="bio-strip">
-      <div class="wrap">
-        <div class="bio-inner">
-          <div class="bio-img">
-            <img src="" data-k="becca-spain" alt="Becca Ruffalo" />
-          </div>
-          <div class="bio-text">
-            <span class="label">About Becca</span>
-            <p>I&rsquo;m Becca Ruffalo &mdash; a twenty-something who lives for traveling. Not cruises or all-inclusive resorts. I mean hidden gems, learning public transportation in a language I don&rsquo;t speak, and sometimes hitting three countries in one week.</p>
-            <p>My travel style lives somewhere between backpacking and luxury. I care about getting the best experience for the money spent, while staying safe, comfortable, and unhurried.</p>
-            <span class="arrow" onclick="go('about')">My full story &rarr;</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- What's here — 3 tiles linking to main sections
-         To add a new section: copy a .what-tile block and update the onclick, title, and description -->
-    <section class="what-here">
-      <div class="what-grid">
-
-        <div class="what-tile" onclick="go('city-guides')">
-          <span class="what-num">01</span>
-          <h3 class="what-title">City Guides</h3>
-          <p class="what-desc">Neighborhood-by-neighborhood guides to cities I know well.</p>
-          <span class="arrow">Browse Guides &rarr;</span>
-        </div>
-
-        <div class="what-tile" onclick="go('itineraries')">
-          <span class="what-num">02</span>
-          <h3 class="what-title">Itineraries</h3>
-          <p class="what-desc">Day-by-day trip plans built from real experience.</p>
-          <span class="arrow">View Itineraries &rarr;</span>
-        </div>
-
-        <div class="what-tile" onclick="go('planning')">
-          <span class="what-num">03</span>
-          <h3 class="what-title">Planning Tools</h3>
-          <p class="what-desc">The free tools I use to find the best prices and experiences.</p>
-          <span class="arrow">See the Tools &rarr;</span>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- Latest guides — individual content cards
-         To add a new guide: copy any .card block below, update onclick, image key, tag, title, excerpt, and arrow text -->
-    <section class="sec">
-      <div class="wrap">
-        <div style="text-align:center; margin-bottom:4rem">
-          <span class="label">Latest</span>
-          <h2 class="h-sec">The Guides</h2>
-        </div>
-        <div class="grid-2">
-
-          <!-- Guide card: Milan -->
-          <div class="card" onclick="go('milan')">
-            <div class="card-img">
-              <img src="" data-k="duomo" alt="Duomo di Milano" />
-              <span class="card-img-label">Read Guide &rarr;</span>
-            </div>
-            <p class="card-tag">Italy &middot; City Guide</p>
-            <h3 class="card-title">Milan, Planned</h3>
-            <p class="card-exc">Four months living here showed me how much beauty exists beneath the surface of Italy&rsquo;s most misunderstood city.</p>
-            <span class="arrow">Read the Guide &rarr;</span>
-          </div>
-
-          <!-- Guide card: Seville -->
-          <div class="card" onclick="go('seville')">
-            <div class="card-img">
-              <img src="" data-k="seville-hero" alt="Plaza de España, Seville" />
-              <span class="card-img-label">View Itinerary &rarr;</span>
-            </div>
-            <p class="card-tag">Spain &middot; Weekend Itinerary</p>
-            <h3 class="card-title">Seville, Planned</h3>
-            <p class="card-exc">Golden plazas, live flamenco, and tapas bars that go until midnight &mdash; a warm weekend in Spain&rsquo;s most colorful city.</p>
-            <span class="arrow">View Itinerary &rarr;</span>
-          </div>
-
-          <!-- ADD NEW GUIDE CARDS HERE — copy a card block above and update:
-               onclick="go('yourpageid')"
-               data-k="your-image-key"
-               card-tag, card-title, card-exc, arrow text -->
-
-        </div>
-      </div>
-    </section>
-
     <!-- Bucket list split promo -->
     <div class="split">
       <div class="split-img">
@@ -211,9 +122,7 @@
   ════════════════════════════════════════════════════════════ -->
   <div id="city-guides" class="page">
 
-    <div class="art-hero">
-      <img src="" data-k="duomo" alt="Duomo di Milano" />
-      <div class="art-hero-veil"></div>
+    <div class="art-hero art-hero--title">
       <div class="art-hero-text">
         <span class="label" style="color:var(--tan)">Destination Guides</span>
         <h1>City Guides</h1>
@@ -268,9 +177,7 @@
   ════════════════════════════════════════════════════════════ -->
   <div id="itineraries" class="page">
 
-    <div class="art-hero">
-      <img src="" data-k="positano-town" alt="Positano, Amalfi Coast" />
-      <div class="art-hero-veil"></div>
+    <div class="art-hero art-hero--title">
       <div class="art-hero-text">
         <span class="label" style="color:var(--tan)">Trip Planning</span>
         <h1>Itineraries</h1>
@@ -325,9 +232,7 @@
   ════════════════════════════════════════════════════════════ -->
   <div id="milan" class="page">
 
-    <div class="art-hero">
-      <img src="" data-k="duomo" alt="Duomo di Milano" />
-      <div class="art-hero-veil"></div>
+    <div class="art-hero art-hero--title">
       <div class="art-hero-text">
         <span class="label" style="color:var(--tan)">Italy &middot; City Guide</span>
         <h1>Milan, Planned</h1>
@@ -467,9 +372,7 @@
   ════════════════════════════════════════════════════════════ -->
   <div id="bucket" class="page">
 
-    <div class="art-hero">
-      <img src="" data-k="santorini-sunset" alt="Oia at sunset, Santorini" />
-      <div class="art-hero-veil"></div>
+    <div class="art-hero art-hero--title">
       <div class="art-hero-text">
         <span class="label" style="color:var(--tan)">Inspiration</span>
         <h1>Bucket List</h1>
@@ -536,9 +439,7 @@
   ════════════════════════════════════════════════════════════ -->
   <div id="planning" class="page">
 
-    <div class="art-hero">
-      <img src="" data-k="positano-town" alt="Positano, Amalfi Coast" />
-      <div class="art-hero-veil"></div>
+    <div class="art-hero art-hero--title">
       <div class="art-hero-text">
         <span class="label" style="color:var(--tan)">Travel Tips</span>
         <h1>Your Plan, Planned</h1>
@@ -678,9 +579,7 @@
   ════════════════════════════════════════════════════════════ -->
   <div id="seville" class="page">
 
-    <div class="art-hero">
-      <img src="" data-k="seville-hero" alt="Plaza de España, Seville" />
-      <div class="art-hero-veil"></div>
+    <div class="art-hero art-hero--title">
       <div class="art-hero-text">
         <span class="label" style="color:var(--tan)">Spain &middot; Weekend Itinerary</span>
         <h1>Seville, Planned</h1>

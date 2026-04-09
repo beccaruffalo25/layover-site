@@ -126,37 +126,6 @@ function initShimmer(pageEl) {
 }
 
 
-/* ── Share bar ─────────────────────────────────────────────── */
-function buildShareBar(pageEl) {
-  if (pageEl.querySelector('.share-bar')) return; // already injected
-  const body = pageEl.querySelector('.art-body, .wrap-sm.art-body');
-  if (!body) return;
-
-  const bar = document.createElement('div');
-  bar.className = 'share-bar';
-  bar.innerHTML = `
-    <span class="share-label">Share</span>
-    <a class="share-btn share-btn--pinterest"
-       href="https://pinterest.com/pin/create/button/?url=${encodeURIComponent(window.location.href)}"
-       target="_blank" rel="noopener">Save to Pinterest</a>
-    <button class="share-btn share-btn--copy" onclick="copyLink(this)">Copy Link</button>`;
-
-  // Insert before the newsletter section or at end of article body
-  const nl = pageEl.querySelector('.nl');
-  if (nl) nl.insertAdjacentElement('beforebegin', bar);
-  else body.appendChild(bar);
-}
-
-function copyLink(btn) {
-  navigator.clipboard.writeText(window.location.href).then(() => {
-    btn.textContent = 'Copied!';
-    btn.classList.add('copied');
-    setTimeout(() => {
-      btn.textContent = 'Copy Link';
-      btn.classList.remove('copied');
-    }, 2000);
-  });
-}
 
 
 /* ── Mobile menu toggle ────────────────────────────────────── */
@@ -190,7 +159,7 @@ function go(id) {
   loadImages();
   addReadingTime(pageEl);
   buildTOC(pageEl);
-  buildShareBar(pageEl);
+
   initLightbox(pageEl);
   initReveal();
   setActiveNav(id);
