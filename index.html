@@ -62,9 +62,49 @@
           <span class="drop-more">More coming soon</span>
         </div>
       </li>
-      <li><a onclick="go('planning')">Planning</a></li>
-      <li><a onclick="go('bucket')">Bucket List</a></li>
-      <li><a onclick="go('about')">About</a></li>
+      <li class="has-dropdown">
+        <a onclick="go('planning')">Planning</a>
+        <div class="dropdown">
+          <a class="drop-item" onclick="go('planning')">
+            <span class="drop-city">Flights</span>
+            <span class="drop-meta">Skyscanner &middot; Google Flights</span>
+          </a>
+          <a class="drop-item" onclick="go('planning')">
+            <span class="drop-city">Stays</span>
+            <span class="drop-meta">Expedia &middot; Hotwire &middot; Airbnb</span>
+          </a>
+          <a class="drop-item" onclick="go('planning')">
+            <span class="drop-city">Adventures</span>
+            <span class="drop-meta">Get Your Guide &middot; Pinterest</span>
+          </a>
+          <a class="drop-item" onclick="go('planning')">
+            <span class="drop-city">Logistics</span>
+            <span class="drop-meta">Omio &middot; Expedia &middot; ChatGPT</span>
+          </a>
+        </div>
+      </li>
+      <li class="has-dropdown">
+        <a onclick="go('bucket')">Bucket List</a>
+        <div class="dropdown">
+          <a class="drop-item" onclick="go('bucket')">
+            <span class="drop-city">Been There</span>
+            <span class="drop-meta">10 checked-off experiences</span>
+          </a>
+          <a class="drop-item" onclick="go('bucket')">
+            <span class="drop-city">Dream List</span>
+            <span class="drop-meta">10 destinations still waiting</span>
+          </a>
+        </div>
+      </li>
+      <li class="has-dropdown">
+        <a onclick="go('about')">About</a>
+        <div class="dropdown">
+          <a class="drop-item" onclick="go('about')">
+            <span class="drop-city">My Story</span>
+            <span class="drop-meta">Plan &middot; Discover &middot; Repeat</span>
+          </a>
+        </div>
+      </li>
     </ul>
     <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false" onclick="toggleMenu()">
       <span></span>
@@ -96,6 +136,35 @@
       <h2>&ldquo;I love the research, the planning, and the logistics that turn traveling into a real trip. The name comes from my favorite part of a trip &mdash; the in-between.&rdquo;</h2>
       <p>I&rsquo;m Becca Ruffalo &mdash; a twenty-something who lives for traveling. This is where I share the process behind the destinations: how to plan better trips, stretch your budget, and leave each place inspired to book the next one.</p>
       <span class="btn" onclick="go('about')">Read My Story</span>
+    </section>
+
+    <!-- Featured editorial cards -->
+    <section class="feat">
+      <span class="feat-eyebrow">Explore</span>
+      <h2 class="feat-h">Current Guides</h2>
+      <div class="feat-grid">
+
+        <div class="feat-card" onclick="go('milan')">
+          <img src="" data-k="duomo" alt="Duomo di Milano, Milan" />
+          <div class="feat-card-veil"></div>
+          <div class="feat-card-text">
+            <span class="feat-tag">Italy &middot; City Guide</span>
+            <span class="feat-title">Milan, Planned</span>
+            <span class="feat-cta">Read the Guide &rarr;</span>
+          </div>
+        </div>
+
+        <div class="feat-card" onclick="go('seville')">
+          <img src="" data-k="seville-plaza" alt="Plaza de España, Seville" />
+          <div class="feat-card-veil"></div>
+          <div class="feat-card-text">
+            <span class="feat-tag">Spain &middot; Weekend Itinerary</span>
+            <span class="feat-title">Seville, Planned</span>
+            <span class="feat-cta">View Itinerary &rarr;</span>
+          </div>
+        </div>
+
+      </div>
     </section>
 
     <!-- Bucket list split promo -->

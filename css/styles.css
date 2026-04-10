@@ -82,15 +82,16 @@ nav {
   justify-content: space-between;
   align-items: center;
   padding: 1.6rem 4rem;
-  transition: background .3s ease, padding .3s ease, border-color .3s ease;
-  transform: translateZ(0);  /* own compositor layer — kills flicker */
+  background: transparent;
+  transition: background .35s ease, padding .35s ease;
+  will-change: background, padding;
 }
 nav.on {
-  background: var(--mist);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: rgba(247, 242, 232, 0.96);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   padding: 1rem 4rem;
-  border-bottom: 1px solid rgba(168, 132, 58, .18);
+  border-bottom: 1px solid rgba(168, 132, 58, .15);
 }
 .logo {
   font-family: 'Cormorant SC', serif;
@@ -498,13 +499,24 @@ nav.on .nav-toggle span { background: var(--mid); }
 
 
 /* ── 5. Cards ──────────────────────────────────────────────── */
-.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem 2.5rem; }
-.card { cursor: pointer; }
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 2.4rem 2rem; }
+.card {
+  cursor: pointer;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 2px 12px rgba(41,26,16,.07), 0 1px 3px rgba(41,26,16,.04);
+  transition: transform .45s cubic-bezier(.25,.46,.45,.94), box-shadow .45s;
+}
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 52px rgba(41,26,16,.14), 0 4px 12px rgba(41,26,16,.06);
+}
 .card-img {
   position: relative;
   overflow: hidden;
   aspect-ratio: 3/4;
-  margin-bottom: 1.4rem;
+  margin-bottom: 0;
 }
 .card-img img {
   width: 100%; height: 100%;
@@ -525,7 +537,7 @@ nav.on .nav-toggle span { background: var(--mid); }
   transition: background .5s ease;
 }
 .card:hover .card-img::after {
-  background: linear-gradient(to top, rgba(30,15,6,.65), rgba(30,15,6,.1) 70%);
+  background: linear-gradient(to top, rgba(30,15,6,.6), rgba(30,15,6,.1) 70%);
 }
 /* Hover tag reveal inside card image */
 .card-img-label {
@@ -549,12 +561,13 @@ nav.on .nav-toggle span { background: var(--mid); }
 }
 .card-tag {
   font-family: 'Jost', sans-serif;
-  font-size: .58rem;
+  font-size: .55rem;
   font-weight: 300;
   letter-spacing: .3em;
   text-transform: uppercase;
   color: var(--terra);
-  margin-bottom: .5rem;
+  display: block;
+  padding: 1.4rem 1.5rem 0;
 }
 .card-title {
   font-family: 'Cormorant Garamond', serif;
@@ -562,16 +575,22 @@ nav.on .nav-toggle span { background: var(--mid); }
   font-weight: 500;
   color: var(--brown);
   line-height: 1.2;
-  margin-bottom: .6rem;
+  padding: .45rem 1.5rem 0;
   transition: color .2s;
 }
 .card:hover .card-title { color: var(--terra); }
 .card-exc {
   font-family: 'Jost', sans-serif;
-  font-size: .86rem;
+  font-size: .84rem;
   font-weight: 300;
   color: var(--mid);
   line-height: 1.8;
+  padding: .6rem 1.5rem 0;
+}
+.card .arrow {
+  display: block;
+  padding: 1rem 1.5rem 1.8rem;
+  margin-top: 0;
 }
 
 
@@ -581,7 +600,13 @@ nav.on .nav-toggle span { background: var(--mid); }
   grid-template-columns: 1fr 1fr;
   background: var(--parchment);
   overflow: hidden;
-  margin: 4.5rem 0;
+  border-radius: 18px;
+  margin: 2rem 2.5rem 5rem;
+  box-shadow: 0 4px 24px rgba(41,26,16,.08), 0 1px 4px rgba(41,26,16,.04);
+  transition: box-shadow .45s;
+}
+.split:hover {
+  box-shadow: 0 16px 56px rgba(41,26,16,.13), 0 4px 12px rgba(41,26,16,.06);
 }
 .split-img { overflow: hidden; min-height: 520px; }
 .split-img img {
@@ -616,7 +641,111 @@ nav.on .nav-toggle span { background: var(--mid); }
 }
 
 
-/* ── 7. Newsletter ─────────────────────────────────────────── */
+/* ── 7. Featured editorial cards (homepage) ────────────────── */
+.feat {
+  background: var(--ink);
+  padding: 5.5rem 2.5rem;
+}
+.feat-eyebrow {
+  font-family: 'Jost', sans-serif;
+  font-size: .56rem;
+  font-weight: 300;
+  letter-spacing: .42em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: .75;
+  display: block;
+  text-align: center;
+  margin-bottom: .6rem;
+}
+.feat-h {
+  font-family: 'Cormorant SC', serif;
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  font-weight: 300;
+  letter-spacing: .1em;
+  color: var(--cream);
+  text-align: center;
+  margin-bottom: 2.8rem;
+}
+.feat-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.6rem;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+.feat-card {
+  position: relative;
+  cursor: pointer;
+  border-radius: 14px;
+  overflow: hidden;
+  aspect-ratio: 4/5;
+  box-shadow: 0 4px 24px rgba(0,0,0,.25);
+  transition: transform .5s cubic-bezier(.25,.46,.45,.94), box-shadow .5s;
+}
+.feat-card:hover {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 20px 60px rgba(0,0,0,.38);
+}
+.feat-card img {
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform .8s cubic-bezier(.25,.46,.45,.94);
+}
+.feat-card:hover img { transform: scale(1.05); }
+.feat-card-veil {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(15,8,3,.82) 0%, rgba(15,8,3,.2) 50%, transparent 100%);
+}
+.feat-card-text {
+  position: absolute;
+  bottom: 2rem;
+  left: 2rem;
+  right: 2rem;
+}
+.feat-tag {
+  display: block;
+  font-family: 'Jost', sans-serif;
+  font-size: .52rem;
+  font-weight: 300;
+  letter-spacing: .24em;
+  text-transform: uppercase;
+  color: var(--tan);
+  margin-bottom: .55rem;
+}
+.feat-title {
+  display: block;
+  font-family: 'Cormorant SC', serif;
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
+  font-weight: 300;
+  letter-spacing: .08em;
+  color: var(--cream);
+  line-height: 1.1;
+  margin-bottom: .7rem;
+}
+.feat-cta {
+  display: inline-block;
+  font-family: 'Jost', sans-serif;
+  font-size: .52rem;
+  font-weight: 300;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: rgba(247,242,232,.65);
+  border-bottom: 1px solid rgba(247,242,232,.22);
+  padding-bottom: 2px;
+  transition: color .25s, border-color .25s;
+}
+.feat-card:hover .feat-cta {
+  color: var(--cream);
+  border-color: rgba(247,242,232,.6);
+}
+
+
+/* ── 8. Newsletter ─────────────────────────────────────────── */
 .nl {
   background: var(--brown);
   padding: 5rem 2.5rem;
@@ -873,8 +1002,8 @@ footer {
 /* ── 10. Article / Sub-page styles ─────────────────────────── */
 .art-hero {
   position: relative;
-  height: 70vh;
-  min-height: 480px;
+  height: 78vh;
+  min-height: 520px;
   overflow: hidden;
 }
 .art-hero img { width: 100%; height: 100%; object-fit: cover; }
@@ -1415,6 +1544,14 @@ footer {
 
   /* Article body */
   .art-body { padding: 3rem 0 4.5rem; }
+
+  /* Featured cards — stack on mobile */
+  .feat { padding: 4rem 1.4rem; }
+  .feat-grid { grid-template-columns: 1fr; gap: 1.2rem; }
+  .feat-card { aspect-ratio: 3/4; }
+
+  /* Split — remove border-radius on mobile */
+  .split { border-radius: 0; margin: 0 0 3.5rem; }
 
   /* Image layouts — stack on mobile */
   .img-duo,
