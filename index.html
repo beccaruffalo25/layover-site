@@ -138,32 +138,12 @@
       <span class="btn" onclick="go('about')">Read My Story</span>
     </section>
 
-    <!-- Featured editorial cards -->
+    <!-- Featured editorial cards — populated by buildJustLanded() -->
     <section class="feat">
       <span class="feat-eyebrow">Explore</span>
-      <h2 class="feat-h">Current Guides</h2>
-      <div class="feat-grid">
-
-        <div class="feat-card" onclick="go('milan')">
-          <img src="" data-k="duomo" alt="Duomo di Milano, Milan" />
-          <div class="feat-card-veil"></div>
-          <div class="feat-card-text">
-            <span class="feat-tag">Italy &middot; City Guide</span>
-            <span class="feat-title">Milan, Planned</span>
-            <span class="feat-cta">Read the Guide &rarr;</span>
-          </div>
-        </div>
-
-        <div class="feat-card" onclick="go('seville')">
-          <img src="" data-k="seville-plaza" alt="Plaza de España, Seville" />
-          <div class="feat-card-veil"></div>
-          <div class="feat-card-text">
-            <span class="feat-tag">Spain &middot; Weekend Itinerary</span>
-            <span class="feat-title">Seville, Planned</span>
-            <span class="feat-cta">View Itinerary &rarr;</span>
-          </div>
-        </div>
-
+      <h2 class="feat-h">Just Landed</h2>
+      <div class="feat-grid" id="just-landed-grid">
+        <!-- JS inserts cards here sorted by data-date on each destination page -->
       </div>
     </section>
 
@@ -317,7 +297,12 @@
        PAGE: MILAN (individual city guide)
        Reached from: City Guides index → Milan card
   ════════════════════════════════════════════════════════════ -->
-  <div id="milan" class="page">
+  <div id="milan" class="page"
+       data-date="2024-06-01"
+       data-feat-img="duomo"
+       data-feat-title="Milan, Planned"
+       data-feat-tag="Italy &middot; City Guide"
+       data-feat-cta="Read the Guide">
 
     <div class="art-hero art-hero--title">
       <div class="art-hero-text">
@@ -664,7 +649,12 @@
        PAGE: SEVILLE (individual itinerary)
        Reached from: Itineraries index → Seville card
   ════════════════════════════════════════════════════════════ -->
-  <div id="seville" class="page">
+  <div id="seville" class="page"
+       data-date="2024-09-15"
+       data-feat-img="seville-plaza"
+       data-feat-title="Seville, Planned"
+       data-feat-tag="Spain &middot; Weekend Itinerary"
+       data-feat-cta="View Itinerary">
 
     <div class="art-hero art-hero--title">
       <div class="art-hero-text">

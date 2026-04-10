@@ -199,6 +199,34 @@ function addPhotos(e) {
 }
 
 
+/* ── Just Landed — dynamic featured grid ──────────────────── */
+function buildJustLanded() {
+  const grid = document.getElementById('just-landed-grid');
+  if (!grid) return;
+
+  // Collect destination pages with data-date
+  const pages = Array.from(document.querySelectorAll('.page[data-date]'));
+  if (!pages.length) return;
+
+  // Sort newest first
+  pages.sort((a, b) => new Date(b.dataset.date) - new Date(a.dataset.date));
+  const recent = pages.slice(0, 2);
+
+  grid.innerHTML = recent.map(p => `
+    <div class="feat-card" onclick="go('${p.id}')">
+      <img src="" data-k="${p.dataset.featImg}" alt="${p.dataset.featTitle}" />
+      <div class="feat-card-veil"></div>
+      <div class="feat-card-text">
+        <span class="feat-tag">${p.dataset.featTag}</span>
+        <span class="feat-title">${p.dataset.featTitle}</span>
+        <span class="feat-cta">${p.dataset.featCta} &rarr;</span>
+      </div>
+    </div>`).join('');
+
+  loadImages();
+}
+
+
 /* ── Footer builder (runs once on load) ───────────────────── */
 function buildFooters() {
   document.querySelectorAll('footer').forEach(f => {
@@ -321,6 +349,7 @@ function initReveal() {
 /* ── Init on load ──────────────────────────────────────────── */
 document.addEventListener('DOMContentLoaded', () => {
   buildFooters();
+  buildJustLanded();
   const homeEl = document.getElementById('home');
   initShimmer(homeEl);
   loadImages();
