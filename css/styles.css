@@ -81,13 +81,13 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.6rem 4rem;
+  padding: 0.75rem 4rem;
   background: var(--cream);
   border-bottom: 1px solid transparent;
   transition: padding .35s ease, border-color .35s ease;
 }
 nav.on {
-  padding: 1rem 4rem;
+  padding: 0.5rem 4rem;
   border-bottom-color: rgba(168, 132, 58, .15);
 }
 .logo {
@@ -1507,7 +1507,7 @@ footer {
 
 /* ── Tablet (≤ 860px) ──────────────────────────────────────── */
 @media (max-width: 860px) {
-  nav, nav.on { padding: 1.1rem 2.2rem; }
+  nav, nav.on { padding: 0.75rem 2.2rem; }
   .about-grid  { grid-template-columns: 1fr; gap: 3rem; padding: 4rem 0; }
   .sticky-img  { position: static; }
   .bucket-grid { grid-template-columns: 1fr; gap: 2.5rem 0; }
@@ -1635,7 +1635,7 @@ footer {
 
 /* ── Small mobile (≤ 480px) ────────────────────────────────── */
 @media (max-width: 480px) {
-  nav, nav.on { padding: 1rem 1.4rem; }
+  nav, nav.on { padding: 0.6rem 1.4rem; }
   .wrap, .wrap-sm { padding: 0 1rem; }
   .sec         { padding: 3rem 0; }
 
