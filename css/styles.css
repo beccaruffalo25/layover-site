@@ -85,12 +85,12 @@ nav {
   align-items: center;
   padding: 0.75rem 4rem;
   background: var(--cream);
-  border-bottom: 1px solid transparent;
-  transition: padding .35s ease, border-color .35s ease;
+  border-bottom: 1px solid rgba(168, 132, 58, .15);
+  box-shadow: 0 2px 12px rgba(41, 26, 16, .06);
+  transition: padding .35s ease;
 }
 nav.on {
   padding: 0.5rem 4rem;
-  border-bottom-color: rgba(168, 132, 58, .15);
 }
 .logo {
   font-family: 'Cormorant SC', serif;
