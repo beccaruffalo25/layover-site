@@ -32,6 +32,7 @@
   --ink:       #291a10;
   --gold:      #a8843a;
   --mist:      rgba(247, 242, 232, 0.93);
+  --nav-h:     48px;
 }
 
 html  { scroll-behavior: smooth; }
@@ -44,6 +45,7 @@ body  {
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  padding-top: var(--nav-h);
 }
 
 /* Smooth photo rendering across browsers */
@@ -246,8 +248,8 @@ nav.on {
 /* ── 3. Hero (Homepage) ────────────────────────────────────── */
 .hero {
   position: relative;
-  height: 100vh;
-  min-height: 640px;
+  height: calc(100vh - var(--nav-h));
+  min-height: 600px;
   overflow: hidden;
   display: flex;
   align-items: center;
