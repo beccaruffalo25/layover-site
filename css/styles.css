@@ -248,7 +248,8 @@ nav.on {
 /* ── 3. Hero (Homepage) ────────────────────────────────────── */
 .hero {
   position: relative;
-  height: calc(100vh - var(--nav-h));
+  margin-top: calc(-1 * var(--nav-h));
+  height: 100vh;
   min-height: 600px;
   overflow: hidden;
   display: flex;
