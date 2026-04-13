@@ -76,7 +76,7 @@ img { image-rendering: auto; }
 
 
 /* ── 2. Navigation ─────────────────────────────────────────── */
-nav {
+#nav {
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 100;
@@ -89,7 +89,7 @@ nav {
   box-shadow: 0 2px 12px rgba(41, 26, 16, .06);
   transition: padding .35s ease;
 }
-nav.on {
+#nav.on {
   padding: 0.5rem 4rem;
 }
 .logo {
@@ -1509,7 +1509,7 @@ footer {
 
 /* ── Tablet (≤ 860px) ──────────────────────────────────────── */
 @media (max-width: 860px) {
-  nav, nav.on { padding: 0.75rem 2.2rem; }
+  #nav, #nav.on { padding: 0.75rem 2.2rem; }
   .about-grid  { grid-template-columns: 1fr; gap: 3rem; padding: 4rem 0; }
   .sticky-img  { position: static; }
   .bucket-grid { grid-template-columns: 1fr; gap: 2.5rem 0; }
@@ -1637,7 +1637,7 @@ footer {
 
 /* ── Small mobile (≤ 480px) ────────────────────────────────── */
 @media (max-width: 480px) {
-  nav, nav.on { padding: 0.6rem 1.4rem; }
+  #nav, #nav.on { padding: 0.6rem 1.4rem; }
   .wrap, .wrap-sm { padding: 0 1rem; }
   .sec         { padding: 3rem 0; }
 
