@@ -170,6 +170,14 @@ window.addEventListener('scroll', () => {
   document.getElementById('nav').classList.toggle('on', window.scrollY > 50);
 });
 
+/* ── Nav height → CSS variable (keeps hero/page offsets exact) ── */
+function applyNavHeight() {
+  const h = document.getElementById('nav').offsetHeight;
+  document.documentElement.style.setProperty('--nav-h', h + 'px');
+}
+applyNavHeight();
+window.addEventListener('resize', applyNavHeight);
+
 
 /* ── Active nav link ───────────────────────────────────────── */
 function setActiveNav(id) {

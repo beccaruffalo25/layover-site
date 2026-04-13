@@ -45,6 +45,7 @@ body  {
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  padding-top: var(--nav-h); /* JS measures actual nav height and sets this variable */
 }
 
 /* Smooth photo rendering across browsers */
@@ -52,8 +53,7 @@ img { image-rendering: auto; }
 
 /* Pages (SPA-style show/hide) */
 .page        { display: none; }
-.page.active { display: block; padding-top: var(--nav-h); animation: pageIn .5s cubic-bezier(.22,1,.36,1) both; }
-#home.page.active { padding-top: 0; } /* hero fills from top — no offset needed */
+.page.active { display: block; animation: pageIn .5s cubic-bezier(.22,1,.36,1) both; }
 @keyframes pageIn {
   from { opacity: 0; transform: translateY(14px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -248,7 +248,7 @@ nav.on {
 /* ── 3. Hero (Homepage) ────────────────────────────────────── */
 .hero {
   position: relative;
-  height: 100vh;
+  height: calc(100vh - var(--nav-h));
   min-height: 600px;
   overflow: hidden;
   display: flex;
