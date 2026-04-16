@@ -181,10 +181,18 @@ window.addEventListener('resize', applyNavHeight);
 
 /* ── Active nav link ───────────────────────────────────────── */
 function setActiveNav(id) {
+  const parentMap = {
+    'milan':       'travel',
+    'seville':     'travel',
+    'city-guides': 'travel',
+    'itineraries': 'travel',
+    'planning':    'strategy',
+    'bucket':      'inspo',
+  };
+  const activeId = parentMap[id] || id;
   document.querySelectorAll('.nav-links a').forEach(a => {
     a.classList.remove('active');
-    // Match the nav link by its onclick target
-    if (a.getAttribute('onclick') === `go('${id}')`) {
+    if (a.getAttribute('onclick') === `go('${activeId}')`) {
       a.classList.add('active');
     }
   });
@@ -244,10 +252,9 @@ function buildFooters() {
         <span class="f-copy">&copy; 2025 Becca Ruffalo &middot; All Rights Reserved</span>
       </div>
       <nav class="f-nav" aria-label="Footer">
-        <a onclick="go('city-guides')">City Guides</a>
-        <a onclick="go('itineraries')">Itineraries</a>
-        <a onclick="go('planning')">Planning</a>
-        <a onclick="go('bucket')">Bucket List</a>
+        <a onclick="go('travel')">Travel</a>
+        <a onclick="go('strategy')">Strategy</a>
+        <a onclick="go('inspo')">Inspo</a>
         <a onclick="go('about')">About</a>
       </nav>
       <div class="f-social">

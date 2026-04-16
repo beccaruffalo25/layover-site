@@ -43,18 +43,12 @@
     <ul class="nav-links" id="nav-links">
       <li><a onclick="go('home')">Home</a></li>
       <li class="has-dropdown">
-        <a onclick="go('city-guides')">City Guides</a>
+        <a onclick="go('travel')">Travel</a>
         <div class="dropdown">
           <a class="drop-item" onclick="go('milan')">
             <span class="drop-city">Milan</span>
             <span class="drop-meta">Italy &middot; City Guide</span>
           </a>
-          <span class="drop-more">More coming soon</span>
-        </div>
-      </li>
-      <li class="has-dropdown">
-        <a onclick="go('itineraries')">Itineraries</a>
-        <div class="dropdown">
           <a class="drop-item" onclick="go('seville')">
             <span class="drop-city">Seville</span>
             <span class="drop-meta">Spain &middot; Weekend Itinerary</span>
@@ -62,40 +56,8 @@
           <span class="drop-more">More coming soon</span>
         </div>
       </li>
-      <li class="has-dropdown">
-        <a onclick="go('planning')">Planning</a>
-        <div class="dropdown">
-          <a class="drop-item" onclick="go('planning')">
-            <span class="drop-city">Flights</span>
-            <span class="drop-meta">Skyscanner &middot; Google Flights</span>
-          </a>
-          <a class="drop-item" onclick="go('planning')">
-            <span class="drop-city">Stays</span>
-            <span class="drop-meta">Expedia &middot; Hotwire &middot; Airbnb</span>
-          </a>
-          <a class="drop-item" onclick="go('planning')">
-            <span class="drop-city">Adventures</span>
-            <span class="drop-meta">Get Your Guide &middot; Pinterest</span>
-          </a>
-          <a class="drop-item" onclick="go('planning')">
-            <span class="drop-city">Logistics</span>
-            <span class="drop-meta">Omio &middot; Expedia &middot; ChatGPT</span>
-          </a>
-        </div>
-      </li>
-      <li class="has-dropdown">
-        <a onclick="go('bucket')">Bucket List</a>
-        <div class="dropdown">
-          <a class="drop-item" onclick="go('bucket')">
-            <span class="drop-city">Been There</span>
-            <span class="drop-meta">10 checked-off experiences</span>
-          </a>
-          <a class="drop-item" onclick="go('bucket')">
-            <span class="drop-city">Dream List</span>
-            <span class="drop-meta">10 destinations still waiting</span>
-          </a>
-        </div>
-      </li>
+      <li><a onclick="go('strategy')">Strategy</a></li>
+      <li><a onclick="go('inspo')">Inspo</a></li>
       <li class="has-dropdown">
         <a onclick="go('about')">About</a>
         <div class="dropdown">
@@ -157,7 +119,7 @@
         <h2>&ldquo;The Oia sunset is one of those rare things that lives up to every photograph.&rdquo;</h2>
         <p>Watching the sun melt into the Aegean from the cliffs of Oia, surrounded by white-washed walls and blue domes, is every bit as extraordinary as you&rsquo;ve imagined.</p>
         <p>Explore the full bucket list &mdash; experiences I can personally recommend alongside the destinations still waiting on my list.</p>
-        <span class="arrow" onclick="go('bucket')">See the Bucket List &rarr;</span>
+        <span class="arrow" onclick="go('inspo')">See the Bucket List &rarr;</span>
       </div>
     </div>
 
@@ -234,6 +196,60 @@
       <span class="f-copy">&copy; 2025 Becca Ruffalo &middot; All Rights Reserved</span>
     </footer>
   </div><!-- /city-guides -->
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       PAGE: TRAVEL (consolidates City Guides + Itineraries)
+  ════════════════════════════════════════════════════════════ -->
+  <div id="travel" class="page">
+
+    <div class="art-hero art-hero--title">
+      <div class="art-hero-text">
+        <span class="label" style="color:var(--tan)">Destinations</span>
+        <h1>Travel</h1>
+        <p class="sub">City guides and itineraries built from real experience.</p>
+      </div>
+    </div>
+
+    <section class="sec">
+      <div class="wrap">
+
+        <span class="label">City Guides</span>
+        <div class="grid-2" style="margin-top:1.8rem">
+          <div class="card" onclick="go('milan')">
+            <div class="card-img">
+              <img src="" data-k="duomo" alt="Duomo di Milano" />
+              <span class="card-img-label">Read Guide &rarr;</span>
+            </div>
+            <p class="card-tag">Italy &middot; City Guide</p>
+            <h3 class="card-title">Milan, Planned</h3>
+            <p class="card-exc">A thoughtful weekend guide to Italy&rsquo;s most misunderstood city. Spending four months living here showed me how much beauty exists beneath the surface.</p>
+            <span class="arrow">Read the Guide &rarr;</span>
+          </div>
+        </div>
+
+        <span class="label" style="margin-top:4rem">Itineraries</span>
+        <div class="grid-2" style="margin-top:1.8rem">
+          <div class="card" onclick="go('seville')">
+            <div class="card-img">
+              <img src="" data-k="seville-hero" alt="Plaza de España, Seville" />
+              <span class="card-img-label">View Itinerary &rarr;</span>
+            </div>
+            <p class="card-tag">Spain &middot; Weekend Itinerary</p>
+            <h3 class="card-title">Seville, Planned</h3>
+            <p class="card-exc">A warm, romantic weekend in Spain&rsquo;s most colorful city &mdash; golden plazas, live flamenco, and tapas bars that go until midnight.</p>
+            <span class="arrow">View Itinerary &rarr;</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <footer>
+      <span class="f-logo">LAYOVER</span>
+      <span class="f-copy">&copy; 2025 Becca Ruffalo &middot; All Rights Reserved</span>
+    </footer>
+  </div><!-- /travel -->
 
 
   <!-- ═══════════════════════════════════════════════════════
@@ -320,7 +336,7 @@
     </div>
 
     <div class="wrap-sm art-body">
-      <a class="back" onclick="go('city-guides')">All City Guides</a>
+      <a class="back" onclick="go('travel')">All Destinations</a>
 
       <p class="lede" style="margin-top:2.4rem">If you ask someone who&rsquo;s been to Milan what they thought of it, you&rsquo;ll probably get mixed reviews. Some will call it a day trip; others will say it was boring. Many skip it altogether in favor of cities like Florence, Venice, or Rome.</p>
       <p>Spending four months living here showed me just how misunderstood Milan really is. Its beauty isn&rsquo;t in checking off major sights (though there are a few worth seeing), but in what exists beneath the surface. Milan is a city for walking aimlessly &mdash; stumbling upon quiet plazas and leafy parks. It&rsquo;s aperitivo and long dinners shared with good people and great food. It&rsquo;s for fashion lovers and casual admirers alike, whether you&rsquo;re browsing shop windows or taking in the city&rsquo;s unmatched street style. It&rsquo;s Lake Como just an easy day trip away, and luxury outlets waiting just beyond the city.</p>
@@ -440,22 +456,24 @@
 
 
   <!-- ═══════════════════════════════════════════════════════
-       PAGE: BUCKET LIST
+       PAGE: INSPO (Bucket List + Map)
   ════════════════════════════════════════════════════════════ -->
-  <div id="bucket" class="page">
+  <div id="inspo" class="page">
 
     <div class="art-hero art-hero--title">
       <div class="art-hero-text">
         <span class="label" style="color:var(--tan)">Inspiration</span>
-        <h1>Bucket List</h1>
-        <p class="sub">Experiences to dream about, plan for, and check off one by one.</p>
+        <h1>Inspo</h1>
+        <p class="sub">Experiences to dream about, destinations to discover.</p>
       </div>
     </div>
 
     <section class="sec">
       <div class="wrap-sm">
-        <a class="back" onclick="go('home')">All Posts</a>
-        <p class="lede" style="margin-top:2.4rem">Everyone needs a bit of inspiration from time to time. With a world so vast and beautiful it can be hard to narrow down your next destination. To help guide your next adventure, I&rsquo;ve curated a list of bucket-list experiences &mdash; some I can personally recommend, and others I&rsquo;m still dreaming of &mdash; to inspire your next vision board.</p>
+
+        <h2 class="h-sec" style="margin-bottom:2.4rem">Bucket List</h2>
+
+        <p class="lede">Everyone needs a bit of inspiration from time to time. With a world so vast and beautiful it can be hard to narrow down your next destination. To help guide your next adventure, I&rsquo;ve curated a list of bucket-list experiences &mdash; some I can personally recommend, and others I&rsquo;m still dreaming of &mdash; to inspire your next vision board.</p>
 
         <div class="img-trio">
           <img src="" data-k="santorini-pool" alt="Infinity pool, Santorini" />
@@ -496,6 +514,11 @@
           </div>
 
         </div>
+
+        <div style="margin-top:6rem;padding-top:4rem;border-top:1px solid rgba(168,132,58,.15)">
+          <h2 class="h-sec">Map</h2>
+        </div>
+
       </div>
     </section>
 
@@ -503,13 +526,13 @@
       <span class="f-logo">LAYOVER</span>
       <span class="f-copy">&copy; 2025 Becca Ruffalo &middot; All Rights Reserved</span>
     </footer>
-  </div><!-- /bucket -->
+  </div><!-- /inspo -->
 
 
   <!-- ═══════════════════════════════════════════════════════
-       PAGE: PLANNING
+       PAGE: STRATEGY
   ════════════════════════════════════════════════════════════ -->
-  <div id="planning" class="page">
+  <div id="strategy" class="page">
 
     <div class="art-hero art-hero--title">
       <div class="art-hero-text">
@@ -603,7 +626,7 @@
       <span class="f-logo">LAYOVER</span>
       <span class="f-copy">&copy; 2025 Becca Ruffalo &middot; All Rights Reserved</span>
     </footer>
-  </div><!-- /planning -->
+  </div><!-- /strategy -->
 
 
   <!-- ═══════════════════════════════════════════════════════
@@ -672,7 +695,7 @@
     </div>
 
     <div class="wrap-sm art-body">
-      <a class="back" onclick="go('itineraries')">All Itineraries</a>
+      <a class="back" onclick="go('travel')">All Destinations</a>
 
       <p class="lede" style="margin-top:2.4rem">Seville is warm, colorful, and romantic. With tile and warm brick illuminated by golden sunlight, lush gardens filled with orange trees, and every corner bursting with flamenco culture, Seville feels like a fairytale town frozen in time.</p>
 
@@ -873,7 +896,7 @@
       </div>
     </div>
     <div class="wrap-sm art-body">
-      <a class="back" onclick="go('city-guides')">All City Guides</a>
+      <a class="back" onclick="go('travel')">All Destinations</a>
       <p class="lede" style="margin-top:2.4rem">Your intro paragraph here...</p>
     </div>
     <footer>
