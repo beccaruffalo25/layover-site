@@ -200,8 +200,7 @@
 
   <!-- ═══════════════════════════════════════════════════════
        PAGE: TRAVEL
-       Overview grid → four content sections:
-       Experiences · Weekend Plans · Itineraries · City Guides
+       Full-bleed category tiles → four anchored content sections
   ════════════════════════════════════════════════════════════ -->
   <div id="travel" class="page">
 
@@ -213,53 +212,74 @@
       </div>
     </div>
 
-    <!-- Overview: all four sections at a glance -->
-    <section class="sec" style="padding-bottom:0">
+    <!-- Full-bleed 2×2 category tiles -->
+    <div class="travel-cat-grid">
+
+      <div class="travel-cat-tile" onclick="document.getElementById('sec-experiences').scrollIntoView({behavior:'smooth'})">
+        <img src="" data-k="santorini-arch" alt="Experiences" />
+        <div class="travel-cat-veil"></div>
+        <div class="travel-cat-body">
+          <span class="label">01</span>
+          <p class="travel-cat-name">Experiences</p>
+          <p class="travel-cat-desc">Hot air balloons, desert tours, and excursions worth booking.</p>
+          <span class="travel-cat-arrow">Explore &rarr;</span>
+        </div>
+      </div>
+
+      <div class="travel-cat-tile" onclick="document.getElementById('sec-weekend-plans').scrollIntoView({behavior:'smooth'})">
+        <img src="" data-k="seville-plaza" alt="Weekend Plans" />
+        <div class="travel-cat-veil"></div>
+        <div class="travel-cat-body">
+          <span class="label">02</span>
+          <p class="travel-cat-name">Weekend Plans</p>
+          <p class="travel-cat-desc">Friday&ndash;Sunday planned trips with day-by-day itineraries.</p>
+          <span class="travel-cat-arrow">Explore &rarr;</span>
+        </div>
+      </div>
+
+      <div class="travel-cat-tile" onclick="document.getElementById('sec-itineraries').scrollIntoView({behavior:'smooth'})">
+        <img src="" data-k="positano" alt="Itineraries" />
+        <div class="travel-cat-veil"></div>
+        <div class="travel-cat-body">
+          <span class="label">03</span>
+          <p class="travel-cat-name">Itineraries</p>
+          <p class="travel-cat-desc">Multi-city and regional routes spanning 5 days or more.</p>
+          <span class="travel-cat-arrow">Explore &rarr;</span>
+        </div>
+      </div>
+
+      <div class="travel-cat-tile" onclick="document.getElementById('sec-city-guides').scrollIntoView({behavior:'smooth'})">
+        <img src="" data-k="hero" alt="City Guides" />
+        <div class="travel-cat-veil"></div>
+        <div class="travel-cat-body">
+          <span class="label">04</span>
+          <p class="travel-cat-name">City Guides</p>
+          <p class="travel-cat-desc">In-depth guidance on how to experience a city, neighborhood by neighborhood.</p>
+          <span class="travel-cat-arrow">Explore &rarr;</span>
+        </div>
+      </div>
+
+    </div><!-- /travel-cat-grid -->
+
+    <!-- 01 — Experiences (placeholder) -->
+    <section class="sec" id="sec-experiences">
       <div class="wrap">
-        <span class="label">Explore</span>
-        <div class="travel-nav-grid">
-
-          <div class="travel-nav-card" onclick="document.getElementById('sec-experiences').scrollIntoView({behavior:'smooth'})">
-            <p class="travel-nav-title">Experiences</p>
-            <p>Specific adventures &mdash; hot air balloons, desert tours, and excursions worth booking.</p>
-            <span class="arrow">Explore &rarr;</span>
-          </div>
-
-          <div class="travel-nav-card" onclick="document.getElementById('sec-weekend-plans').scrollIntoView({behavior:'smooth'})">
-            <p class="travel-nav-title">Weekend Plans</p>
-            <p>Friday&ndash;Sunday planned trips with day-by-day itineraries.</p>
-            <span class="arrow">Explore &rarr;</span>
-          </div>
-
-          <div class="travel-nav-card" onclick="document.getElementById('sec-itineraries').scrollIntoView({behavior:'smooth'})">
-            <p class="travel-nav-title">Itineraries</p>
-            <p>Multi-city and regional routes spanning 5 days or more.</p>
-            <span class="arrow">Explore &rarr;</span>
-          </div>
-
-          <div class="travel-nav-card" onclick="document.getElementById('sec-city-guides').scrollIntoView({behavior:'smooth'})">
-            <p class="travel-nav-title">City Guides</p>
-            <p>In-depth guidance on how to experience a city, neighborhood by neighborhood.</p>
-            <span class="arrow">Explore &rarr;</span>
-          </div>
-
+        <div class="travel-sec-hd">
+          <span class="label">01</span>
+          <h2 class="travel-sec-title">Experiences</h2>
+          <p class="travel-sec-desc">Hot air balloons, desert tours, and excursions worth booking.</p>
         </div>
       </div>
     </section>
 
-    <!-- 1. Experiences — placeholder -->
-    <section class="sec" id="sec-experiences">
-      <div class="wrap">
-        <span class="label">Experiences</span>
-        <p style="font-family:'Jost',sans-serif;font-size:.84rem;font-weight:300;color:var(--mid);line-height:1.65;margin:.6rem 0 0;max-width:52ch">Specific adventures &mdash; hot air balloons, desert tours, and excursions worth booking.</p>
-      </div>
-    </section>
-
-    <!-- 2. Weekend Plans -->
+    <!-- 02 — Weekend Plans -->
     <section class="sec" id="sec-weekend-plans" style="padding-top:0">
       <div class="wrap">
-        <span class="label">Weekend Plans</span>
-        <p style="font-family:'Jost',sans-serif;font-size:.84rem;font-weight:300;color:var(--mid);line-height:1.65;margin:.6rem 0 2.4rem;max-width:52ch">Friday&ndash;Sunday planned trips with day-by-day itineraries.</p>
+        <div class="travel-sec-hd">
+          <span class="label">02</span>
+          <h2 class="travel-sec-title">Weekend Plans</h2>
+          <p class="travel-sec-desc">Friday&ndash;Sunday planned trips with day-by-day itineraries.</p>
+        </div>
         <div class="grid-2">
           <div class="card" onclick="go('seville')">
             <div class="card-img">
@@ -275,19 +295,25 @@
       </div>
     </section>
 
-    <!-- 3. Itineraries — placeholder -->
+    <!-- 03 — Itineraries (placeholder) -->
     <section class="sec" id="sec-itineraries" style="padding-top:0">
       <div class="wrap">
-        <span class="label">Itineraries</span>
-        <p style="font-family:'Jost',sans-serif;font-size:.84rem;font-weight:300;color:var(--mid);line-height:1.65;margin:.6rem 0 0;max-width:52ch">Multi-city and regional routes spanning 5 days or more.</p>
+        <div class="travel-sec-hd">
+          <span class="label">03</span>
+          <h2 class="travel-sec-title">Itineraries</h2>
+          <p class="travel-sec-desc">Multi-city and regional routes spanning 5 days or more.</p>
+        </div>
       </div>
     </section>
 
-    <!-- 4. City Guides -->
+    <!-- 04 — City Guides -->
     <section class="sec" id="sec-city-guides" style="padding-top:0">
       <div class="wrap">
-        <span class="label">City Guides</span>
-        <p style="font-family:'Jost',sans-serif;font-size:.84rem;font-weight:300;color:var(--mid);line-height:1.65;margin:.6rem 0 2.4rem;max-width:52ch">In-depth guidance on how to experience a city, neighborhood by neighborhood.</p>
+        <div class="travel-sec-hd">
+          <span class="label">04</span>
+          <h2 class="travel-sec-title">City Guides</h2>
+          <p class="travel-sec-desc">In-depth guidance on how to experience a city, neighborhood by neighborhood.</p>
+        </div>
         <div class="grid-2">
           <div class="card" onclick="go('milan')">
             <div class="card-img">
