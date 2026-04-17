@@ -1341,8 +1341,14 @@ footer {
   text-align: center;
 }
 
-/* Tools (Planning page) */
-.tool-cat { margin-bottom: 3.2rem; }
+/* Tools (Strategy page) */
+.tool-cat {
+  background: #fff;
+  border-radius: 14px;
+  padding: 2.4rem 2.8rem;
+  margin-bottom: 1.4rem;
+  box-shadow: 0 2px 14px rgba(41,26,16,.07), 0 1px 3px rgba(41,26,16,.04);
+}
 .tool-cat-h {
   font-family: 'Cormorant SC', serif;
   font-size: 1.15rem;
@@ -1380,13 +1386,14 @@ footer {
 .strategy-card {
   background: var(--ink);
   padding: 2.8rem 2.4rem 2.6rem;
-  border-radius: 3px;
+  border-radius: 16px;
   cursor: default;
   position: relative;
   overflow: hidden;
-  transition: transform .4s cubic-bezier(.25,.46,.45,.94), background .25s;
+  transition: transform .4s cubic-bezier(.25,.46,.45,.94), background .25s, box-shadow .4s;
   display: flex;
   flex-direction: column;
+  box-shadow: 0 20px 56px rgba(20,10,4,.32), 0 6px 18px rgba(20,10,4,.16);
 }
 .strategy-card::before {
   content: '';
@@ -1396,8 +1403,9 @@ footer {
   background: linear-gradient(to right, var(--gold), transparent 70%);
 }
 .strategy-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-6px);
   background: var(--brown);
+  box-shadow: 0 32px 72px rgba(20,10,4,.42), 0 10px 28px rgba(20,10,4,.2);
 }
 .strategy-card-label {
   font-family: 'Jost', sans-serif;
