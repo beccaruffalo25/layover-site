@@ -629,35 +629,50 @@
     <div class="art-hero art-hero--title">
       <div class="art-hero-text">
         <span class="label" style="color:var(--tan)">Planning Philosophy</span>
-        <h1>Your Plan, Planned</h1>
-        <p class="sub">How I research, build, and book trips worth taking.</p>
+        <h1>Strategy</h1>
+        <p class="sub">The thinking, tools, and frameworks behind better trips.</p>
       </div>
     </div>
 
     <section class="sec">
-      <div class="wrap-sm art-body">
+      <div class="wrap-sm">
 
-        <p class="lede" style="margin-top:2.4rem">One of the questions I&rsquo;m asked most often after a trip is, how did you even find that? There isn&rsquo;t a single answer. I genuinely love the search &mdash; the late-night digging, comparing, clicking through maps and menus until something finally feels right. Over time, I&rsquo;ve built a collection of free tools that help me find the best prices and the most interesting experiences &mdash; and I&rsquo;m sharing them here.</p>
-        <p>It&rsquo;s also worth noting that my travel style lives somewhere between backpacking and luxury. I don&rsquo;t aim for either extreme. My goal is always the best experience for the money spent, while staying safe, comfortable, and unhurried.</p>
+        <!-- Article cards -->
+        <div class="strategy-cards">
 
-        <!-- Offshoot articles — teaser cards -->
-        <div class="strategy-cards" style="margin-top:3rem">
+          <div class="strategy-card strategy-card--active"
+               onclick="document.getElementById('article-your-plan').scrollIntoView({behavior:'smooth'})">
+            <span class="strategy-card-label">Your Plan, Planned</span>
+            <p class="strategy-card-title">Booking Tools &amp; How I Use Them</p>
+            <span class="strategy-card-status">Read the Guide &rarr;</span>
+          </div>
 
           <div class="strategy-card">
-            <span class="strategy-card-label">Strategy</span>
-            <p class="strategy-card-title">Planning on a Budget</p>
+            <span class="strategy-card-label">Planning on a Budget</span>
+            <p class="strategy-card-title">The Best Experience for the Money Spent</p>
             <span class="strategy-card-status">Coming Soon</span>
           </div>
 
           <div class="strategy-card">
-            <span class="strategy-card-label">Strategy</span>
-            <p class="strategy-card-title">Slow Travel</p>
+            <span class="strategy-card-label">Slow Travel</span>
+            <p class="strategy-card-title">Why I Always Stay Longer Than Planned</p>
             <span class="strategy-card-status">Coming Soon</span>
           </div>
 
         </div>
 
-        <div style="margin-top:4rem;padding-top:4rem;border-top:1px solid rgba(168,132,58,.12)"></div>
+      </div>
+    </section>
+
+    <!-- ── Article: Your Plan, Planned ────────────────────────── -->
+    <section class="sec" id="article-your-plan" style="padding-top:0">
+      <div class="wrap-sm art-body">
+
+        <span class="label">Your Plan, Planned</span>
+        <h2 class="h-sec" style="margin:.4rem 0 2.4rem">Booking Tools &amp; How I Use Them</h2>
+
+        <p class="lede">One of the questions I&rsquo;m asked most often after a trip is, how did you even find that? There isn&rsquo;t a single answer. I genuinely love the search &mdash; the late-night digging, comparing, clicking through maps and menus until something finally feels right. Over time, I&rsquo;ve built a collection of free tools that help me find the best prices and the most interesting experiences &mdash; and I&rsquo;m sharing them here.</p>
+        <p>It&rsquo;s also worth noting that my travel style lives somewhere between backpacking and luxury. I don&rsquo;t aim for either extreme. My goal is always the best experience for the money spent, while staying safe, comfortable, and unhurried.</p>
 
         <!-- Flights -->
         <div class="tool-cat">
@@ -707,7 +722,7 @@
         </div>
 
       </div>
-    </section>
+    </section><!-- /article-your-plan -->
 
     <footer>
       <span class="f-logo">LAYOVER</span>
