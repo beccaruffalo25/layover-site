@@ -199,7 +199,9 @@
 
 
   <!-- ═══════════════════════════════════════════════════════
-       PAGE: TRAVEL (consolidates City Guides + Itineraries)
+       PAGE: TRAVEL
+       Sections (in order): Experiences · Weekend Plans ·
+       Itineraries · City Guides
   ════════════════════════════════════════════════════════════ -->
   <div id="travel" class="page">
 
@@ -207,38 +209,54 @@
       <div class="art-hero-text">
         <span class="label" style="color:var(--tan)">Destinations</span>
         <h1>Travel</h1>
-        <p class="sub">City guides and itineraries built from real experience.</p>
+        <p class="sub">Guides, plans, and itineraries built from real experience.</p>
       </div>
     </div>
 
     <section class="sec">
       <div class="wrap">
 
-        <span class="label">City Guides</span>
-        <div class="grid-2" style="margin-top:1.8rem">
-          <div class="card" onclick="go('milan')">
-            <div class="card-img">
-              <img src="" data-k="duomo" alt="Duomo di Milano" />
-              <span class="card-img-label">Read Guide &rarr;</span>
+        <!-- 1. Experiences — placeholder -->
+        <div>
+          <span class="label">Experiences</span>
+        </div>
+
+        <!-- 2. Weekend Plans -->
+        <div style="margin-top:4rem;padding-top:4rem;border-top:1px solid rgba(168,132,58,.15)">
+          <span class="label">Weekend Plans</span>
+          <div class="grid-2" style="margin-top:1.8rem">
+            <div class="card" onclick="go('seville')">
+              <div class="card-img">
+                <img src="" data-k="seville-hero" alt="Plaza de España, Seville" />
+                <span class="card-img-label">View Plan &rarr;</span>
+              </div>
+              <p class="card-tag">Spain &middot; 3 Days</p>
+              <h3 class="card-title">Seville, Planned</h3>
+              <p class="card-exc">A warm, romantic weekend in Spain&rsquo;s most colorful city &mdash; golden plazas, live flamenco, and tapas bars that go until midnight.</p>
+              <span class="arrow">View the Plan &rarr;</span>
             </div>
-            <p class="card-tag">Italy &middot; City Guide</p>
-            <h3 class="card-title">Milan, Planned</h3>
-            <p class="card-exc">A thoughtful weekend guide to Italy&rsquo;s most misunderstood city. Spending four months living here showed me how much beauty exists beneath the surface.</p>
-            <span class="arrow">Read the Guide &rarr;</span>
           </div>
         </div>
 
-        <span class="label" style="margin-top:4rem">Itineraries</span>
-        <div class="grid-2" style="margin-top:1.8rem">
-          <div class="card" onclick="go('seville')">
-            <div class="card-img">
-              <img src="" data-k="seville-hero" alt="Plaza de España, Seville" />
-              <span class="card-img-label">View Itinerary &rarr;</span>
+        <!-- 3. Itineraries — placeholder -->
+        <div style="margin-top:4rem;padding-top:4rem;border-top:1px solid rgba(168,132,58,.15)">
+          <span class="label">Itineraries</span>
+        </div>
+
+        <!-- 4. City Guides -->
+        <div style="margin-top:4rem;padding-top:4rem;border-top:1px solid rgba(168,132,58,.15)">
+          <span class="label">City Guides</span>
+          <div class="grid-2" style="margin-top:1.8rem">
+            <div class="card" onclick="go('milan')">
+              <div class="card-img">
+                <img src="" data-k="duomo" alt="Duomo di Milano" />
+                <span class="card-img-label">Read Guide &rarr;</span>
+              </div>
+              <p class="card-tag">Italy &middot; City Guide</p>
+              <h3 class="card-title">Milan, Planned</h3>
+              <p class="card-exc">A thoughtful weekend guide to Italy&rsquo;s most misunderstood city. Spending four months living here showed me how much beauty exists beneath the surface.</p>
+              <span class="arrow">Read the Guide &rarr;</span>
             </div>
-            <p class="card-tag">Spain &middot; Weekend Itinerary</p>
-            <h3 class="card-title">Seville, Planned</h3>
-            <p class="card-exc">A warm, romantic weekend in Spain&rsquo;s most colorful city &mdash; golden plazas, live flamenco, and tapas bars that go until midnight.</p>
-            <span class="arrow">View Itinerary &rarr;</span>
           </div>
         </div>
 
@@ -676,12 +694,12 @@
        data-date="2024-09-15"
        data-feat-img="seville-plaza"
        data-feat-title="Seville, Planned"
-       data-feat-tag="Spain &middot; Weekend Itinerary"
+       data-feat-tag="Spain &middot; Weekend Plan"
        data-feat-cta="View Itinerary">
 
     <div class="art-hero art-hero--title">
       <div class="art-hero-text">
-        <span class="label" style="color:var(--tan)">Spain &middot; Weekend Itinerary</span>
+        <span class="label" style="color:var(--tan)">Spain &middot; Weekend Plan</span>
         <h1>Seville, Planned</h1>
         <p class="sub">Warm, colorful, and romantic &mdash; a fairytale town frozen in time.</p>
         <div class="art-meta">
