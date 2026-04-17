@@ -200,8 +200,8 @@
 
   <!-- ═══════════════════════════════════════════════════════
        PAGE: TRAVEL
-       Sections (in order): Experiences · Weekend Plans ·
-       Itineraries · City Guides
+       Overview grid → four content sections:
+       Experiences · Weekend Plans · Itineraries · City Guides
   ════════════════════════════════════════════════════════════ -->
   <div id="travel" class="page">
 
@@ -213,53 +213,93 @@
       </div>
     </div>
 
-    <section class="sec">
+    <!-- Overview: all four sections at a glance -->
+    <section class="sec" style="padding-bottom:0">
       <div class="wrap">
+        <span class="label">Explore</span>
+        <div class="travel-nav-grid">
 
-        <!-- 1. Experiences — placeholder -->
-        <div>
-          <span class="label">Experiences</span>
+          <div class="travel-nav-card" onclick="document.getElementById('sec-experiences').scrollIntoView({behavior:'smooth'})">
+            <p class="travel-nav-title">Experiences</p>
+            <p>Specific adventures &mdash; hot air balloons, desert tours, and excursions worth booking.</p>
+            <span class="arrow">Explore &rarr;</span>
+          </div>
+
+          <div class="travel-nav-card" onclick="document.getElementById('sec-weekend-plans').scrollIntoView({behavior:'smooth'})">
+            <p class="travel-nav-title">Weekend Plans</p>
+            <p>Friday&ndash;Sunday planned trips with day-by-day itineraries.</p>
+            <span class="arrow">Explore &rarr;</span>
+          </div>
+
+          <div class="travel-nav-card" onclick="document.getElementById('sec-itineraries').scrollIntoView({behavior:'smooth'})">
+            <p class="travel-nav-title">Itineraries</p>
+            <p>Multi-city and regional routes spanning 5 days or more.</p>
+            <span class="arrow">Explore &rarr;</span>
+          </div>
+
+          <div class="travel-nav-card" onclick="document.getElementById('sec-city-guides').scrollIntoView({behavior:'smooth'})">
+            <p class="travel-nav-title">City Guides</p>
+            <p>In-depth guidance on how to experience a city, neighborhood by neighborhood.</p>
+            <span class="arrow">Explore &rarr;</span>
+          </div>
+
         </div>
+      </div>
+    </section>
 
-        <!-- 2. Weekend Plans -->
-        <div style="margin-top:4rem;padding-top:4rem;border-top:1px solid rgba(168,132,58,.15)">
-          <span class="label">Weekend Plans</span>
-          <div class="grid-2" style="margin-top:1.8rem">
-            <div class="card" onclick="go('seville')">
-              <div class="card-img">
-                <img src="" data-k="seville-hero" alt="Plaza de España, Seville" />
-                <span class="card-img-label">View Plan &rarr;</span>
-              </div>
-              <p class="card-tag">Spain &middot; 3 Days</p>
-              <h3 class="card-title">Seville, Planned</h3>
-              <p class="card-exc">A warm, romantic weekend in Spain&rsquo;s most colorful city &mdash; golden plazas, live flamenco, and tapas bars that go until midnight.</p>
-              <span class="arrow">View the Plan &rarr;</span>
+    <!-- 1. Experiences — placeholder -->
+    <section class="sec" id="sec-experiences">
+      <div class="wrap">
+        <span class="label">Experiences</span>
+        <p style="font-family:'Jost',sans-serif;font-size:.84rem;font-weight:300;color:var(--mid);line-height:1.65;margin:.6rem 0 0;max-width:52ch">Specific adventures &mdash; hot air balloons, desert tours, and excursions worth booking.</p>
+      </div>
+    </section>
+
+    <!-- 2. Weekend Plans -->
+    <section class="sec" id="sec-weekend-plans" style="padding-top:0">
+      <div class="wrap">
+        <span class="label">Weekend Plans</span>
+        <p style="font-family:'Jost',sans-serif;font-size:.84rem;font-weight:300;color:var(--mid);line-height:1.65;margin:.6rem 0 2.4rem;max-width:52ch">Friday&ndash;Sunday planned trips with day-by-day itineraries.</p>
+        <div class="grid-2">
+          <div class="card" onclick="go('seville')">
+            <div class="card-img">
+              <img src="" data-k="seville-hero" alt="Plaza de España, Seville" />
+              <span class="card-img-label">View Plan &rarr;</span>
             </div>
+            <p class="card-tag">Spain &middot; 3 Days</p>
+            <h3 class="card-title">Seville, Planned</h3>
+            <p class="card-exc">A warm, romantic weekend in Spain&rsquo;s most colorful city &mdash; golden plazas, live flamenco, and tapas bars that go until midnight.</p>
+            <span class="arrow">View the Plan &rarr;</span>
           </div>
         </div>
+      </div>
+    </section>
 
-        <!-- 3. Itineraries — placeholder -->
-        <div style="margin-top:4rem;padding-top:4rem;border-top:1px solid rgba(168,132,58,.15)">
-          <span class="label">Itineraries</span>
-        </div>
+    <!-- 3. Itineraries — placeholder -->
+    <section class="sec" id="sec-itineraries" style="padding-top:0">
+      <div class="wrap">
+        <span class="label">Itineraries</span>
+        <p style="font-family:'Jost',sans-serif;font-size:.84rem;font-weight:300;color:var(--mid);line-height:1.65;margin:.6rem 0 0;max-width:52ch">Multi-city and regional routes spanning 5 days or more.</p>
+      </div>
+    </section>
 
-        <!-- 4. City Guides -->
-        <div style="margin-top:4rem;padding-top:4rem;border-top:1px solid rgba(168,132,58,.15)">
-          <span class="label">City Guides</span>
-          <div class="grid-2" style="margin-top:1.8rem">
-            <div class="card" onclick="go('milan')">
-              <div class="card-img">
-                <img src="" data-k="duomo" alt="Duomo di Milano" />
-                <span class="card-img-label">Read Guide &rarr;</span>
-              </div>
-              <p class="card-tag">Italy &middot; City Guide</p>
-              <h3 class="card-title">Milan, Planned</h3>
-              <p class="card-exc">A thoughtful weekend guide to Italy&rsquo;s most misunderstood city. Spending four months living here showed me how much beauty exists beneath the surface.</p>
-              <span class="arrow">Read the Guide &rarr;</span>
+    <!-- 4. City Guides -->
+    <section class="sec" id="sec-city-guides" style="padding-top:0">
+      <div class="wrap">
+        <span class="label">City Guides</span>
+        <p style="font-family:'Jost',sans-serif;font-size:.84rem;font-weight:300;color:var(--mid);line-height:1.65;margin:.6rem 0 2.4rem;max-width:52ch">In-depth guidance on how to experience a city, neighborhood by neighborhood.</p>
+        <div class="grid-2">
+          <div class="card" onclick="go('milan')">
+            <div class="card-img">
+              <img src="" data-k="duomo" alt="Duomo di Milano" />
+              <span class="card-img-label">Read Guide &rarr;</span>
             </div>
+            <p class="card-tag">Italy &middot; City Guide</p>
+            <h3 class="card-title">Milan, Planned</h3>
+            <p class="card-exc">A thoughtful weekend guide to Italy&rsquo;s most misunderstood city. Spending four months living here showed me how much beauty exists beneath the surface.</p>
+            <span class="arrow">Read the Guide &rarr;</span>
           </div>
         </div>
-
       </div>
     </section>
 

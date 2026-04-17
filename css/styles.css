@@ -596,7 +596,44 @@ img { image-rendering: auto; }
 }
 
 
-/* ── 6. Split Section ──────────────────────────────────────── */
+/* ── 6. Travel overview nav cards ─────────────────────────── */
+.travel-nav-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.4rem;
+  margin-top: 2rem;
+}
+.travel-nav-card {
+  padding: 2rem 2.2rem 1.8rem;
+  border: 1px solid rgba(168,132,58,.22);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: border-color .25s, background .25s, transform .3s cubic-bezier(.25,.46,.45,.94);
+}
+.travel-nav-card:hover {
+  border-color: var(--gold);
+  background: rgba(168,132,58,.04);
+  transform: translateY(-3px);
+}
+.travel-nav-title {
+  font-family: 'Cormorant SC', serif;
+  font-size: 1.4rem;
+  font-weight: 300;
+  color: var(--brown);
+  letter-spacing: .06em;
+  margin: .5rem 0 .7rem;
+}
+.travel-nav-card p {
+  font-family: 'Jost', sans-serif;
+  font-size: .84rem;
+  font-weight: 300;
+  color: var(--mid);
+  line-height: 1.65;
+  margin: 0 0 1.4rem;
+}
+
+
+/* ── 7. Split Section ──────────────────────────────────────── */
 .split {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1552,6 +1589,7 @@ footer {
   .wrap, .wrap-sm { padding: 0 1.4rem; }
   .sec    { padding: 3.8rem 0; }
   .grid-2 { grid-template-columns: 1fr; gap: 2.6rem; }
+  .travel-nav-grid { grid-template-columns: 1fr; gap: 1.2rem; }
 
   /* Split */
   .split           { grid-template-columns: 1fr; }
