@@ -1370,6 +1370,64 @@ footer {
   line-height: 1.8;
 }
 
+/* Strategy offshoot cards */
+.strategy-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.4rem;
+  margin-top: 1.8rem;
+}
+.strategy-card {
+  background: var(--ink);
+  padding: 2.8rem 2.4rem 2.6rem;
+  border-radius: 3px;
+  cursor: default;
+  position: relative;
+  overflow: hidden;
+  transition: transform .4s cubic-bezier(.25,.46,.45,.94), background .25s;
+  display: flex;
+  flex-direction: column;
+}
+.strategy-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(to right, var(--gold), transparent 70%);
+}
+.strategy-card:hover {
+  transform: translateY(-5px);
+  background: var(--brown);
+}
+.strategy-card-label {
+  font-family: 'Jost', sans-serif;
+  font-size: .54rem;
+  font-weight: 300;
+  letter-spacing: .32em;
+  text-transform: uppercase;
+  color: var(--tan);
+  display: block;
+  margin-bottom: 1.4rem;
+}
+.strategy-card-title {
+  font-family: 'Cormorant SC', serif;
+  font-size: clamp(1.6rem, 2.2vw, 2.2rem);
+  font-weight: 300;
+  color: var(--cream);
+  letter-spacing: .07em;
+  line-height: 1.1;
+  flex: 1;
+  margin-bottom: 2.4rem;
+}
+.strategy-card-status {
+  font-family: 'Jost', sans-serif;
+  font-size: .52rem;
+  font-weight: 300;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: rgba(247,242,232,.28);
+}
+
 
 /* ── 11. Bucket List ───────────────────────────────────────── */
 .bucket-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem 5rem; margin-top: 3.5rem; }
@@ -1691,6 +1749,7 @@ footer {
   .grid-2 { grid-template-columns: 1fr; gap: 2.6rem; }
   .travel-cat-grid  { grid-template-columns: 1fr; gap: 3px; }
   .travel-cat-tile  { height: 54vw; min-height: 220px; }
+  .strategy-cards   { grid-template-columns: 1fr; }
 
   /* Split */
   .split           { grid-template-columns: 1fr; }
