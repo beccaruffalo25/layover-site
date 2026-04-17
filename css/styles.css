@@ -244,6 +244,44 @@ img { image-rendering: auto; }
   margin-top: .5rem;
 }
 
+/* Category headers inside dropdown */
+.drop-cat {
+  display: block;
+  padding: .65rem 1.6rem .4rem;
+  cursor: pointer;
+  border-left: 2px solid transparent;
+  transition: border-color .12s ease;
+}
+.drop-cat + .drop-cat,
+.drop-sub + .drop-cat {
+  border-top: 1px solid rgba(168,132,58,.12);
+  padding-top: .7rem;
+  margin-top: .3rem;
+}
+.drop-cat:hover { border-left-color: var(--terra); }
+.drop-cat-name {
+  font-family: 'Jost', sans-serif;
+  font-size: .57rem;
+  font-weight: 400;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: var(--brown);
+  transition: color .12s ease;
+}
+.drop-cat:hover .drop-cat-name { color: var(--terra); }
+
+/* Indented destination items under a category */
+.drop-sub {
+  display: block;
+  padding: .45rem 1.6rem .45rem 2.8rem;
+  cursor: pointer;
+  border-left: 2px solid transparent;
+  transition: border-color .12s ease;
+}
+.drop-sub:hover { border-left-color: var(--terra); }
+.drop-sub:hover .drop-city { color: var(--terra); }
+.drop-sub .drop-city { font-size: .95rem; }
+
 
 /* ── 3. Hero (Homepage) ────────────────────────────────────── */
 .hero {
@@ -1734,6 +1772,13 @@ footer {
   .drop-city { font-size: .82rem; color: var(--mid); }
   .drop-meta { font-size: .5rem; color: var(--tan); }
   .drop-more { border-top: 1px solid rgba(168,132,58,.16); padding: .5rem 0 0; text-align: center; margin-top: .3rem; }
+  .drop-cat { padding: .4rem 0 .2rem; border-left: none; text-align: center; }
+  .drop-cat + .drop-cat, .drop-sub + .drop-cat { border-top: 1px solid rgba(168,132,58,.1); margin-top: .2rem; padding-top: .5rem; }
+  .drop-cat:hover { border-left: none; }
+  .drop-cat-name { font-size: .52rem; }
+  .drop-sub { padding: .3rem 0; border-left: none; text-align: center; }
+  .drop-sub:hover { border-left: none; }
+  .drop-sub .drop-city { font-size: .78rem; }
 }
 
 /* ── Small mobile (≤ 480px) ────────────────────────────────── */

@@ -182,12 +182,14 @@ window.addEventListener('resize', applyNavHeight);
 /* ── Active nav link ───────────────────────────────────────── */
 function setActiveNav(id) {
   const parentMap = {
-    'milan':       'travel',
-    'seville':     'travel',
-    'city-guides': 'travel',
-    'itineraries': 'travel',
-    'planning':    'strategy',
-    'bucket':      'inspo',
+    'milan':         'travel',
+    'seville':       'travel',
+    'city-guides':   'travel',
+    'itineraries':   'travel',
+    'experiences':   'travel',
+    'weekend-plans': 'travel',
+    'planning':      'strategy',
+    'bucket':        'inspo',
   };
   const activeId = parentMap[id] || id;
   document.querySelectorAll('.nav-links a').forEach(a => {

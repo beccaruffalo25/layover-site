@@ -45,15 +45,26 @@
       <li class="has-dropdown">
         <a onclick="go('travel')">Travel</a>
         <div class="dropdown">
-          <a class="drop-item" onclick="go('milan')">
+          <a class="drop-cat" onclick="go('experiences')">
+            <span class="drop-cat-name">Experiences</span>
+          </a>
+          <a class="drop-cat" onclick="go('weekend-plans')">
+            <span class="drop-cat-name">Weekend Plans</span>
+          </a>
+          <a class="drop-sub" onclick="go('seville')">
+            <span class="drop-city">Seville</span>
+            <span class="drop-meta">Spain &middot; 3 Days</span>
+          </a>
+          <a class="drop-cat" onclick="go('itineraries')">
+            <span class="drop-cat-name">Itineraries</span>
+          </a>
+          <a class="drop-cat" onclick="go('city-guides')">
+            <span class="drop-cat-name">City Guides</span>
+          </a>
+          <a class="drop-sub" onclick="go('milan')">
             <span class="drop-city">Milan</span>
             <span class="drop-meta">Italy &middot; City Guide</span>
           </a>
-          <a class="drop-item" onclick="go('seville')">
-            <span class="drop-city">Seville</span>
-            <span class="drop-meta">Spain &middot; Weekend Itinerary</span>
-          </a>
-          <span class="drop-more">More coming soon</span>
         </div>
       </li>
       <li><a onclick="go('strategy')">Strategy</a></li>
@@ -215,7 +226,7 @@
     <!-- Full-bleed 2×2 category tiles -->
     <div class="travel-cat-grid">
 
-      <div class="travel-cat-tile" onclick="document.getElementById('sec-experiences').scrollIntoView({behavior:'smooth'})">
+      <div class="travel-cat-tile" onclick="go('experiences')">
         <img src="" data-k="santorini-arch" alt="Experiences" />
         <div class="travel-cat-veil"></div>
         <div class="travel-cat-body">
@@ -226,7 +237,7 @@
         </div>
       </div>
 
-      <div class="travel-cat-tile" onclick="document.getElementById('sec-weekend-plans').scrollIntoView({behavior:'smooth'})">
+      <div class="travel-cat-tile" onclick="go('weekend-plans')">
         <img src="" data-k="seville-plaza" alt="Weekend Plans" />
         <div class="travel-cat-veil"></div>
         <div class="travel-cat-body">
@@ -237,7 +248,7 @@
         </div>
       </div>
 
-      <div class="travel-cat-tile" onclick="document.getElementById('sec-itineraries').scrollIntoView({behavior:'smooth'})">
+      <div class="travel-cat-tile" onclick="go('itineraries')">
         <img src="" data-k="positano" alt="Itineraries" />
         <div class="travel-cat-veil"></div>
         <div class="travel-cat-body">
@@ -248,7 +259,7 @@
         </div>
       </div>
 
-      <div class="travel-cat-tile" onclick="document.getElementById('sec-city-guides').scrollIntoView({behavior:'smooth'})">
+      <div class="travel-cat-tile" onclick="go('city-guides')">
         <img src="" data-k="hero" alt="City Guides" />
         <div class="travel-cat-veil"></div>
         <div class="travel-cat-body">
@@ -301,52 +312,85 @@
 
 
   <!-- ═══════════════════════════════════════════════════════
-       PAGE: ITINERARIES (index — lists all itinerary cards)
-       To add a new itinerary: copy a card block below and
-       point onclick to the new page id (e.g. 'amalfi-5day')
-       Then add the full page further down in this file.
+       PAGE: EXPERIENCES (category sub-page — placeholder)
   ════════════════════════════════════════════════════════════ -->
-  <div id="itineraries" class="page">
+  <div id="experiences" class="page">
 
     <div class="art-hero art-hero--title">
       <div class="art-hero-text">
-        <span class="label" style="color:var(--tan)">Trip Planning</span>
-        <h1>Itineraries</h1>
-        <p class="sub">Day-by-day plans built from real experience. Skip the research — just go.</p>
+        <span class="label" style="color:var(--tan)">Travel</span>
+        <h1>Experiences</h1>
+        <p class="sub">Hot air balloons, desert tours, and excursions worth booking.</p>
       </div>
     </div>
 
     <section class="sec">
       <div class="wrap">
+        <a class="back" onclick="go('travel')">All Travel</a>
+      </div>
+    </section>
 
-        <div class="grid-2">
+    <footer>
+      <span class="f-logo">LAYOVER</span>
+      <span class="f-copy">&copy; 2025 Becca Ruffalo &middot; All Rights Reserved</span>
+    </footer>
+  </div><!-- /experiences -->
 
-          <!-- Itinerary card: Seville -->
+
+  <!-- ═══════════════════════════════════════════════════════
+       PAGE: WEEKEND PLANS (category sub-page)
+  ════════════════════════════════════════════════════════════ -->
+  <div id="weekend-plans" class="page">
+
+    <div class="art-hero art-hero--title">
+      <div class="art-hero-text">
+        <span class="label" style="color:var(--tan)">Travel</span>
+        <h1>Weekend Plans</h1>
+        <p class="sub">Friday&ndash;Sunday planned trips with day-by-day itineraries.</p>
+      </div>
+    </div>
+
+    <section class="sec">
+      <div class="wrap">
+        <a class="back" onclick="go('travel')">All Travel</a>
+        <div class="grid-2" style="margin-top:2.4rem">
           <div class="card" onclick="go('seville')">
             <div class="card-img">
               <img src="" data-k="seville-hero" alt="Plaza de España, Seville" />
-              <span class="card-img-label">View Itinerary &rarr;</span>
+              <span class="card-img-label">View Plan &rarr;</span>
             </div>
-            <p class="card-tag">Spain &middot; Weekend Itinerary</p>
+            <p class="card-tag">Spain &middot; 3 Days</p>
             <h3 class="card-title">Seville, Planned</h3>
             <p class="card-exc">A warm, romantic weekend in Spain&rsquo;s most colorful city &mdash; golden plazas, live flamenco, and tapas bars that go until midnight.</p>
-            <span class="arrow">View Itinerary &rarr;</span>
+            <span class="arrow">View the Plan &rarr;</span>
           </div>
-
-          <!-- ADD MORE ITINERARY CARDS HERE:
-          <div class="card" onclick="go('amalfi-5day')">
-            <div class="card-img">
-              <img src="" data-k="positano" alt="Amalfi Coast" />
-            </div>
-            <p class="card-tag">Italy · 5 Days</p>
-            <h3 class="card-title">Amalfi Coast in 5 Days</h3>
-            <p class="card-exc">Your excerpt here.</p>
-            <span class="arrow">View Itinerary &rarr;</span>
-          </div>
-          -->
-
         </div>
+      </div>
+    </section>
 
+    <footer>
+      <span class="f-logo">LAYOVER</span>
+      <span class="f-copy">&copy; 2025 Becca Ruffalo &middot; All Rights Reserved</span>
+    </footer>
+  </div><!-- /weekend-plans -->
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       PAGE: ITINERARIES (category sub-page — placeholder)
+  ════════════════════════════════════════════════════════════ -->
+  <div id="itineraries" class="page">
+
+    <div class="art-hero art-hero--title">
+      <div class="art-hero-text">
+        <span class="label" style="color:var(--tan)">Travel</span>
+        <h1>Itineraries</h1>
+        <p class="sub">Multi-city and regional routes spanning 5 days or more.</p>
+      </div>
+    </div>
+
+    <section class="sec">
+      <div class="wrap">
+        <a class="back" onclick="go('travel')">All Travel</a>
       </div>
     </section>
 
@@ -384,7 +428,7 @@
     </div>
 
     <div class="wrap-sm art-body">
-      <a class="back" onclick="go('travel')">All Destinations</a>
+      <a class="back" onclick="go('city-guides')">City Guides</a>
 
       <p class="lede" style="margin-top:2.4rem">If you ask someone who&rsquo;s been to Milan what they thought of it, you&rsquo;ll probably get mixed reviews. Some will call it a day trip; others will say it was boring. Many skip it altogether in favor of cities like Florence, Venice, or Rome.</p>
       <p>Spending four months living here showed me just how misunderstood Milan really is. Its beauty isn&rsquo;t in checking off major sights (though there are a few worth seeing), but in what exists beneath the surface. Milan is a city for walking aimlessly &mdash; stumbling upon quiet plazas and leafy parks. It&rsquo;s aperitivo and long dinners shared with good people and great food. It&rsquo;s for fashion lovers and casual admirers alike, whether you&rsquo;re browsing shop windows or taking in the city&rsquo;s unmatched street style. It&rsquo;s Lake Como just an easy day trip away, and luxury outlets waiting just beyond the city.</p>
@@ -743,7 +787,7 @@
     </div>
 
     <div class="wrap-sm art-body">
-      <a class="back" onclick="go('travel')">All Destinations</a>
+      <a class="back" onclick="go('weekend-plans')">Weekend Plans</a>
 
       <p class="lede" style="margin-top:2.4rem">Seville is warm, colorful, and romantic. With tile and warm brick illuminated by golden sunlight, lush gardens filled with orange trees, and every corner bursting with flamenco culture, Seville feels like a fairytale town frozen in time.</p>
 
