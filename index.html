@@ -23,6 +23,7 @@
 
   <!-- Site styles -->
   <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 </head>
 <body>
   <!-- Lightbox -->
@@ -613,13 +614,11 @@
     <section class="sec inspo-map-sec">
       <div class="wrap">
         <div class="inspo-map-header">
-          <span class="label">Coming Soon</span>
+          <span class="label">Where I&rsquo;ve Been</span>
           <h2 class="h-sec">Map</h2>
-          <p class="inspo-map-desc">Every destination I&rsquo;ve visited and every place on my list &mdash; all in one place.</p>
+          <p class="inspo-map-desc">Every country I&rsquo;ve visited. Darker pins have a linked guide.</p>
         </div>
-        <div class="inspo-map-placeholder">
-          <span class="inspo-map-label">Map coming soon</span>
-        </div>
+        <div id="inspo-map" class="inspo-map-canvas"></div>
       </div>
     </section>
 
@@ -1028,6 +1027,7 @@
 
 
   <!-- Site JS (load last) -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="js/main.js"></script>
 
 </body>

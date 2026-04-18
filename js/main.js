@@ -162,6 +162,10 @@ function go(id) {
   initLightbox(pageEl);
   initReveal();
   setActiveNav(id);
+  if (id === 'inspo') requestAnimationFrame(() => {
+    initInspoMap();
+    if (inspoMap) inspoMap.invalidateSize();
+  });
 }
 
 
@@ -359,6 +363,99 @@ function initReveal() {
   targets.forEach(el => {
     el.classList.add('reveal');
     revealObserver.observe(el);
+  });
+}
+
+
+/* ── Inspo Map ─────────────────────────────────────────────── */
+const MAP_PINS = [
+  // ── Pins with linked content ─────────────────────────────
+  {
+    name: 'Seville', country: 'Spain',
+    desc: 'Three days of flamenco, tapas, and golden Andalusian light.',
+    type: 'Weekend Plan', page: 'seville',
+    lat: 37.3891, lng: -5.9845,
+  },
+  {
+    name: 'Milan', country: 'Italy',
+    desc: 'Fashion, aperitivo, and the world\'s greatest cathedral.',
+    type: 'City Guide', page: 'milan',
+    lat: 45.4642, lng: 9.1900,
+  },
+
+  // ── Visited — no guide yet ────────────────────────────────
+  { name: 'Dublin',        country: 'Ireland',          lat: 53.3498, lng:  -6.2603 },
+  { name: 'London',        country: 'England',          lat: 51.5074, lng:  -0.1278 },
+  { name: 'Budapest',      country: 'Hungary',          lat: 47.4979, lng:  18.9705 },
+  { name: 'Paris',         country: 'France',           lat: 48.8566, lng:   2.3522 },
+  { name: 'Lisbon',        country: 'Portugal',         lat: 38.7223, lng:  -9.1393 },
+  { name: 'Santorini',     country: 'Greece',           lat: 36.3932, lng:  25.4615 },
+  { name: 'Monaco',        country: 'Monaco',           lat: 43.7384, lng:   7.4246 },
+  { name: 'Vatican City',  country: 'Vatican',          lat: 41.9029, lng:  12.4534 },
+  { name: 'Amsterdam',     country: 'Netherlands',      lat: 52.3676, lng:   4.9041 },
+  { name: 'Valletta',      country: 'Malta',            lat: 35.8997, lng:  14.5147 },
+  { name: 'Reykjavik',     country: 'Iceland',          lat: 64.1265, lng: -21.8174 },
+  { name: 'Philipsburg',   country: 'St. Maarten',      lat: 18.0209, lng: -63.0510 },
+  { name: 'Grand Cayman',  country: 'Cayman Islands',   lat: 19.3133, lng: -81.2546 },
+  { name: 'Jamaica',       country: 'Jamaica',          lat: 18.1096, lng: -77.2975 },
+  { name: 'Bangkok',       country: 'Thailand',         lat: 13.7563, lng: 100.5018 },
+];
+
+let inspoMap = null;
+
+function initInspoMap() {
+  if (inspoMap) return;
+
+  inspoMap = L.map('inspo-map', {
+    center: [35, 18],
+    zoom: 2,
+    minZoom: 2,
+    maxZoom: 8,
+    zoomControl: false,
+    attributionControl: true,
+  });
+
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
+    subdomains: 'abcd',
+    maxZoom: 19,
+  }).addTo(inspoMap);
+
+  L.control.zoom({ position: 'bottomright' }).addTo(inspoMap);
+
+  MAP_PINS.forEach(pin => {
+    const hasContent = !!pin.page;
+    const size = hasContent ? 13 : 10;
+    const icon = L.divIcon({
+      className: '',
+      html: `<div class="map-pin${hasContent ? ' map-pin--content' : ''}"></div>`,
+      iconSize: [size, size],
+      iconAnchor: [size / 2, size / 2],
+    });
+
+    const marker = L.marker([pin.lat, pin.lng], { icon }).addTo(inspoMap);
+
+    const html = hasContent
+      ? `<div class="map-popup">
+           <span class="map-pop-type">${pin.type}</span>
+           <strong class="map-pop-name">${pin.name}</strong>
+           <span class="map-pop-country">${pin.country}</span>
+           <p class="map-pop-desc">${pin.desc}</p>
+           <a class="map-pop-cta" onclick="go('${pin.page}')">View Guide &rarr;</a>
+         </div>`
+      : `<div class="map-popup map-popup--simple">
+           <strong class="map-pop-name">${pin.name}</strong>
+           <span class="map-pop-country">${pin.country}</span>
+         </div>`;
+
+    marker.bindPopup(html, {
+      closeButton: false,
+      offset: [0, -4],
+      maxWidth: 230,
+      className: 'map-leaflet-popup',
+    });
+
+    marker.on('click', () => marker.openPopup());
   });
 }
 
