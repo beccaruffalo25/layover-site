@@ -162,6 +162,7 @@ function go(id) {
   initLightbox(pageEl);
   initReveal();
   setActiveNav(id);
+  document.getElementById('nav').classList.toggle('hero-mode', id === 'home');
   if (id === 'inspo') requestAnimationFrame(() => {
     initInspoMap();
     if (inspoMap) inspoMap.invalidateSize();
@@ -466,10 +467,32 @@ function initInspoMap() {
 }
 
 
+/* ── Card 3D tilt (type-cards) ─────────────────────────────── */
+function initCardTilt() {
+  document.querySelectorAll('.type-card').forEach(card => {
+    card.addEventListener('mouseenter', () => {
+      card.style.transition = 'background .3s, box-shadow .4s';
+    });
+    card.addEventListener('mousemove', e => {
+      const r = card.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width  - 0.5;
+      const y = (e.clientY - r.top)  / r.height - 0.5;
+      card.style.transform = `perspective(900px) rotateX(${-y * 9}deg) rotateY(${x * 11}deg) translateZ(14px)`;
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transition = 'transform .55s cubic-bezier(.25,.46,.45,.94), background .3s, box-shadow .4s';
+      card.style.transform  = '';
+    });
+  });
+}
+
+
 /* ── Init on load ──────────────────────────────────────────── */
 document.addEventListener('DOMContentLoaded', () => {
   buildFooters();
   buildJustLanded();
+  initCardTilt();
+  document.getElementById('nav').classList.add('hero-mode');
   const homeEl = document.getElementById('home');
   initShimmer(homeEl);
   loadImages();
