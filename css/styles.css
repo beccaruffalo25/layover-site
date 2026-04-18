@@ -1482,7 +1482,43 @@ footer {
 .b-text strong { display: block; font-weight: 400; color: var(--brown); margin-bottom: .05rem; }
 
 
-/* ── 12. About Page ────────────────────────────────────────── */
+/* ── 12. Inspo Map placeholder ─────────────────────────────── */
+.inspo-map-sec { background: var(--parchment); }
+
+.inspo-map-header { text-align: center; margin-bottom: 3rem; }
+.inspo-map-header .label { display: block; margin-bottom: .6rem; }
+.inspo-map-header .h-sec { margin: 0 0 1rem; }
+.inspo-map-desc {
+  font-family: 'Jost', sans-serif;
+  font-size: .88rem;
+  color: var(--mid);
+  max-width: 38ch;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.inspo-map-placeholder {
+  width: 100%;
+  aspect-ratio: 16 / 7;
+  min-height: 280px;
+  background: var(--cream);
+  border: 1px solid rgba(168,132,58,.18);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.inspo-map-label {
+  font-family: 'Jost', sans-serif;
+  font-size: .56rem;
+  font-weight: 300;
+  letter-spacing: .32em;
+  text-transform: uppercase;
+  color: rgba(41,26,16,.25);
+}
+
+
+/* ── 13. About Page ────────────────────────────────────────── */
 .about-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
