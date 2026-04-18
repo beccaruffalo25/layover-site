@@ -326,7 +326,7 @@ img { image-rendering: auto; }
 .hero-veil {
   position: absolute;
   inset: 0;
-  background: linear-gradient(160deg, rgba(15,8,3,.32), rgba(15,8,3,.62) 55%, rgba(15,8,3,.88));
+  background: linear-gradient(to bottom, rgba(10,5,2,.12) 0%, rgba(10,5,2,.42) 55%, rgba(10,5,2,.85) 100%);
 }
 .hero-text {
   position: relative;
@@ -341,21 +341,23 @@ img { image-rendering: auto; }
 }
 .hero-eye {
   font-family: 'Jost', sans-serif;
-  font-size: .6rem;
+  font-size: .56rem;
   font-weight: 300;
-  letter-spacing: .45em;
+  letter-spacing: .4em;
   text-transform: uppercase;
-  color: var(--tan);
-  margin-bottom: 1.4rem;
+  color: rgba(247,242,232,.72);
+  display: block;
+  margin-bottom: 1.6rem;
 }
 .hero-title {
   font-family: 'Cormorant SC', serif;
-  font-size: clamp(5rem, 12vw, 10rem);
+  font-size: clamp(5.5rem, 15vw, 14rem);
   font-weight: 300;
-  letter-spacing: .14em;
-  color: var(--cream);
-  line-height: .9;
-  margin-bottom: 1.6rem;
+  letter-spacing: .12em;
+  color: #fff;
+  line-height: .88;
+  margin-bottom: 1.8rem;
+  text-shadow: 0 4px 40px rgba(0,0,0,.35);
 }
 .hero-by {
   font-family: 'Cormorant Garamond', serif;
@@ -489,21 +491,19 @@ img { image-rendering: auto; }
 
 /* Intro band */
 .intro {
-  background: var(--parchment);
-  padding: 5.5rem 2.5rem;
+  background: #fff;
+  padding: 7rem 2.5rem;
   text-align: center;
-  border-top: 1px solid rgba(168,132,58,.13);
-  border-bottom: 1px solid rgba(168,132,58,.13);
 }
 .intro h2 {
   font-family: 'Cormorant Garamond', serif;
   font-style: italic;
-  font-size: clamp(1.6rem, 3vw, 2.3rem);
+  font-size: clamp(1.9rem, 3.5vw, 2.9rem);
   font-weight: 400;
-  color: var(--brown);
-  max-width: 660px;
+  color: var(--ink);
+  max-width: 720px;
   margin: 0 auto 1.5rem;
-  line-height: 1.42;
+  line-height: 1.38;
 }
 .intro p {
   font-family: 'Jost', sans-serif;
@@ -1020,84 +1020,91 @@ img { image-rendering: auto; }
 
 
 /* ── 8b. Browse by Type ────────────────────────────────────── */
-.type-sec {
-  background: var(--ink);
-  padding: 7rem 0;
-  border-top: 1px solid rgba(168,132,58,.08);
+.type-sec { background: var(--ink); }
+.type-sec-head {
+  padding: 5rem 2rem 3rem;
+  text-align: center;
 }
-.type-header { text-align: center; }
-.type-grid {
+.type-sec-head .label { display: block; margin-bottom: .5rem; }
+
+.type-tiles {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.4rem;
+  height: 72vh;
+  min-height: 480px;
 }
-.type-card {
-  background: rgba(247,242,232,.03);
-  border: 1px solid rgba(168,132,58,.11);
-  border-radius: 16px;
-  padding: 2.8rem 2.4rem 2.6rem;
-  cursor: pointer;
+.type-tile {
   position: relative;
+  cursor: pointer;
   overflow: hidden;
-  will-change: transform;
-  transition: background .3s, box-shadow .4s;
 }
-.type-card::before {
-  content: '';
+.type-tile img {
   position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 1px;
-  background: linear-gradient(to right, var(--gold), transparent 60%);
+  inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform .9s cubic-bezier(.25,.46,.45,.94);
 }
-.type-card:hover {
-  background: rgba(247,242,232,.065);
-  box-shadow: 0 28px 64px rgba(20,10,4,.55), 0 6px 20px rgba(20,10,4,.28);
+.type-tile:hover img { transform: scale(1.07); }
+.type-tile-veil {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top,
+    rgba(10,5,2,.9) 0%,
+    rgba(10,5,2,.45) 45%,
+    rgba(10,5,2,.12) 100%);
+  transition: opacity .4s;
 }
-.type-num {
+.type-tile:hover .type-tile-veil { opacity: .85; }
+.type-tile-body {
+  position: absolute;
+  bottom: 2.8rem;
+  left: 2.8rem;
+  right: 2.8rem;
+}
+.type-tile-num {
   font-family: 'Cormorant SC', serif;
-  font-size: 4rem;
+  font-size: clamp(3rem, 5vw, 5.5rem);
   font-weight: 300;
-  color: rgba(168,132,58,.14);
+  color: rgba(255,255,255,.08);
   line-height: 1;
-  display: block;
-  margin-bottom: 1.4rem;
-}
-.type-label {
-  font-family: 'Jost', sans-serif;
-  font-size: .5rem;
-  letter-spacing: .32em;
-  text-transform: uppercase;
-  color: var(--tan);
   display: block;
   margin-bottom: .8rem;
 }
-.type-title {
-  font-family: 'Cormorant SC', serif;
-  font-size: clamp(1.2rem, 1.7vw, 1.6rem);
-  font-weight: 300;
-  color: var(--cream);
-  line-height: 1.1;
-  margin: 0 0 1rem;
-}
-.type-body {
+.type-tile-label {
   font-family: 'Jost', sans-serif;
-  font-size: .76rem;
-  color: rgba(247,242,232,.42);
-  line-height: 1.6;
-  margin: 0 0 2rem;
-}
-.type-cta {
-  font-family: 'Jost', sans-serif;
-  font-size: .5rem;
-  letter-spacing: .22em;
+  font-size: .52rem;
+  letter-spacing: .34em;
   text-transform: uppercase;
   color: var(--tan);
-  border-bottom: 1px solid rgba(201,181,146,.28);
-  padding-bottom: 2px;
-  display: inline-block;
-  transition: color .2s, border-color .2s;
+  display: block;
+  margin-bottom: .7rem;
 }
-.type-card:hover .type-cta { color: var(--cream); border-color: rgba(247,242,232,.38); }
+.type-tile-title {
+  font-family: 'Cormorant SC', serif;
+  font-size: clamp(1.5rem, 2.2vw, 2.1rem);
+  font-weight: 300;
+  color: #fff;
+  line-height: 1.1;
+  margin: 0 0 1.3rem;
+}
+.type-tile-cta {
+  display: inline-block;
+  font-family: 'Jost', sans-serif;
+  font-size: .52rem;
+  font-weight: 300;
+  letter-spacing: .26em;
+  text-transform: uppercase;
+  color: rgba(247,242,232,.65);
+  border-bottom: 1px solid rgba(247,242,232,.22);
+  padding-bottom: 2px;
+  transition: color .25s, border-color .25s;
+}
+.type-tile:hover .type-tile-cta { color: #fff; border-color: rgba(255,255,255,.55); }
+
+/* Dividers between tiles */
+.type-tile + .type-tile { border-left: 1px solid rgba(255,255,255,.06); }
 
 
 /* ── 8c. Home Map Preview ──────────────────────────────────── */
@@ -2107,10 +2114,11 @@ footer {
   .feat-grid { grid-template-columns: 1fr; gap: 1.2rem; }
   .feat-card { aspect-ratio: 3/4; }
 
-  /* Browse by Type — stack on mobile */
-  .type-sec  { padding: 4.5rem 0; }
-  .type-grid { grid-template-columns: 1fr; gap: 1rem; }
-  .type-num  { font-size: 2.8rem; margin-bottom: .9rem; }
+  /* Browse by Type tiles — stack on mobile */
+  .type-tiles { grid-template-columns: 1fr; height: auto; min-height: 0; }
+  .type-tile  { height: 60vw; min-height: 260px; }
+  .type-tile + .type-tile { border-left: none; border-top: 1px solid rgba(255,255,255,.06); }
+  .type-sec-head { padding: 3.5rem 1.4rem 2rem; }
 
   /* Map preview */
   .home-map-preview { height: 360px; }

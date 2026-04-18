@@ -51,6 +51,16 @@ const IMAGES = {
   "seville-13-park-sign":      "layover_assets/seville-13-park-sign.jpg",
   "seville-flamenco":          "layover_assets/seville-01-flamenco.jpg",
 
+  "hp-colosseum":      "layover_assets/hp-colosseum-sunset.jpg",
+  "hp-baroque":        "layover_assets/hp-baroque-ceiling.jpg",
+  "hp-capri-frags":    "layover_assets/hp-capri-faraglioni.jpg",
+  "hp-como":           "layover_assets/hp-como.jpg",
+  "hp-lisbon-arch":    "layover_assets/hp-lisbon-arch.jpg",
+  "hp-lisbon-alley":   "layover_assets/hp-lisbon-alley.jpg",
+  "hp-seville-plaza":  "layover_assets/hp-seville-plaza.jpg",
+  "hp-beach-club":     "layover_assets/hp-beach-club.jpg",
+  "hp-amalfi-market":  "layover_assets/hp-amalfi-market.jpg",
+
   /* ── ADD NEW IMAGES HERE ───────────────────────────────────
      Example:
      "barcelona-beach": "layover_assets/barcelona-beach.jpg",
