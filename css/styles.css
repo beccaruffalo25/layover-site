@@ -1385,7 +1385,7 @@ footer {
 }
 .strategy-card {
   background: var(--ink);
-  padding: 2.8rem 2.4rem 2.6rem;
+  padding: 2.4rem 1.8rem 2.2rem;
   border-radius: 16px;
   cursor: default;
   position: relative;
@@ -1419,7 +1419,7 @@ footer {
 }
 .strategy-card-title {
   font-family: 'Cormorant SC', serif;
-  font-size: clamp(1.6rem, 2.2vw, 2.2rem);
+  font-size: clamp(1.25rem, 1.6vw, 1.7rem);
   font-weight: 300;
   color: var(--cream);
   letter-spacing: .07em;
