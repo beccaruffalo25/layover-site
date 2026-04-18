@@ -1500,97 +1500,122 @@ footer {
 /* Map canvas */
 .inspo-map-canvas {
   width: 100%;
-  height: 480px;
+  height: 520px;
   border-radius: 16px;
   overflow: hidden;
-  border: 1px solid rgba(168,132,58,.18);
-  box-shadow: 0 4px 24px rgba(41,26,16,.08);
+  box-shadow: 0 12px 48px rgba(41,26,16,.13), 0 2px 10px rgba(41,26,16,.07);
 }
 
 /* Custom marker dots */
 .map-pin {
-  width: 10px;
-  height: 10px;
+  width: 9px;
+  height: 9px;
   background: var(--tan);
   border-radius: 50%;
-  border: 2px solid var(--cream);
-  box-shadow: 0 1px 5px rgba(41,26,16,.3);
+  border: 2px solid #fff;
+  box-shadow: 0 1px 5px rgba(41,26,16,.28);
   cursor: pointer;
-  transition: transform .18s;
+  transition: transform .15s;
 }
-.map-pin:hover { transform: scale(1.5); }
-.map-pin--content {
-  width: 13px;
-  height: 13px;
-  background: var(--terra);
-}
+.map-pin:hover { transform: scale(1.6); }
 
-/* Leaflet popup overrides */
+/* Content pins — sharp square */
+.map-pin--content {
+  width: 12px;
+  height: 12px;
+  background: var(--terra);
+  border-radius: 3px;
+  border: 2px solid #fff;
+  box-shadow: 0 2px 8px rgba(184,101,74,.45);
+}
+.map-pin--content:hover { transform: scale(1.4); }
+
+/* Leaflet popup base overrides */
 .map-leaflet-popup .leaflet-popup-content-wrapper {
-  background: var(--cream);
   border-radius: 12px;
-  box-shadow: 0 8px 32px rgba(41,26,16,.16), 0 2px 8px rgba(41,26,16,.08);
+  box-shadow: 0 10px 40px rgba(41,26,16,.18), 0 2px 8px rgba(41,26,16,.08);
   padding: 0;
   border: none;
 }
 .map-leaflet-popup .leaflet-popup-content { margin: 0; }
-.map-leaflet-popup .leaflet-popup-tip { background: var(--cream); }
 .map-leaflet-popup .leaflet-popup-close-button { display: none; }
 
-/* Popup inner layout */
-.map-popup {
-  padding: 1.4rem 1.6rem 1.6rem;
-  min-width: 190px;
+/* Light popup (visited, no guide) */
+.map-leaflet-popup .leaflet-popup-content-wrapper { background: var(--cream); }
+.map-leaflet-popup .leaflet-popup-tip           { background: var(--cream); }
+
+/* Dark popup (content pins) */
+.map-leaflet-popup--content .leaflet-popup-content-wrapper {
+  background: var(--ink);
+  position: relative;
+  overflow: hidden;
 }
-.map-popup--simple { padding: 1rem 1.2rem; min-width: 0; }
+.map-leaflet-popup--content .leaflet-popup-content-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(to right, var(--gold), transparent 65%);
+}
+.map-leaflet-popup--content .leaflet-popup-tip { background: var(--ink); }
+
+/* Popup inner layout */
+.map-popup { padding: 1.4rem 1.6rem 1.6rem; min-width: 195px; }
+.map-popup--simple { padding: .9rem 1.1rem; min-width: 0; }
+
 .map-pop-type {
   font-family: 'Jost', sans-serif;
-  font-size: .5rem;
+  font-size: .48rem;
   font-weight: 300;
-  letter-spacing: .28em;
+  letter-spacing: .3em;
   text-transform: uppercase;
-  color: var(--terra);
+  color: var(--tan);
   display: block;
-  margin-bottom: .5rem;
+  margin-bottom: .55rem;
 }
 .map-pop-name {
   font-family: 'Cormorant SC', serif;
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   font-weight: 400;
-  color: var(--ink);
   display: block;
-  line-height: 1.1;
+  line-height: 1.05;
 }
+.map-leaflet-popup            .map-pop-name { color: var(--ink); }
+.map-leaflet-popup--content   .map-pop-name { color: var(--cream); }
+
 .map-pop-country {
   font-family: 'Jost', sans-serif;
-  font-size: .6rem;
+  font-size: .58rem;
   font-weight: 300;
-  color: var(--mid);
   display: block;
   margin-top: .2rem;
   margin-bottom: .9rem;
 }
+.map-leaflet-popup            .map-pop-country { color: var(--mid); }
+.map-leaflet-popup--content   .map-pop-country { color: rgba(247,242,232,.45); margin-bottom: .8rem; }
 .map-popup--simple .map-pop-country { margin-bottom: 0; }
+
 .map-pop-desc {
   font-family: 'Jost', sans-serif;
-  font-size: .78rem;
-  color: var(--mid);
+  font-size: .76rem;
+  color: rgba(247,242,232,.65);
   line-height: 1.55;
-  margin: 0 0 1rem;
+  margin: 0 0 1.1rem;
 }
 .map-pop-cta {
   font-family: 'Jost', sans-serif;
-  font-size: .54rem;
+  font-size: .52rem;
   font-weight: 400;
-  letter-spacing: .18em;
+  letter-spacing: .2em;
   text-transform: uppercase;
-  color: var(--terra);
+  color: var(--tan);
   cursor: pointer;
-  border-bottom: 1px solid currentColor;
-  padding-bottom: 1px;
+  border-bottom: 1px solid rgba(201,181,146,.4);
+  padding-bottom: 2px;
   display: inline-block;
+  transition: color .2s, border-color .2s;
 }
-.map-pop-cta:hover { color: var(--brown); }
+.map-pop-cta:hover { color: var(--cream); border-color: rgba(247,242,232,.5); }
 
 
 /* ── 13. About Page ────────────────────────────────────────── */

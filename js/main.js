@@ -413,9 +413,11 @@ function initInspoMap() {
     maxZoom: 8,
     zoomControl: false,
     attributionControl: true,
+    scrollWheelZoom: false,
+    worldCopyJump: true,
   });
 
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
     subdomains: 'abcd',
     maxZoom: 19,
@@ -425,7 +427,7 @@ function initInspoMap() {
 
   MAP_PINS.forEach(pin => {
     const hasContent = !!pin.page;
-    const size = hasContent ? 13 : 10;
+    const size = hasContent ? 12 : 9;
     const icon = L.divIcon({
       className: '',
       html: `<div class="map-pin${hasContent ? ' map-pin--content' : ''}"></div>`,
@@ -441,18 +443,22 @@ function initInspoMap() {
            <strong class="map-pop-name">${pin.name}</strong>
            <span class="map-pop-country">${pin.country}</span>
            <p class="map-pop-desc">${pin.desc}</p>
-           <a class="map-pop-cta" onclick="go('${pin.page}')">View Guide &rarr;</a>
+           <a class="map-pop-cta" onclick="go('${pin.page}')">Read the Guide &rarr;</a>
          </div>`
       : `<div class="map-popup map-popup--simple">
            <strong class="map-pop-name">${pin.name}</strong>
            <span class="map-pop-country">${pin.country}</span>
          </div>`;
 
+    const popupClass = hasContent
+      ? 'map-leaflet-popup map-leaflet-popup--content'
+      : 'map-leaflet-popup';
+
     marker.bindPopup(html, {
       closeButton: false,
-      offset: [0, -4],
+      offset: [0, -5],
       maxWidth: 230,
-      className: 'map-leaflet-popup',
+      className: popupClass,
     });
 
     marker.on('click', () => marker.openPopup());
