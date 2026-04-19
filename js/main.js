@@ -153,6 +153,25 @@ function closeMenu() {
   toggle.classList.remove('open');
   toggle.setAttribute('aria-expanded', 'false');
   document.body.style.overflow = '';
+  document.querySelectorAll('.has-dropdown.open').forEach(li => {
+    li.classList.remove('open');
+    const btn = li.querySelector('.drop-toggle');
+    if (btn) btn.setAttribute('aria-expanded', 'false');
+  });
+}
+
+function toggleSubnav(btn) {
+  const li = btn.closest('.has-dropdown');
+  const opening = !li.classList.contains('open');
+  document.querySelectorAll('.has-dropdown.open').forEach(el => {
+    el.classList.remove('open');
+    const b = el.querySelector('.drop-toggle');
+    if (b) b.setAttribute('aria-expanded', 'false');
+  });
+  if (opening) {
+    li.classList.add('open');
+    btn.setAttribute('aria-expanded', 'true');
+  }
 }
 
 

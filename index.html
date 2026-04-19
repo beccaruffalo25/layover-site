@@ -44,7 +44,12 @@
     <ul class="nav-links" id="nav-links">
       <li><a onclick="go('home')">Home</a></li>
       <li class="has-dropdown">
-        <a onclick="go('travel')">Travel</a>
+        <div class="drop-row">
+          <a onclick="go('travel')">Travel</a>
+          <button class="drop-toggle" aria-label="Expand Travel menu" aria-expanded="false" onclick="toggleSubnav(this)">
+            <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
         <div class="dropdown">
           <a class="drop-cat" onclick="go('experiences')">
             <span class="drop-cat-name">Experiences</span>
@@ -71,7 +76,12 @@
       <li><a onclick="go('strategy')">Strategy</a></li>
       <li><a onclick="go('inspo')">Inspo</a></li>
       <li class="has-dropdown">
-        <a onclick="go('about')">About</a>
+        <div class="drop-row">
+          <a onclick="go('about')">About</a>
+          <button class="drop-toggle" aria-label="Expand About menu" aria-expanded="false" onclick="toggleSubnav(this)">
+            <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
         <div class="dropdown">
           <a class="drop-item" onclick="go('about')">
             <span class="drop-city">My Story</span>
