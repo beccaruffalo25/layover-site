@@ -62,6 +62,13 @@ const IMAGES = {
   "hp-amalfi-market":  "layover_assets/hp-amalfi-market.jpg",
   "hp-elephant-touch": "layover_assets/hp-elephant-touch.jpg",
   "hp-elephant-smile": "layover_assets/hp-elephant-smile.jpg",
+  "hp-cliffs-moher":   "layover_assets/hp-cliffs-moher.jpg",
+  "hp-eiffel-night":   "layover_assets/hp-eiffel-night.jpg",
+  "hp-oia-town":       "layover_assets/hp-oia-town.jpg",
+  "hp-blue-lagoon":    "layover_assets/hp-blue-lagoon.jpg",
+  "hp-fontelina":      "layover_assets/hp-fontelina.jpg",
+  "hp-tulips":         "layover_assets/hp-tulips.jpg",
+  "hp-lisbon-tram":    "layover_assets/hp-lisbon-tram.jpg",
 
   /* ── ADD NEW IMAGES HERE ───────────────────────────────────
      Example:

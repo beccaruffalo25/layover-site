@@ -1794,7 +1794,7 @@ footer {
 }
 .bl-card {
   position: relative;
-  min-height: 260px;
+  min-height: 220px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -1806,7 +1806,8 @@ footer {
   transition: border-color .2s;
 }
 .bl-card:hover { border-color: rgba(168,132,58,.22); }
-.bl-card--wide { grid-column: span 2; min-height: 320px; }
+.bl-card--wide { grid-column: span 2; min-height: 300px; }
+.bl-card--elephant .bl-card-bg { object-position: center 25%; }
 .bl-card--text { background: var(--ink); }
 .bl-card--alt  { background: #1c0f06; }
 .bl-card--photo { background: var(--brown); }
