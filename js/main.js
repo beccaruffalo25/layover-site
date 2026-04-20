@@ -60,6 +60,8 @@ const IMAGES = {
   "hp-seville-plaza":  "layover_assets/hp-seville-plaza.jpg",
   "hp-beach-club":     "layover_assets/hp-beach-club.jpg",
   "hp-amalfi-market":  "layover_assets/hp-amalfi-market.jpg",
+  "hp-elephant-touch": "layover_assets/hp-elephant-touch.jpg",
+  "hp-elephant-smile": "layover_assets/hp-elephant-smile.jpg",
 
   /* ── ADD NEW IMAGES HERE ───────────────────────────────────
      Example:

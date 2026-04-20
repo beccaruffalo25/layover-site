@@ -635,60 +635,214 @@
   ════════════════════════════════════════════════════════════ -->
   <div id="inspo" class="page">
 
-    <div class="art-hero art-hero--title">
-      <div class="art-hero-text">
+    <!-- ── Hero: split type + image ──────────────────────────── -->
+    <section class="inspo-hero">
+      <div class="inspo-hero-text">
         <span class="label" style="color:var(--tan)">Inspiration</span>
-        <h1>Inspo</h1>
-        <p class="sub">Experiences to dream about, destinations to discover.</p>
+        <h1 class="inspo-hero-title">THE<br>BUCKET<br>LIST.</h1>
+        <p class="inspo-hero-sub">Experiences worth every hour of planning &mdash; done, dreamed, and documented.</p>
+      </div>
+      <div class="inspo-hero-img">
+        <img src="" data-k="hp-elephant-touch" alt="Becca with elephant, Chiang Mai Thailand" />
+        <div class="inspo-hero-img-veil"></div>
+      </div>
+    </section>
+
+    <!-- ── Stat strip ─────────────────────────────────────────── -->
+    <div class="inspo-stats">
+      <div class="inspo-stat">
+        <span class="inspo-stat-n">10</span>
+        <span class="inspo-stat-l">Experiences<br>Completed</span>
+      </div>
+      <div class="inspo-stat-div"></div>
+      <div class="inspo-stat">
+        <span class="inspo-stat-n">10</span>
+        <span class="inspo-stat-l">Still<br>Dreaming</span>
+      </div>
+      <div class="inspo-stat-div"></div>
+      <div class="inspo-stat">
+        <span class="inspo-stat-n">17</span>
+        <span class="inspo-stat-l">Countries<br>Visited</span>
       </div>
     </div>
 
-    <!-- ── Bucket List ─────────────────────────────────────────── -->
-    <section class="sec">
+    <!-- ── Done list section head ─────────────────────────────── -->
+    <div class="bl-sec-head">
+      <span class="label" style="color:var(--tan)">Done &amp; Documented</span>
+      <h2 class="bl-sec-title">My Top 10 Bucket List<br>Experiences</h2>
+      <p class="bl-sec-desc">Some I can personally recommend. All changed how I travel.</p>
+    </div>
+
+    <!-- ── Bucket list grid ───────────────────────────────────── -->
+    <div class="bl-grid">
+
+      <div class="bl-card bl-card--text">
+        <span class="bl-card-n">01</span>
+        <div class="bl-card-body">
+          <h3 class="bl-card-title">Cliffs of Moher</h3>
+          <p class="bl-card-loc">County Clare &middot; Ireland</p>
+        </div>
+      </div>
+
+      <div class="bl-card bl-card--text bl-card--alt">
+        <span class="bl-card-n">02</span>
+        <div class="bl-card-body">
+          <h3 class="bl-card-title">Dinner at the Top of the Eiffel Tower</h3>
+          <p class="bl-card-loc">Paris &middot; France</p>
+        </div>
+      </div>
+
+      <div class="bl-card bl-card--photo bl-card--wide">
+        <img src="" data-k="hp-elephant-smile" alt="Elephant Sanctuary, Chiang Mai" class="bl-card-bg" />
+        <div class="bl-card-veil"></div>
+        <span class="bl-card-n">03</span>
+        <div class="bl-card-body">
+          <h3 class="bl-card-title">Elephant Sanctuary</h3>
+          <p class="bl-card-loc">Chiang Mai &middot; Thailand</p>
+          <p class="bl-card-quote">&ldquo;Some moments you just have to say yes to.&rdquo;</p>
+        </div>
+      </div>
+
+      <div class="bl-card bl-card--photo">
+        <img src="" data-k="hp-colosseum" alt="Colosseum at sunset, Rome" class="bl-card-bg" />
+        <div class="bl-card-veil"></div>
+        <span class="bl-card-n">04</span>
+        <div class="bl-card-body">
+          <h3 class="bl-card-title">The Colosseum at Sunset</h3>
+          <p class="bl-card-loc">Rome &middot; Italy</p>
+        </div>
+      </div>
+
+      <div class="bl-card bl-card--photo">
+        <img src="" data-k="santorini-sunset" alt="Oia sunset, Santorini" class="bl-card-bg" />
+        <div class="bl-card-veil"></div>
+        <span class="bl-card-n">05</span>
+        <div class="bl-card-body">
+          <h3 class="bl-card-title">Oia Sunset</h3>
+          <p class="bl-card-loc">Santorini &middot; Greece</p>
+          <p class="bl-card-quote">&ldquo;One of those rare things that lives up to every photograph.&rdquo;</p>
+        </div>
+      </div>
+
+      <div class="bl-card bl-card--text">
+        <span class="bl-card-n">06</span>
+        <div class="bl-card-body">
+          <h3 class="bl-card-title">Swimming in the Blue Lagoon</h3>
+          <p class="bl-card-loc">Blue Lagoon &middot; Malta</p>
+        </div>
+      </div>
+
+      <div class="bl-card bl-card--text bl-card--alt">
+        <span class="bl-card-n">07</span>
+        <div class="bl-card-body">
+          <h3 class="bl-card-title">Live Flamenco</h3>
+          <p class="bl-card-loc">Plaza de Espa&ntilde;a &middot; Seville, Spain</p>
+        </div>
+      </div>
+
+      <div class="bl-card bl-card--photo">
+        <img src="" data-k="hp-beach-club" alt="Amalfi Coast Beach Club" class="bl-card-bg" />
+        <div class="bl-card-veil"></div>
+        <span class="bl-card-n">08</span>
+        <div class="bl-card-body">
+          <h3 class="bl-card-title">Amalfi Coast Beach Club</h3>
+          <p class="bl-card-loc">La Fontelina, Capri &middot; Italy</p>
+        </div>
+      </div>
+
+      <div class="bl-card bl-card--text">
+        <span class="bl-card-n">09</span>
+        <div class="bl-card-body">
+          <h3 class="bl-card-title">Tulip Season</h3>
+          <p class="bl-card-loc">Keukenhof Gardens &middot; Amsterdam</p>
+        </div>
+      </div>
+
+      <div class="bl-card bl-card--photo">
+        <img src="" data-k="hp-lisbon-arch" alt="Lisbon castle arch" class="bl-card-bg" />
+        <div class="bl-card-veil"></div>
+        <span class="bl-card-n">10</span>
+        <div class="bl-card-body">
+          <h3 class="bl-card-title">Tram 28</h3>
+          <p class="bl-card-loc">Alfama &middot; Lisbon, Portugal</p>
+        </div>
+      </div>
+
+    </div><!-- /bl-grid -->
+
+    <!-- ── Santorini photo strip ──────────────────────────────── -->
+    <div class="bl-strip">
+      <div class="bl-strip-img">
+        <img src="" data-k="santorini-pool" alt="Infinity pool, Santorini" />
+      </div>
+      <div class="bl-strip-img">
+        <img src="" data-k="santorini-arch" alt="Archway, Santorini" />
+      </div>
+      <div class="bl-strip-img">
+        <img src="" data-k="hp-capri-frags" alt="Faraglioni sea stacks, Capri" />
+      </div>
+    </div>
+
+    <!-- ── Full-bleed editorial quote ────────────────────────── -->
+    <div class="bl-pullquote">
+      <img src="" data-k="hp-baroque" alt="" class="bl-pullquote-img" />
+      <div class="bl-pullquote-veil"></div>
+      <div class="bl-pullquote-body">
+        <p class="bl-pullquote-q">&ldquo;Travel isn&rsquo;t just about the places. It&rsquo;s about the version of yourself you discover between them.&rdquo;</p>
+        <span class="bl-pullquote-byline">LAYOVER</span>
+      </div>
+    </div>
+
+    <!-- ── Future bucket list ─────────────────────────────────── -->
+    <section class="bl-dream">
       <div class="wrap-sm">
-
-        <h2 class="h-sec" style="margin-bottom:2.4rem">Bucket List</h2>
-
-        <p class="lede">Everyone needs a bit of inspiration from time to time. With a world so vast and beautiful it can be hard to narrow down your next destination. To help guide your next adventure, I&rsquo;ve curated a list of bucket-list experiences &mdash; some I can personally recommend, and others I&rsquo;m still dreaming of &mdash; to inspire your next vision board.</p>
-
-        <div class="img-trio">
-          <img src="" data-k="santorini-pool" alt="Infinity pool, Santorini" />
-          <img src="" data-k="santorini-arch" alt="Archway view, Santorini" />
-          <img src="" data-k="hp-capri-frags" alt="Faraglioni sea stacks, Capri" />
+        <div class="bl-dream-head">
+          <span class="label" style="color:var(--tan)">On the Horizon</span>
+          <h2 class="bl-sec-title" style="color:var(--ink)">Still Dreaming</h2>
+          <p style="color:var(--mid);font-family:'Jost',sans-serif;font-size:.65rem;letter-spacing:.16em;text-transform:uppercase">The list that keeps the wanderlust alive.</p>
         </div>
-
-        <div class="bucket-grid">
-
-          <div class="bucket-col bucket-col--done">
-            <h3>My Top 10 Bucket List Experiences</h3>
-            <div class="b-item"><span class="b-num">01</span><span class="b-text"><strong>Cliffs of Moher</strong>County Clare, Ireland</span></div>
-            <div class="b-item"><span class="b-num">02</span><span class="b-text"><strong>Dinner at the top of the Eiffel Tower</strong>Paris, France</span></div>
-            <div class="b-item"><span class="b-num">03</span><span class="b-text"><strong>Elephant Sanctuary</strong>Chiang Mai, Thailand</span></div>
-            <div class="b-item"><span class="b-num">04</span><span class="b-text"><strong>The Colosseum at Sunset</strong>Rome, Italy</span></div>
-            <div class="b-item"><span class="b-num">05</span><span class="b-text"><strong>Oia Sunset</strong>Santorini, Greece</span></div>
-            <div class="b-item"><span class="b-num">06</span><span class="b-text"><strong>Swimming in the Blue Lagoon</strong>Blue Lagoon, Malta</span></div>
-            <div class="b-item"><span class="b-num">07</span><span class="b-text"><strong>Live Flamenco</strong>Plaza de Espana, Seville, Spain</span></div>
-            <div class="b-item"><span class="b-num">08</span><span class="b-text"><strong>Amalfi Coast Beach Club</strong>La Fontelina, Capri, Italy</span></div>
-            <div class="b-item"><span class="b-num">09</span><span class="b-text"><strong>Tulip Season</strong>Keukenhof Gardens, Amsterdam</span></div>
-            <div class="b-item"><span class="b-num">10</span><span class="b-text"><strong>Tram 28</strong>Lisbon, Portugal</span></div>
+        <div class="bl-dream-list">
+          <div class="bl-dream-item">
+            <span class="bl-dream-n">01</span>
+            <div class="bl-dream-text"><strong>Helicopter Ride</strong><span>Christ the Redeemer, Rio &middot; Brazil</span></div>
           </div>
-
-          <div class="bucket-col bucket-col--dream">
-            <h3>My Top 10 Future Bucket List</h3>
-            <div class="b-item"><span class="b-num">01</span><span class="b-text"><strong>Helicopter Ride</strong>Christ the Redeemer, Rio, Brazil</span></div>
-            <div class="b-item"><span class="b-num">02</span><span class="b-text"><strong>Camel Ride</strong>The Sahara Desert, Morocco</span></div>
-            <div class="b-item"><span class="b-num">03</span><span class="b-text"><strong>Skydiving</strong>Interlaken, Switzerland</span></div>
-            <div class="b-item"><span class="b-num">04</span><span class="b-text"><strong>Scuba Diving</strong>The Great Barrier Reef, Australia</span></div>
-            <div class="b-item"><span class="b-num">05</span><span class="b-text"><strong>Hiking Machu Picchu</strong>Peru</span></div>
-            <div class="b-item"><span class="b-num">06</span><span class="b-text"><strong>Hot Air Balloon</strong>Cappadocia, Turkey</span></div>
-            <div class="b-item"><span class="b-num">07</span><span class="b-text"><strong>Sleep Under the Northern Lights</strong>Lapland, Finland</span></div>
-            <div class="b-item"><span class="b-num">08</span><span class="b-text"><strong>Cherry Blossom Season</strong>Kyoto, Japan</span></div>
-            <div class="b-item"><span class="b-num">09</span><span class="b-text"><strong>Serengeti National Park</strong>Tanzania</span></div>
-            <div class="b-item"><span class="b-num">10</span><span class="b-text"><strong>Swim with Whale Sharks</strong>The Philippines</span></div>
+          <div class="bl-dream-item">
+            <span class="bl-dream-n">02</span>
+            <div class="bl-dream-text"><strong>Camel Ride</strong><span>The Sahara Desert &middot; Morocco</span></div>
           </div>
-
+          <div class="bl-dream-item">
+            <span class="bl-dream-n">03</span>
+            <div class="bl-dream-text"><strong>Skydiving</strong><span>Interlaken &middot; Switzerland</span></div>
+          </div>
+          <div class="bl-dream-item">
+            <span class="bl-dream-n">04</span>
+            <div class="bl-dream-text"><strong>Scuba Diving</strong><span>The Great Barrier Reef &middot; Australia</span></div>
+          </div>
+          <div class="bl-dream-item">
+            <span class="bl-dream-n">05</span>
+            <div class="bl-dream-text"><strong>Hiking Machu Picchu</strong><span>Peru</span></div>
+          </div>
+          <div class="bl-dream-item">
+            <span class="bl-dream-n">06</span>
+            <div class="bl-dream-text"><strong>Hot Air Balloon</strong><span>Cappadocia &middot; Turkey</span></div>
+          </div>
+          <div class="bl-dream-item">
+            <span class="bl-dream-n">07</span>
+            <div class="bl-dream-text"><strong>Sleep Under the Northern Lights</strong><span>Lapland &middot; Finland</span></div>
+          </div>
+          <div class="bl-dream-item">
+            <span class="bl-dream-n">08</span>
+            <div class="bl-dream-text"><strong>Cherry Blossom Season</strong><span>Kyoto &middot; Japan</span></div>
+          </div>
+          <div class="bl-dream-item">
+            <span class="bl-dream-n">09</span>
+            <div class="bl-dream-text"><strong>Serengeti National Park</strong><span>Tanzania</span></div>
+          </div>
+          <div class="bl-dream-item">
+            <span class="bl-dream-n">10</span>
+            <div class="bl-dream-text"><strong>Swim with Whale Sharks</strong><span>The Philippines</span></div>
+          </div>
         </div>
-
       </div>
     </section>
 
