@@ -388,12 +388,16 @@ function initReveal() {
     '.page.active .mantra, ' +
     '.page.active .lede, ' +
     '.page.active .tool-cat, ' +
+    '.page.active .about-intro-h, ' +
+    '.page.active .about-intro-cols, ' +
+    '.page.active .about-voice-head, ' +
+    '.page.active .about-voice-body, ' +
     '.page.active .about-style-card, ' +
     '.page.active .about-essay-pull, ' +
     '.page.active .about-essay-body, ' +
-    '.page.active .about-mantra, ' +
-    '.page.active .about-story-body, ' +
-    '.page.active .about-mission-body'
+    '.page.active .about-mission-h, ' +
+    '.page.active .about-mission-cols, ' +
+    '.page.active .about-mantra'
   );
 
   revealObserver = new IntersectionObserver((entries) => {
