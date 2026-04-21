@@ -387,7 +387,12 @@ function initReveal() {
     '.page.active .about-text > p, ' +
     '.page.active .mantra, ' +
     '.page.active .lede, ' +
-    '.page.active .tool-cat'
+    '.page.active .tool-cat, ' +
+    '.page.active .about-style-card, ' +
+    '.page.active .about-triptych-img, ' +
+    '.page.active .about-mantra, ' +
+    '.page.active .about-story-body, ' +
+    '.page.active .about-mission-body'
   );
 
   revealObserver = new IntersectionObserver((entries) => {

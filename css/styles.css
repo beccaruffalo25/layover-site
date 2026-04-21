@@ -2127,33 +2127,268 @@ footer {
 
 
 /* ── 13. About Page ────────────────────────────────────────── */
-.about-grid {
+
+/* Hero */
+.about-hero {
+  position: relative;
+  min-height: 88vh;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+.about-hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  transition: transform 9s ease;
+}
+.about-hero:hover .about-hero-bg { transform: scale(1.05); }
+.about-hero-veil {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(10,5,2,.92) 0%, rgba(10,5,2,.45) 50%, rgba(10,5,2,.08) 100%);
+}
+.about-hero-text {
+  position: relative;
+  z-index: 2;
+  padding: 5rem;
+}
+.about-hero-h {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(5.5rem, 16vw, 14rem);
+  font-weight: 300;
+  color: var(--cream);
+  line-height: .88;
+  letter-spacing: -.02em;
+  margin: 1rem 0 2rem;
+  animation: aboutTitleIn .9s cubic-bezier(.22,1,.36,1) both;
+}
+.about-hero-tag {
+  font-family: 'Jost', sans-serif;
+  font-size: .65rem;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: rgba(247,242,232,.5);
+  animation: aboutTitleIn .9s .15s cubic-bezier(.22,1,.36,1) both;
+}
+@keyframes aboutTitleIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Facts strip */
+.about-facts {
+  background: var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 2rem;
+  border-bottom: 1px solid rgba(247,242,232,.06);
+}
+.about-fact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .3rem;
+  flex: 1;
+  max-width: 180px;
+}
+.about-fact-n {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.8rem, 5vw, 5rem);
+  font-weight: 300;
+  color: var(--tan);
+  line-height: 1;
+}
+.about-fact-l {
+  font-family: 'Jost', sans-serif;
+  font-size: .5rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: rgba(247,242,232,.38);
+  text-align: center;
+  line-height: 1.7;
+}
+.about-fact-div {
+  width: 1px; height: 50px;
+  background: rgba(247,242,232,.1);
+  flex-shrink: 0;
+}
+
+/* Story sections */
+.about-story {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 6rem;
-  align-items: start;
-  padding: 6rem 0;
+  min-height: 68vh;
+  overflow: hidden;
 }
-.sticky-img { position: sticky; top: 5.5rem; }
-.sticky-img img { width: 100%; aspect-ratio: 3/4; object-fit: cover; }
-.about-text h1 {
-  font-family: 'Cormorant SC', serif;
-  font-size: clamp(2rem, 3.5vw, 3rem);
+.about-story-visual { position: relative; overflow: hidden; background: var(--brown); }
+.about-story-visual img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  transition: transform .8s ease;
+}
+.about-story:hover .about-story-visual img { transform: scale(1.05); }
+.about-story-body {
+  background: var(--cream);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 5rem 4.5rem;
+}
+.about-story-h {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 3.8vw, 3.6rem);
   font-weight: 300;
-  letter-spacing: .1em;
-  color: var(--brown);
-  margin-bottom: .4rem;
+  color: var(--ink);
+  line-height: 1.08;
+  margin: .8rem 0 1.8rem;
+  letter-spacing: -.01em;
 }
-.about-text .it {
+.about-story-body p {
+  font-family: 'Jost', sans-serif;
+  font-size: .86rem;
+  font-weight: 300;
+  color: var(--mid);
+  line-height: 1.9;
+  margin-bottom: 1rem;
+}
+
+/* Photo triptych */
+.about-triptych {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  height: 360px;
+  gap: 4px;
+  background: var(--ink);
+}
+.about-triptych-img { overflow: hidden; }
+.about-triptych-img img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  transition: transform .6s ease;
+}
+.about-triptych-img:hover img { transform: scale(1.07); }
+
+/* Travel style cards */
+.about-style {
+  background: var(--parchment);
+  padding: 6rem 0 5rem;
+}
+.about-style-head { text-align: center; margin-bottom: 3rem; }
+.about-style-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 300;
+  color: var(--ink);
+  margin: .6rem 0 0;
+  letter-spacing: -.01em;
+}
+.about-style-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1.2rem;
+}
+.about-style-card {
+  background: var(--ink);
+  border-radius: 14px;
+  padding: 3rem 2.4rem;
+  position: relative;
+  overflow: hidden;
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+.about-style-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 24px 56px rgba(41,26,16,.28);
+}
+.about-style-n {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 6rem;
+  font-weight: 300;
+  color: rgba(255,255,255,.05);
+  line-height: 1;
+  position: absolute;
+  top: .8rem; right: 1.4rem;
+  pointer-events: none;
+  user-select: none;
+}
+.about-style-cardh {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.9rem, 2.8vw, 2.6rem);
+  font-weight: 400;
+  color: var(--cream);
+  line-height: 1.1;
+  margin: 0 0 1.1rem;
+}
+.about-style-card p {
+  font-family: 'Jost', sans-serif;
+  font-size: .76rem;
+  font-weight: 300;
+  color: rgba(247,242,232,.5);
+  line-height: 1.85;
+  margin: 0;
+}
+
+/* Mission section */
+.about-mission {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 60vh;
+  overflow: hidden;
+}
+.about-mission-body {
+  background: var(--ink);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 5rem 4.5rem;
+}
+.about-mission-body p {
+  font-family: 'Jost', sans-serif;
+  font-size: .86rem;
+  font-weight: 300;
+  color: rgba(247,242,232,.5);
+  line-height: 1.9;
+  margin-bottom: 1rem;
+}
+.about-mission-visual { overflow: hidden; background: var(--brown); }
+.about-mission-visual img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform .8s ease;
+}
+.about-mission:hover .about-mission-visual img { transform: scale(1.05); }
+
+/* Closing mantra */
+.about-mantra {
+  background: var(--ink);
+  padding: 9rem 4rem;
+  text-align: center;
+  border-top: 1px solid rgba(247,242,232,.06);
+}
+.about-mantra-q {
   font-family: 'Cormorant Garamond', serif;
   font-style: italic;
-  font-size: 1.05rem;
-  color: var(--tan);
-  margin-bottom: 2.2rem;
-  letter-spacing: .05em;
-  display: block;
+  font-size: clamp(2.2rem, 5.5vw, 5rem);
+  font-weight: 300;
+  color: var(--cream);
+  line-height: 1.2;
+  margin: 0 0 1.6rem;
+  letter-spacing: -.01em;
 }
-.about-text p { font-size: 1.06rem; line-height: 1.88; color: var(--ink); margin-bottom: 1.4rem; }
+.about-mantra-sub {
+  font-family: 'Jost', sans-serif;
+  font-size: .55rem;
+  letter-spacing: .45em;
+  text-transform: uppercase;
+  color: var(--tan);
+}
+
+/* Legacy mantra (used elsewhere) */
 .mantra {
   margin-top: 2.8rem;
   padding: 1.8rem 2.2rem;
@@ -2542,6 +2777,23 @@ footer {
   .drop-cat-name { font-size: .58rem; color: var(--mid); }
   .drop-sub .drop-city { font-size: .85rem; }
   .drop-more { border-top: 1px solid rgba(168,132,58,.16); padding: .5rem 0 0; text-align: center; margin-top: .3rem; }
+
+  /* ── About page ──────────────────────────────────────────── */
+  .about-hero { min-height: 70vh; }
+  .about-hero-text { padding: 3rem 2rem; }
+  .about-facts { flex-wrap: wrap; gap: 1.5rem; padding: 2.5rem 1.4rem; }
+  .about-fact { max-width: 130px; }
+  .about-fact-div { display: none; }
+  .about-story { grid-template-columns: 1fr; }
+  .about-story-visual { min-height: 260px; }
+  .about-story-body { padding: 3rem 2rem; }
+  .about-triptych { height: 220px; }
+  .about-style { padding: 4rem 0 3rem; }
+  .about-style-grid { grid-template-columns: 1fr; gap: .8rem; }
+  .about-mission { grid-template-columns: 1fr; }
+  .about-mission-body { padding: 3.5rem 2rem; }
+  .about-mission-visual { min-height: 260px; }
+  .about-mantra { padding: 5rem 2rem; }
 }
 
 /* ── Small mobile (≤ 480px) ────────────────────────────────── */
@@ -2601,5 +2853,12 @@ footer {
   .bl-dream { padding: 3rem 0 2.5rem; }
   .bl-dream-list { grid-template-columns: 1fr; }
   .bl-dream-item:nth-child(odd) { border-right: none; }
-  .bl-dream-item { padding: 1rem 1.2rem; gap: 1rem; }
+  .bl-dream-item { padding: 1.4rem 1.4rem; gap: 1.2rem; }
+
+  /* About page — small mobile */
+  .about-hero { min-height: 60vh; }
+  .about-hero-text { padding: 2.5rem 1.4rem; }
+  .about-triptych { height: 160px; }
+  .about-mission-body { padding: 3rem 1.4rem; }
+  .about-mantra { padding: 4rem 1.4rem; }
 }
