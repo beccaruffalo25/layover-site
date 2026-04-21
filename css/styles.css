@@ -2239,14 +2239,13 @@ footer {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
-  max-width: 960px;
 }
 .about-intro-cols p {
   font-family: 'Jost', sans-serif;
-  font-size: .92rem;
+  font-size: 1.1rem;
   font-weight: 300;
   color: var(--mid);
-  line-height: 2;
+  line-height: 1.85;
 }
 
 /* Travel voice */
@@ -2261,17 +2260,17 @@ footer {
   gap: 6rem;
   align-items: start;
 }
-.about-voice-head { position: relative; padding-top: 2rem; }
+.about-voice-head { position: relative; overflow: hidden; min-height: 8rem; }
 .about-voice-n {
   display: block;
   font-family: 'Cormorant Garamond', serif;
-  font-size: 16rem;
+  font-size: 11rem;
   font-weight: 300;
-  color: rgba(53,35,23,.05);
+  color: rgba(53,35,23,.06);
   line-height: .8;
   position: absolute;
-  top: -1.5rem;
-  left: -1.5rem;
+  top: -.5rem;
+  left: -.5rem;
   pointer-events: none;
   user-select: none;
 }
@@ -2284,21 +2283,23 @@ footer {
   letter-spacing: -.015em;
   position: relative;
   z-index: 1;
+  padding-top: 1.5rem;
 }
 .about-voice-body p {
   font-family: 'Jost', sans-serif;
-  font-size: .9rem;
+  font-size: 1.1rem;
   font-weight: 300;
   color: var(--mid);
-  line-height: 2;
+  line-height: 1.85;
   margin-bottom: 1.4rem;
 }
 .about-voice-body p:last-child { margin-bottom: 0; }
 
 /* Personal essay section */
 .about-essay {
-  background: var(--parchment);
+  background: var(--cream);
   padding: 8rem 0;
+  border-top: 1px solid rgba(168,132,58,.1);
 }
 .about-essay-inner {
   display: grid;
@@ -2326,10 +2327,10 @@ footer {
 }
 .about-essay-body p {
   font-family: 'Jost', sans-serif;
-  font-size: .84rem;
+  font-size: 1rem;
   font-weight: 300;
   color: var(--mid);
-  line-height: 1.95;
+  line-height: 1.85;
   margin-bottom: 1.3rem;
 }
 .about-essay-body p:last-child { margin-bottom: 0; }
@@ -2386,10 +2387,10 @@ footer {
 }
 .about-style-card p {
   font-family: 'Jost', sans-serif;
-  font-size: .76rem;
+  font-size: .9rem;
   font-weight: 300;
   color: rgba(247,242,232,.5);
-  line-height: 1.85;
+  line-height: 1.8;
   margin: 0;
 }
 
@@ -2417,10 +2418,10 @@ footer {
 }
 .about-mission-cols p {
   font-family: 'Jost', sans-serif;
-  font-size: .9rem;
+  font-size: 1.1rem;
   font-weight: 300;
   color: rgba(247,242,232,.5);
-  line-height: 2;
+  line-height: 1.85;
 }
 
 /* Closing mantra */
