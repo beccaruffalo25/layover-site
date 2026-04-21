@@ -2257,22 +2257,44 @@ footer {
   margin-bottom: 1rem;
 }
 
-/* Photo triptych */
-.about-triptych {
+/* Personal essay section */
+.about-essay {
+  background: var(--parchment);
+  padding: 8rem 0;
+}
+.about-essay-inner {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  height: 360px;
-  gap: 4px;
-  background: var(--ink);
+  grid-template-columns: 1fr 1fr;
+  gap: 7rem;
+  align-items: start;
 }
-.about-triptych-img { overflow: hidden; }
-.about-triptych-img img {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  object-position: center top;
-  transition: transform .6s ease;
+.about-essay-mark {
+  display: block;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 9rem;
+  color: var(--tan);
+  line-height: .72;
+  margin-bottom: .6rem;
+  opacity: .7;
 }
-.about-triptych-img:hover img { transform: scale(1.07); }
+.about-essay-big {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: clamp(1.75rem, 2.8vw, 2.7rem);
+  font-weight: 300;
+  color: var(--ink);
+  line-height: 1.35;
+  letter-spacing: -.01em;
+}
+.about-essay-body p {
+  font-family: 'Jost', sans-serif;
+  font-size: .84rem;
+  font-weight: 300;
+  color: var(--mid);
+  line-height: 1.95;
+  margin-bottom: 1.3rem;
+}
+.about-essay-body p:last-child { margin-bottom: 0; }
 
 /* Travel style cards */
 .about-style {
@@ -2704,6 +2726,9 @@ footer {
 
   /* About */
   .about-grid      { gap: 2rem; padding: 3rem 0; }
+  .about-essay     { padding: 4rem 0; }
+  .about-essay-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+  .about-essay-mark  { font-size: 6rem; }
   .bucket-grid     { margin-top: 2rem; }
 
   /* Bio strip */
@@ -2858,7 +2883,8 @@ footer {
   /* About page — small mobile */
   .about-hero { min-height: 60vh; }
   .about-hero-text { padding: 2.5rem 1.4rem; }
-  .about-triptych { height: 160px; }
+  .about-essay { padding: 3rem 0; }
+  .about-essay-mark { font-size: 5rem; }
   .about-mission-body { padding: 3rem 1.4rem; }
   .about-mantra { padding: 4rem 1.4rem; }
 }

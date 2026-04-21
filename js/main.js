@@ -389,7 +389,8 @@ function initReveal() {
     '.page.active .lede, ' +
     '.page.active .tool-cat, ' +
     '.page.active .about-style-card, ' +
-    '.page.active .about-triptych-img, ' +
+    '.page.active .about-essay-pull, ' +
+    '.page.active .about-essay-body, ' +
     '.page.active .about-mantra, ' +
     '.page.active .about-story-body, ' +
     '.page.active .about-mission-body'
