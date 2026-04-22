@@ -1718,35 +1718,6 @@ footer {
   letter-spacing: .03em;
   max-width: 46ch;
 }
-.inspo-hero-stats {
-  display: flex;
-  gap: 0;
-  padding-top: 1.4rem;
-  border-top: 1px solid rgba(168,132,58,.2);
-}
-.inspo-hero-stat {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-}
-.inspo-hero-stat-n {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(1.8rem, 2.8vw, 2.8rem);
-  font-weight: 300;
-  color: var(--ink);
-  line-height: 1;
-  display: block;
-}
-.inspo-hero-stat-l {
-  font-family: 'Jost', sans-serif;
-  font-size: .5rem;
-  letter-spacing: .18em;
-  text-transform: uppercase;
-  color: var(--mid);
-  line-height: 1.65;
-  margin-top: .35rem;
-  display: block;
-}
 
 /* Section headers */
 .bl-sec-head {
@@ -2912,8 +2883,6 @@ footer {
   .inspo-hero-text { min-height: 38vh; padding: 2rem 1.6rem 2.5rem; }
   .inspo-hero-desc { padding: 2rem 1.6rem; gap: 1.4rem; }
   .inspo-hero-title { font-size: clamp(2.8rem, 13vw, 5rem); }
-  .inspo-hero-stats { flex-wrap: wrap; gap: 1.2rem 0; }
-  .inspo-hero-stat { max-width: 50%; }
   .bl-sec-head { padding: 2.5rem 1.6rem 2rem; }
   .bl-sec-title { font-size: clamp(1.8rem, 8vw, 3rem); }
   .bl-grid { grid-template-columns: 1fr; gap: 6px; padding: 6px; }
