@@ -2141,7 +2141,7 @@ footer {
   inset: 0;
   width: 100%; height: 100%;
   object-fit: cover;
-  object-position: 30% 55%;
+  object-position: center 38%;
   transition: transform 9s ease;
 }
 .about-hero:hover .about-hero-bg { transform: scale(1.05); }
