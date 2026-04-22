@@ -1325,8 +1325,7 @@ footer {
 /* ── 10. Article / Sub-page styles ─────────────────────────── */
 .art-hero {
   position: relative;
-  height: 78vh;
-  min-height: 520px;
+  min-height: 42vh;
   overflow: hidden;
 }
 .art-hero img { width: 100%; height: 100%; object-fit: cover; }
@@ -1672,7 +1671,7 @@ footer {
 .inspo-hero {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  min-height: 70vh;
+  min-height: 42vh;
   overflow: hidden;
 }
 .inspo-hero-text {
@@ -2747,7 +2746,7 @@ footer {
   .f-social { flex-direction: row; }
 
   /* Article hero */
-  .art-hero        { height: 52vh; min-height: 300px; }
+  .art-hero        { min-height: 44vh; }
   .art-hero-text   { width: 92%; bottom: 2rem; }
   .art-hero-text .sub { font-size: .95rem; }
 
@@ -2905,7 +2904,7 @@ footer {
   .split-img   { min-height: 220px; }
 
   /* Art hero */
-  .art-hero    { height: 46vh; min-height: 260px; }
+  .art-hero    { min-height: 38vh; }
 
   /* Article */
   .art-body    { padding: 2.4rem 0 3.5rem; }
@@ -2921,9 +2920,9 @@ footer {
   .grid-2      { gap: 2rem; }
 
   /* Inspo page redesign — mobile */
-  .inspo-hero { grid-template-columns: 1fr; min-height: 70svh; }
+  .inspo-hero { grid-template-columns: 1fr; min-height: 44vh; }
   .inspo-hero-img { display: none; }
-  .inspo-hero-text { min-height: 70svh; padding: 5rem 1.6rem 3rem; }
+  .inspo-hero-text { min-height: 44vh; padding: 5rem 1.6rem 3rem; }
   .inspo-hero-title { font-size: clamp(2.8rem, 13vw, 5rem); }
   .inspo-stats { flex-wrap: wrap; gap: 1.5rem 1rem; padding: 2rem 1.4rem; }
   .inspo-stat-div { display: none; }
