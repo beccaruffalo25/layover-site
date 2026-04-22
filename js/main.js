@@ -20,6 +20,7 @@ const IMAGES = {
   "positano-town":    "layover_assets/embedded-08-9ef47c2ffd.jpg",
   "positano-art":     "layover_assets/embedded-09-1259eb7bd7.jpg",
   "becca-spain":           "layover_assets/embedded-10-f91dbc4772.jpg",
+  "becca-monaco":          "layover_assets/becca-monaco.jpg",
   "becca-santorini-orange":"layover_assets/becca-santorini-orange.jpg",
   "becca-santorini-white": "layover_assets/becca-santorini-white.jpg",
   "becca-barcelona":       "layover_assets/becca-barcelona.jpg",
