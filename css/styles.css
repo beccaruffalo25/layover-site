@@ -1668,10 +1668,11 @@ footer {
 
 /* ── 12. Inspo Page Redesign ───────────────────────────────── */
 
-/* Hero: cream editorial — large italic title + body text */
+/* Hero: cream editorial — centered vertical stack */
 .inspo-hero {
   background: var(--cream);
-  padding: 3.5rem 6% 4rem;
+  padding: 5rem 10% 5.5rem;
+  text-align: center;
   border-bottom: 1px solid rgba(50,33,18,.1);
 }
 .inspo-hero-label {
@@ -1681,35 +1682,33 @@ footer {
   letter-spacing: .28em;
   text-transform: uppercase;
   color: var(--mid);
-  margin-bottom: 2.5rem;
-}
-.inspo-hero-layout {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 5rem;
-  align-items: end;
+  margin-bottom: 2.8rem;
 }
 .inspo-hero-title {
   font-family: 'Cormorant Garamond', serif;
   font-style: italic;
   font-weight: 300;
-  font-size: clamp(4.5rem, 8vw, 9rem);
+  font-size: clamp(5rem, 9.5vw, 11rem);
   color: var(--ink);
   line-height: .88;
   letter-spacing: -.02em;
-  margin: 0;
+  margin: 0 0 2.8rem;
+}
+.inspo-hero-rule {
+  width: 48px;
+  height: 1px;
+  background: rgba(168,132,58,.55);
+  margin: 0 auto 2.8rem;
 }
 .inspo-hero-desc-p {
   font-family: 'Jost', sans-serif;
-  font-size: .76rem;
+  font-size: .9rem;
   font-weight: 300;
   color: var(--mid);
   line-height: 1.85;
   letter-spacing: .02em;
-  max-width: 46ch;
-  padding-left: 2rem;
-  border-left: 1px solid rgba(168,132,58,.4);
-  margin: 0;
+  max-width: 52ch;
+  margin: 0 auto;
 }
 
 /* Section headers */
@@ -2872,10 +2871,10 @@ footer {
   .grid-2      { gap: 2rem; }
 
   /* Inspo page redesign — mobile */
-  .inspo-hero { padding: 2.5rem 1.6rem 3rem; }
-  .inspo-hero-layout { grid-template-columns: 1fr; gap: 2.5rem; }
-  .inspo-hero-title { font-size: clamp(3.5rem, 13vw, 6rem); }
-  .inspo-hero-desc-p { padding-left: 1.4rem; max-width: 100%; }
+  .inspo-hero { padding: 2.5rem 1.6rem 3.5rem; }
+  .inspo-hero-title { font-size: clamp(3.5rem, 13vw, 6rem); margin-bottom: 2rem; }
+  .inspo-hero-rule { margin-bottom: 2rem; }
+  .inspo-hero-desc-p { max-width: 100%; font-size: .82rem; }
   .bl-sec-head { padding: 2.5rem 1.6rem 2rem; }
   .bl-sec-title { font-size: clamp(1.8rem, 8vw, 3rem); }
   .bl-grid { grid-template-columns: 1fr; gap: 6px; padding: 6px; }
