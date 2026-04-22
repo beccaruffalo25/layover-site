@@ -1703,22 +1703,22 @@ footer {
   line-height: 1.9;
   max-width: 300px;
 }
-.inspo-hero-img {
-  position: relative;
-  overflow: hidden;
-  background: var(--brown);
-  border-radius: 0 0 0 16px;
+.inspo-hero-desc {
+  background: var(--ink);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 2rem 3.5rem 2.5rem;
+  border-left: 1px solid rgba(201,181,146,.12);
 }
-.inspo-hero-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  object-position: center center;
-}
-.inspo-hero-img-veil {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to right, rgba(41,26,16,.35) 0%, transparent 50%);
+.inspo-hero-desc p {
+  font-family: 'Jost', sans-serif;
+  font-size: .72rem;
+  font-weight: 300;
+  color: rgba(247,242,232,.5);
+  line-height: 1.9;
+  letter-spacing: .04em;
+  max-width: 42ch;
 }
 
 /* Stats strip */
@@ -2923,7 +2923,7 @@ footer {
 
   /* Inspo page redesign — mobile */
   .inspo-hero { grid-template-columns: 1fr; height: 44vh; min-height: 280px; }
-  .inspo-hero-img { display: none; }
+  .inspo-hero-desc { display: none; }
   .inspo-hero-text { height: 44vh; min-height: 280px; padding: 2rem 1.6rem 2.5rem; }
   .inspo-hero-title { font-size: clamp(2.8rem, 13vw, 5rem); }
   .inspo-stats { flex-wrap: wrap; gap: 1.5rem 1rem; padding: 2rem 1.4rem; }
