@@ -2131,7 +2131,7 @@ footer {
 /* Hero */
 .about-hero {
   position: relative;
-  min-height: 55vh;
+  min-height: 42vh;
   display: flex;
   align-items: flex-end;
   overflow: hidden;
@@ -2141,7 +2141,7 @@ footer {
   inset: 0;
   width: 100%; height: 100%;
   object-fit: cover;
-  object-position: 35% 40%;
+  object-position: 30% 55%;
   transition: transform 9s ease;
 }
 .about-hero:hover .about-hero-bg { transform: scale(1.05); }
@@ -2153,16 +2153,16 @@ footer {
 .about-hero-text {
   position: relative;
   z-index: 2;
-  padding: 5rem;
+  padding: 3rem 3.5rem;
 }
 .about-hero-h {
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(5.5rem, 16vw, 14rem);
+  font-size: clamp(3rem, 7vw, 6.5rem);
   font-weight: 300;
   color: var(--cream);
-  line-height: .88;
+  line-height: .92;
   letter-spacing: -.02em;
-  margin: 1rem 0 2rem;
+  margin: .6rem 0 1.2rem;
   animation: aboutTitleIn .9s cubic-bezier(.22,1,.36,1) both;
 }
 .about-hero-tag {
@@ -2858,7 +2858,7 @@ footer {
   .drop-more { border-top: 1px solid rgba(168,132,58,.16); padding: .5rem 0 0; text-align: center; margin-top: .3rem; }
 
   /* ── About page ──────────────────────────────────────────── */
-  .about-hero { min-height: 70vh; }
+  .about-hero { min-height: 44vh; }
   .about-hero-text { padding: 3rem 2rem; }
   .about-facts { flex-wrap: wrap; gap: 1.5rem; padding: 2.5rem 1.4rem; }
   .about-fact { max-width: 130px; }
@@ -2935,7 +2935,7 @@ footer {
   .bl-dream-item { padding: 1.4rem 1.4rem; gap: 1.2rem; }
 
   /* About page — small mobile */
-  .about-hero { min-height: 50vh; }
+  .about-hero { min-height: 38vh; }
   .about-hero-text { padding: 2.5rem 1.4rem; }
   .about-intro { padding: 3.5rem 0; }
   .about-voice { padding: 3.5rem 0; }
