@@ -1532,7 +1532,9 @@ footer {
     background: var(--cream);
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
+    padding-top: 5rem;
+    overflow-y: auto;
     gap: 2.4rem;
     z-index: 100;
     list-style: none;
@@ -1608,31 +1610,8 @@ footer {
   .what-tile { border-right: none; border-bottom: 1px solid rgba(168,132,58,.13); padding: 2.2rem 1.4rem; }
   .what-tile:last-child { border-bottom: none; }
 
-  /* Dropdowns — inline in mobile hamburger overlay */
-  .has-dropdown { flex-direction: column; align-items: center; gap: 0; }
-  .dropdown {
-    position: static;
-    transform: none !important;
-    opacity: 1;
-    pointer-events: auto;
-    background: none;
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-    border: none;
-    padding: .4rem 0 .2rem;
-    min-width: auto;
-    margin-top: -.6rem;
-  }
-  .dropdown::before { display: none; }
-  .drop-item {
-    padding: .3rem 0;
-    text-align: center;
-    border-left: none;
-  }
-  .drop-item:hover { background: none; border-left: none; }
-  .drop-city { font-size: .82rem; color: var(--mid); }
-  .drop-meta { font-size: .5rem; color: var(--tan); }
-  .drop-more { border-top: 1px solid rgba(168,132,58,.16); padding: .5rem 0 0; text-align: center; margin-top: .3rem; }
+  /* Dropdowns hidden on mobile — tap top-level link to navigate */
+  .has-dropdown .dropdown { display: none; }
 }
 
 /* ── Small mobile (≤ 480px) ────────────────────────────────── */
