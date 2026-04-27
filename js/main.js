@@ -143,6 +143,8 @@ function closeMenu() {
   toggle.classList.remove('open');
   toggle.setAttribute('aria-expanded', 'false');
   document.body.style.overflow = '';
+  document.querySelectorAll('.has-dropdown.open-mobile')
+    .forEach(el => el.classList.remove('open-mobile'));
 }
 
 
@@ -352,6 +354,21 @@ function initReveal() {
     revealObserver.observe(el);
   });
 }
+
+
+/* ── Mobile dropdown tap-to-expand ─────────────────────────── */
+// Capture phase on the <li> fires before the child <a>'s inline go()
+document.querySelectorAll('.nav-links .has-dropdown').forEach(li => {
+  li.addEventListener('click', e => {
+    if (window.innerWidth > 768) return;
+    const a = e.target.closest('a');
+    if (!a || a.closest('.dropdown')) return; // sub-item click: let go() run
+    e.stopImmediatePropagation();
+    document.querySelectorAll('.has-dropdown.open-mobile')
+      .forEach(el => { if (el !== li) el.classList.remove('open-mobile'); });
+    li.classList.toggle('open-mobile');
+  }, true);
+});
 
 
 /* ── Init on load ──────────────────────────────────────────── */

@@ -174,7 +174,7 @@ img { image-rendering: auto; }
   top: calc(100% + 20px);
   left: 50%;
   transform: translateX(-50%) translateY(-5px);
-  min-width: 240px;
+  min-width: 280px;
   background: var(--cream);   /* solid — eliminates backdrop-filter flicker */
   border: 1px solid rgba(168, 132, 58, .2);
   border-radius: 2px;
@@ -224,12 +224,13 @@ img { image-rendering: auto; }
 .drop-meta {
   display: block;
   font-family: 'Jost', sans-serif;
-  font-size: .53rem;
+  font-size: .55rem;
   font-weight: 300;
-  letter-spacing: .2em;
+  letter-spacing: .12em;
   text-transform: uppercase;
   color: var(--mid);
   margin-top: .2rem;
+  white-space: nowrap;
 }
 .drop-more {
   display: block;
@@ -1610,8 +1611,50 @@ footer {
   .what-tile { border-right: none; border-bottom: 1px solid rgba(168,132,58,.13); padding: 2.2rem 1.4rem; }
   .what-tile:last-child { border-bottom: none; }
 
-  /* Dropdowns hidden on mobile — tap top-level link to navigate */
+  /* Dropdowns — hidden until parent is tapped (open-mobile class added by JS) */
   .has-dropdown .dropdown { display: none; }
+  .has-dropdown.open-mobile .dropdown {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: static;
+    transform: none;
+    opacity: 1;
+    pointer-events: auto;
+    background: none;
+    border: none;
+    box-shadow: none;
+    padding: .3rem 0 .5rem;
+    min-width: auto;
+    margin-top: 0;
+  }
+  .has-dropdown.open-mobile .dropdown::before { display: none; }
+  .has-dropdown.open-mobile .drop-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: .55rem 1.2rem;
+    border-left: none;
+    min-height: 44px;
+    justify-content: center;
+    gap: .2rem;
+  }
+  .has-dropdown.open-mobile .drop-item:hover { background: none; border-left: none; }
+  .has-dropdown.open-mobile .drop-city { font-size: .88rem; color: var(--mid); }
+  .has-dropdown.open-mobile .drop-meta {
+    font-size: .58rem;
+    letter-spacing: .1em;
+    white-space: nowrap;
+    margin-top: 0;
+  }
+  .has-dropdown.open-mobile .drop-more {
+    font-size: .52rem;
+    letter-spacing: .12em;
+    padding: .45rem 0 0;
+    border-top: 1px solid rgba(168,132,58,.16);
+    margin-top: .25rem;
+    text-align: center;
+  }
 }
 
 /* ── Small mobile (≤ 480px) ────────────────────────────────── */
