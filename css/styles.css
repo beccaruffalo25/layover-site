@@ -192,7 +192,7 @@ img { image-rendering: auto; }
   top: calc(100% + 20px);
   left: 50%;
   transform: translateX(-50%) translateY(-5px);
-  min-width: 240px;
+  min-width: 280px;
   background: var(--cream);   /* solid — eliminates backdrop-filter flicker */
   border: 1px solid rgba(168, 132, 58, .2);
   border-radius: 2px;
@@ -242,12 +242,13 @@ img { image-rendering: auto; }
 .drop-meta {
   display: block;
   font-family: 'Jost', sans-serif;
-  font-size: .53rem;
+  font-size: .55rem;
   font-weight: 300;
-  letter-spacing: .2em;
+  letter-spacing: .12em;
   text-transform: uppercase;
   color: var(--mid);
   margin-top: .2rem;
+  white-space: nowrap;
 }
 .drop-more {
   display: block;
@@ -2646,7 +2647,7 @@ footer {
     background: var(--cream);
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 0;
     z-index: 100;
     list-style: none;
@@ -2703,6 +2704,13 @@ footer {
 
   /* Article body */
   .art-body { padding: 3rem 0 4.5rem; }
+
+  /* Reduce asymmetric left-indents so right side isn't cramped */
+  .lede                          { padding-left: .9rem; }
+  .art-body blockquote,
+  .pullquote                     { padding-left: 1.2rem; }
+  .rec                           { padding-left: .7rem; }
+  .toc                           { padding: 1.2rem 1.4rem; }
 
   /* Featured cards — stack on mobile */
   .feat { padding: 4rem 1.4rem; }
@@ -2783,7 +2791,7 @@ footer {
   /* Dropdown hidden by default; shown when .open */
   .dropdown {
     position: static;
-    transform: none !important;
+    transform: none;
     opacity: 1;
     pointer-events: auto;
     background: rgba(168,132,58,.06);
@@ -2837,7 +2845,8 @@ footer {
 /* ── Small mobile (≤ 480px) ────────────────────────────────── */
 @media (max-width: 480px) {
   #nav, #nav.on { padding: 0.6rem 1.4rem; }
-  .wrap, .wrap-sm { padding: 0 1rem; }
+  /* Keep wrap padding consistent — 1rem was too tight */
+  .wrap, .wrap-sm { padding: 0 1.4rem; }
   .sec         { padding: 3rem 0; }
 
   /* Hero */
@@ -2845,8 +2854,8 @@ footer {
   .hero-by     { font-size: 1rem; }
 
   /* Intro / NL */
-  .intro       { padding: 3rem 1rem; }
-  .nl          { padding: 3rem 1rem; }
+  .intro       { padding: 3rem 1.4rem; }
+  .nl          { padding: 3rem 1.4rem; }
   .nl-form input,
   .nl-form button { padding: 1rem 1.2rem; }
 
@@ -2857,9 +2866,14 @@ footer {
   /* Art hero */
   .art-hero    { height: 38vh; min-height: 240px; }
 
-  /* Article */
+  /* Article — keep indents small so right side has room */
   .art-body    { padding: 2.4rem 0 3.5rem; }
   .back        { margin: 2rem 0 0; }
+  .lede                          { padding-left: .7rem; }
+  .art-body blockquote,
+  .pullquote                     { padding-left: 1rem; }
+  .rec                           { padding-left: .55rem; }
+  .toc                           { padding: 1rem 1.1rem; }
 
   /* Bucket */
   .bucket-grid { gap: 2rem; }
