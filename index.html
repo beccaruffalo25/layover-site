@@ -23,6 +23,7 @@
 
   <!-- Site styles -->
   <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 </head>
 <body>
   <!-- Lightbox -->
@@ -43,61 +44,44 @@
     <ul class="nav-links" id="nav-links">
       <li><a onclick="go('home')">Home</a></li>
       <li class="has-dropdown">
-        <a onclick="go('city-guides')">City Guides</a>
+        <div class="drop-row">
+          <a onclick="go('travel')">Travel</a>
+          <button class="drop-toggle" aria-label="Expand Travel menu" aria-expanded="false" onclick="toggleSubnav(this)">
+            <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
         <div class="dropdown">
-          <a class="drop-item" onclick="go('milan')">
+          <a class="drop-cat" onclick="go('experiences')">
+            <span class="drop-cat-name">Experiences</span>
+          </a>
+          <a class="drop-cat" onclick="go('weekend-plans')">
+            <span class="drop-cat-name">Weekend Plans</span>
+          </a>
+          <a class="drop-sub" onclick="go('seville')">
+            <span class="drop-city">Seville</span>
+            <span class="drop-meta">Spain &middot; 3 Days</span>
+          </a>
+          <a class="drop-cat" onclick="go('itineraries')">
+            <span class="drop-cat-name">Itineraries</span>
+          </a>
+          <a class="drop-cat" onclick="go('city-guides')">
+            <span class="drop-cat-name">City Guides</span>
+          </a>
+          <a class="drop-sub" onclick="go('milan')">
             <span class="drop-city">Milan</span>
             <span class="drop-meta">Italy &middot; City Guide</span>
           </a>
-          <span class="drop-more">More coming soon</span>
         </div>
       </li>
+      <li><a onclick="go('strategy')">Strategy</a></li>
+      <li><a onclick="go('inspo')">Inspo</a></li>
       <li class="has-dropdown">
-        <a onclick="go('itineraries')">Itineraries</a>
-        <div class="dropdown">
-          <a class="drop-item" onclick="go('seville')">
-            <span class="drop-city">Seville</span>
-            <span class="drop-meta">Spain &middot; Weekend Itinerary</span>
-          </a>
-          <span class="drop-more">More coming soon</span>
+        <div class="drop-row">
+          <a onclick="go('about')">About</a>
+          <button class="drop-toggle" aria-label="Expand About menu" aria-expanded="false" onclick="toggleSubnav(this)">
+            <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
         </div>
-      </li>
-      <li class="has-dropdown">
-        <a onclick="go('planning')">Planning</a>
-        <div class="dropdown">
-          <a class="drop-item" onclick="go('planning')">
-            <span class="drop-city">Flights</span>
-            <span class="drop-meta">Skyscanner &middot; Google Flights</span>
-          </a>
-          <a class="drop-item" onclick="go('planning')">
-            <span class="drop-city">Stays</span>
-            <span class="drop-meta">Expedia &middot; Hotwire &middot; Airbnb</span>
-          </a>
-          <a class="drop-item" onclick="go('planning')">
-            <span class="drop-city">Adventures</span>
-            <span class="drop-meta">Get Your Guide &middot; Pinterest</span>
-          </a>
-          <a class="drop-item" onclick="go('planning')">
-            <span class="drop-city">Logistics</span>
-            <span class="drop-meta">Omio &middot; Expedia &middot; ChatGPT</span>
-          </a>
-        </div>
-      </li>
-      <li class="has-dropdown">
-        <a onclick="go('bucket')">Bucket List</a>
-        <div class="dropdown">
-          <a class="drop-item" onclick="go('bucket')">
-            <span class="drop-city">Been There</span>
-            <span class="drop-meta">10 checked-off experiences</span>
-          </a>
-          <a class="drop-item" onclick="go('bucket')">
-            <span class="drop-city">Dream List</span>
-            <span class="drop-meta">10 destinations still waiting</span>
-          </a>
-        </div>
-      </li>
-      <li class="has-dropdown">
-        <a onclick="go('about')">About</a>
         <div class="dropdown">
           <a class="drop-item" onclick="go('about')">
             <span class="drop-city">My Story</span>
@@ -124,9 +108,9 @@
       <img src="" data-k="hero" alt="Galleria Vittorio Emanuele II, Milan" />
       <div class="hero-veil"></div>
       <div class="hero-text">
+        <p class="hero-eye">A travel journal by Becca Ruffalo</p>
         <h1 class="hero-title">LAYOVER</h1>
-        <p class="hero-by">by Becca Ruffalo</p>
-        <p class="hero-tag">The in-between &mdash; real guides for trips worth taking.</p>
+        <p class="hero-tag">Real guides for trips worth taking.</p>
       </div>
     </section>
 
@@ -147,6 +131,50 @@
       </div>
     </section>
 
+    <!-- Browse by Type -->
+    <section class="type-sec">
+      <div class="type-sec-head">
+        <span class="label" style="color:var(--tan)">The Collection</span>
+        <h2 class="h-sec" style="color:var(--cream);margin:0">Browse by Type</h2>
+      </div>
+      <div class="type-tiles">
+
+        <div class="type-tile" onclick="go('experiences')">
+          <img src="" data-k="hp-baroque" alt="Experiences" />
+          <div class="type-tile-veil"></div>
+          <div class="type-tile-body">
+            <span class="type-tile-num">01</span>
+            <span class="type-tile-label">Experience</span>
+            <h3 class="type-tile-title">Bucket-list moments</h3>
+            <span class="type-tile-cta">Explore &rarr;</span>
+          </div>
+        </div>
+
+        <div class="type-tile" onclick="go('weekend-plans')">
+          <img src="" data-k="hp-seville-plaza" alt="Weekend Plans" />
+          <div class="type-tile-veil"></div>
+          <div class="type-tile-body">
+            <span class="type-tile-num">02</span>
+            <span class="type-tile-label">Weekend Plan</span>
+            <h3 class="type-tile-title">Three days done right</h3>
+            <span class="type-tile-cta">Explore &rarr;</span>
+          </div>
+        </div>
+
+        <div class="type-tile" onclick="go('itineraries')">
+          <img src="" data-k="hp-como" alt="Itineraries" />
+          <div class="type-tile-veil"></div>
+          <div class="type-tile-body">
+            <span class="type-tile-num">03</span>
+            <span class="type-tile-label">Itinerary</span>
+            <h3 class="type-tile-title">Day by day, done</h3>
+            <span class="type-tile-cta">Explore &rarr;</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
     <!-- Bucket list split promo -->
     <div class="split">
       <div class="split-img">
@@ -155,9 +183,37 @@
       <div class="split-body">
         <span class="label">Bucket List Moment</span>
         <h2>&ldquo;The Oia sunset is one of those rare things that lives up to every photograph.&rdquo;</h2>
-        <p>Watching the sun melt into the Aegean from the cliffs of Oia, surrounded by white-washed walls and blue domes, is every bit as extraordinary as you&rsquo;ve imagined.</p>
-        <p>Explore the full bucket list &mdash; experiences I can personally recommend alongside the destinations still waiting on my list.</p>
-        <span class="arrow" onclick="go('bucket')">See the Bucket List &rarr;</span>
+        <p>Watching the sun melt into the Aegean from the cliffs of Oia &mdash; the whole village going quiet as the sky turns pink and gold &mdash; is exactly the kind of moment that makes you plan the next trip before this one is even over.</p>
+        <p>Explore the full bucket list &mdash; experiences I can personally recommend alongside the destinations still on the horizon.</p>
+        <span class="arrow" onclick="go('inspo')">See the Bucket List &rarr;</span>
+      </div>
+    </div>
+
+    <!-- Map preview -->
+    <div class="home-map-preview" onclick="go('inspo')">
+      <div class="hmp-grid" aria-hidden="true"></div>
+      <div class="hmp-pins" aria-hidden="true">
+        <div class="hmp-pin" style="top:32%;left:22%"></div>
+        <div class="hmp-pin" style="top:28%;left:50%"></div>
+        <div class="hmp-pin" style="top:36%;left:54%"></div>
+        <div class="hmp-pin" style="top:34%;left:48%"></div>
+        <div class="hmp-pin" style="top:30%;left:57%"></div>
+        <div class="hmp-pin hmp-pin--a" style="top:44%;left:46%"></div>
+        <div class="hmp-pin hmp-pin--a" style="top:40%;left:51%"></div>
+        <div class="hmp-pin" style="top:49%;left:42%"></div>
+        <div class="hmp-pin" style="top:55%;left:44%"></div>
+        <div class="hmp-pin" style="top:38%;left:58%"></div>
+        <div class="hmp-pin" style="top:22%;left:24%"></div>
+        <div class="hmp-pin" style="top:55%;left:76%"></div>
+        <div class="hmp-pin" style="top:58%;left:39%"></div>
+        <div class="hmp-pin" style="top:62%;left:36%"></div>
+        <div class="hmp-pin" style="top:26%;left:27%"></div>
+        <div class="hmp-pin" style="top:35%;left:62%"></div>
+      </div>
+      <div class="hmp-body">
+        <span class="label" style="color:var(--tan)">The Layover Atlas</span>
+        <h2 class="hmp-count">17 Countries.<br>One Map.</h2>
+        <span class="hmp-cta">View Full Map &rarr;</span>
       </div>
     </div>
 
@@ -237,52 +293,187 @@
 
 
   <!-- ═══════════════════════════════════════════════════════
-       PAGE: ITINERARIES (index — lists all itinerary cards)
-       To add a new itinerary: copy a card block below and
-       point onclick to the new page id (e.g. 'amalfi-5day')
-       Then add the full page further down in this file.
+       PAGE: TRAVEL
+       Full-bleed category tiles → four anchored content sections
   ════════════════════════════════════════════════════════════ -->
-  <div id="itineraries" class="page">
+  <div id="travel" class="page">
 
     <div class="art-hero art-hero--title">
       <div class="art-hero-text">
-        <span class="label" style="color:var(--tan)">Trip Planning</span>
-        <h1>Itineraries</h1>
-        <p class="sub">Day-by-day plans built from real experience. Skip the research — just go.</p>
+        <span class="label" style="color:var(--tan)">Destinations</span>
+        <h1>Travel</h1>
+        <p class="sub">Guides, plans, and itineraries built from real experience.</p>
+      </div>
+    </div>
+
+    <!-- Full-bleed 2×2 category tiles -->
+    <div class="travel-cat-grid">
+
+      <div class="travel-cat-tile" onclick="go('experiences')">
+        <img src="" data-k="hp-colosseum" alt="Experiences" />
+        <div class="travel-cat-veil"></div>
+        <div class="travel-cat-body">
+          <span class="label">01</span>
+          <p class="travel-cat-name">Experiences</p>
+          <p class="travel-cat-desc">Hot air balloons, desert tours, and excursions worth booking.</p>
+          <span class="travel-cat-arrow">Explore &rarr;</span>
+        </div>
+      </div>
+
+      <div class="travel-cat-tile" onclick="go('weekend-plans')">
+        <img src="" data-k="hp-beach-club" alt="Weekend Plans" />
+        <div class="travel-cat-veil"></div>
+        <div class="travel-cat-body">
+          <span class="label">02</span>
+          <p class="travel-cat-name">Weekend Plans</p>
+          <p class="travel-cat-desc">Friday&ndash;Sunday planned trips with day-by-day itineraries.</p>
+          <span class="travel-cat-arrow">Explore &rarr;</span>
+        </div>
+      </div>
+
+      <div class="travel-cat-tile" onclick="go('itineraries')">
+        <img src="" data-k="hp-lisbon-arch" alt="Itineraries" />
+        <div class="travel-cat-veil"></div>
+        <div class="travel-cat-body">
+          <span class="label">03</span>
+          <p class="travel-cat-name">Itineraries</p>
+          <p class="travel-cat-desc">Multi-city and regional routes spanning 5 days or more.</p>
+          <span class="travel-cat-arrow">Explore &rarr;</span>
+        </div>
+      </div>
+
+      <div class="travel-cat-tile" onclick="go('city-guides')">
+        <img src="" data-k="hp-lisbon-alley" alt="City Guides" />
+        <div class="travel-cat-veil"></div>
+        <div class="travel-cat-body">
+          <span class="label">04</span>
+          <p class="travel-cat-name">City Guides</p>
+          <p class="travel-cat-desc">In-depth guidance on how to experience a city, neighborhood by neighborhood.</p>
+          <span class="travel-cat-arrow">Explore &rarr;</span>
+        </div>
+      </div>
+
+    </div><!-- /travel-cat-grid -->
+
+    <!-- All destinations — unified card grid -->
+    <section class="sec">
+      <div class="wrap">
+        <span class="label">All Destinations</span>
+        <div class="grid-2" style="margin-top:1.8rem">
+
+          <div class="card" onclick="go('seville')">
+            <div class="card-img">
+              <img src="" data-k="seville-hero" alt="Plaza de España, Seville" />
+              <span class="card-img-label">View Plan &rarr;</span>
+            </div>
+            <p class="card-tag">Spain &middot; Weekend Plan</p>
+            <h3 class="card-title">Seville, Planned</h3>
+            <p class="card-exc">A warm, romantic weekend in Spain&rsquo;s most colorful city &mdash; golden plazas, live flamenco, and tapas bars that go until midnight.</p>
+            <span class="arrow">View the Plan &rarr;</span>
+          </div>
+
+          <div class="card" onclick="go('milan')">
+            <div class="card-img">
+              <img src="" data-k="duomo" alt="Duomo di Milano" />
+              <span class="card-img-label">Read Guide &rarr;</span>
+            </div>
+            <p class="card-tag">Italy &middot; City Guide</p>
+            <h3 class="card-title">Milan, Planned</h3>
+            <p class="card-exc">A thoughtful weekend guide to Italy&rsquo;s most misunderstood city. Spending four months living here showed me how much beauty exists beneath the surface.</p>
+            <span class="arrow">Read the Guide &rarr;</span>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <span class="f-logo">LAYOVER</span>
+      <span class="f-copy">&copy; 2025 Becca Ruffalo &middot; All Rights Reserved</span>
+    </footer>
+  </div><!-- /travel -->
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       PAGE: EXPERIENCES (category sub-page — placeholder)
+  ════════════════════════════════════════════════════════════ -->
+  <div id="experiences" class="page">
+
+    <div class="art-hero art-hero--title">
+      <div class="art-hero-text">
+        <span class="label" style="color:var(--tan)">Travel</span>
+        <h1>Experiences</h1>
+        <p class="sub">Hot air balloons, desert tours, and excursions worth booking.</p>
       </div>
     </div>
 
     <section class="sec">
       <div class="wrap">
+        <a class="back" onclick="go('travel')">All Travel</a>
+      </div>
+    </section>
 
-        <div class="grid-2">
+    <footer>
+      <span class="f-logo">LAYOVER</span>
+      <span class="f-copy">&copy; 2025 Becca Ruffalo &middot; All Rights Reserved</span>
+    </footer>
+  </div><!-- /experiences -->
 
-          <!-- Itinerary card: Seville -->
+
+  <!-- ═══════════════════════════════════════════════════════
+       PAGE: WEEKEND PLANS (category sub-page)
+  ════════════════════════════════════════════════════════════ -->
+  <div id="weekend-plans" class="page">
+
+    <div class="art-hero art-hero--title">
+      <div class="art-hero-text">
+        <span class="label" style="color:var(--tan)">Travel</span>
+        <h1>Weekend Plans</h1>
+        <p class="sub">Friday&ndash;Sunday planned trips with day-by-day itineraries.</p>
+      </div>
+    </div>
+
+    <section class="sec">
+      <div class="wrap">
+        <a class="back" onclick="go('travel')">All Travel</a>
+        <div class="grid-2" style="margin-top:2.4rem">
           <div class="card" onclick="go('seville')">
             <div class="card-img">
               <img src="" data-k="seville-hero" alt="Plaza de España, Seville" />
-              <span class="card-img-label">View Itinerary &rarr;</span>
+              <span class="card-img-label">View Plan &rarr;</span>
             </div>
-            <p class="card-tag">Spain &middot; Weekend Itinerary</p>
+            <p class="card-tag">Spain &middot; 3 Days</p>
             <h3 class="card-title">Seville, Planned</h3>
             <p class="card-exc">A warm, romantic weekend in Spain&rsquo;s most colorful city &mdash; golden plazas, live flamenco, and tapas bars that go until midnight.</p>
-            <span class="arrow">View Itinerary &rarr;</span>
+            <span class="arrow">View the Plan &rarr;</span>
           </div>
-
-          <!-- ADD MORE ITINERARY CARDS HERE:
-          <div class="card" onclick="go('amalfi-5day')">
-            <div class="card-img">
-              <img src="" data-k="positano" alt="Amalfi Coast" />
-            </div>
-            <p class="card-tag">Italy · 5 Days</p>
-            <h3 class="card-title">Amalfi Coast in 5 Days</h3>
-            <p class="card-exc">Your excerpt here.</p>
-            <span class="arrow">View Itinerary &rarr;</span>
-          </div>
-          -->
-
         </div>
+      </div>
+    </section>
 
+    <footer>
+      <span class="f-logo">LAYOVER</span>
+      <span class="f-copy">&copy; 2025 Becca Ruffalo &middot; All Rights Reserved</span>
+    </footer>
+  </div><!-- /weekend-plans -->
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       PAGE: ITINERARIES (category sub-page — placeholder)
+  ════════════════════════════════════════════════════════════ -->
+  <div id="itineraries" class="page">
+
+    <div class="art-hero art-hero--title">
+      <div class="art-hero-text">
+        <span class="label" style="color:var(--tan)">Travel</span>
+        <h1>Itineraries</h1>
+        <p class="sub">Multi-city and regional routes spanning 5 days or more.</p>
+      </div>
+    </div>
+
+    <section class="sec">
+      <div class="wrap">
+        <a class="back" onclick="go('travel')">All Travel</a>
       </div>
     </section>
 
@@ -320,7 +511,7 @@
     </div>
 
     <div class="wrap-sm art-body">
-      <a class="back" onclick="go('city-guides')">All City Guides</a>
+      <a class="back" onclick="go('city-guides')">City Guides</a>
 
       <p class="lede" style="margin-top:2.4rem">If you ask someone who&rsquo;s been to Milan what they thought of it, you&rsquo;ll probably get mixed reviews. Some will call it a day trip; others will say it was boring. Many skip it altogether in favor of cities like Florence, Venice, or Rome.</p>
       <p>Spending four months living here showed me just how misunderstood Milan really is. Its beauty isn&rsquo;t in checking off major sights (though there are a few worth seeing), but in what exists beneath the surface. Milan is a city for walking aimlessly &mdash; stumbling upon quiet plazas and leafy parks. It&rsquo;s aperitivo and long dinners shared with good people and great food. It&rsquo;s for fashion lovers and casual admirers alike, whether you&rsquo;re browsing shop windows or taking in the city&rsquo;s unmatched street style. It&rsquo;s Lake Como just an easy day trip away, and luxury outlets waiting just beyond the city.</p>
@@ -440,62 +631,214 @@
 
 
   <!-- ═══════════════════════════════════════════════════════
-       PAGE: BUCKET LIST
+       PAGE: INSPO (Bucket List + Map)
   ════════════════════════════════════════════════════════════ -->
-  <div id="bucket" class="page">
+  <div id="inspo" class="page">
 
-    <div class="art-hero art-hero--title">
-      <div class="art-hero-text">
-        <span class="label" style="color:var(--tan)">Inspiration</span>
-        <h1>Bucket List</h1>
-        <p class="sub">Experiences to dream about, plan for, and check off one by one.</p>
+    <!-- ── Hero: cream editorial — centered vertical stack ── -->
+    <section class="inspo-hero">
+      <span class="inspo-hero-label">Inspiration</span>
+      <h1 class="inspo-hero-title">The<br>Bucket<br>List.</h1>
+      <div class="inspo-hero-rule"></div>
+      <p class="inspo-hero-desc-p">Everyone needs a bit of inspiration from time to time. With a world so vast and beautiful it can be hard to narrow down your next destination. To help guide your next adventure, I&rsquo;ve curated a list of bucket-list experiences &mdash; some I can personally recommend, and others I&rsquo;m still dreaming of &mdash; to inspire your next vision board.</p>
+    </section>
+
+    <!-- ── Done list section head ─────────────────────────────── -->
+    <div class="bl-sec-head">
+      <span class="label" style="color:var(--tan)">Done &amp; Documented</span>
+      <h2 class="bl-sec-title">My Top 10 Bucket List<br>Experiences</h2>
+    </div>
+
+    <!-- ── Bucket list grid ───────────────────────────────────── -->
+    <div class="bl-grid">
+
+      <div class="bl-card bl-card--photo">
+        <img src="" data-k="hp-cliffs-moher" alt="Cliffs of Moher, Ireland" class="bl-card-bg" style="object-position: 30% center" />
+        <div class="bl-card-veil"></div>
+        <span class="bl-card-n">01</span>
+        <div class="bl-card-body">
+          <h3 class="bl-card-title">Cliffs of Moher</h3>
+          <p class="bl-card-loc">County Clare &middot; Ireland</p>
+        </div>
+      </div>
+
+      <div class="bl-card bl-card--photo">
+        <img src="" data-k="hp-eiffel-night" alt="Eiffel Tower at night, Paris" class="bl-card-bg" style="object-position: center 35%" />
+        <div class="bl-card-veil"></div>
+        <span class="bl-card-n">02</span>
+        <div class="bl-card-body">
+          <h3 class="bl-card-title">Dinner at the Top of the Eiffel Tower</h3>
+          <p class="bl-card-loc">Paris &middot; France</p>
+        </div>
+      </div>
+
+      <div class="bl-card bl-card--photo bl-card--elephant">
+        <img src="" data-k="hp-elephant-smile" alt="Elephant Sanctuary, Chiang Mai" class="bl-card-bg" />
+        <div class="bl-card-veil"></div>
+        <span class="bl-card-n">03</span>
+        <div class="bl-card-body">
+          <h3 class="bl-card-title">Elephant Sanctuary</h3>
+          <p class="bl-card-loc">Chiang Mai &middot; Thailand</p>
+        </div>
+      </div>
+
+      <div class="bl-card bl-card--photo">
+        <img src="" data-k="hp-colosseum" alt="Colosseum at sunset, Rome" class="bl-card-bg" />
+        <div class="bl-card-veil"></div>
+        <span class="bl-card-n">04</span>
+        <div class="bl-card-body">
+          <h3 class="bl-card-title">The Colosseum at Sunset</h3>
+          <p class="bl-card-loc">Rome &middot; Italy</p>
+        </div>
+      </div>
+
+      <div class="bl-card bl-card--photo">
+        <img src="" data-k="hp-oia-town" alt="Oia village at sunset, Santorini" class="bl-card-bg" style="object-position: center 70%" />
+        <div class="bl-card-veil"></div>
+        <span class="bl-card-n">05</span>
+        <div class="bl-card-body">
+          <h3 class="bl-card-title">Oia Sunset</h3>
+          <p class="bl-card-loc">Santorini &middot; Greece</p>
+        </div>
+      </div>
+
+      <div class="bl-card bl-card--photo">
+        <img src="" data-k="hp-blue-lagoon" alt="Swimming in the Blue Lagoon, Malta" class="bl-card-bg" style="object-position: center 60%" />
+        <div class="bl-card-veil"></div>
+        <span class="bl-card-n">06</span>
+        <div class="bl-card-body">
+          <h3 class="bl-card-title">Swimming in the Blue Lagoon</h3>
+          <p class="bl-card-loc">Blue Lagoon &middot; Malta</p>
+        </div>
+      </div>
+
+      <div class="bl-card bl-card--photo">
+        <img src="" data-k="seville-flamenco" alt="Live Flamenco, Seville" class="bl-card-bg" />
+        <div class="bl-card-veil"></div>
+        <span class="bl-card-n">07</span>
+        <div class="bl-card-body">
+          <h3 class="bl-card-title">Live Flamenco</h3>
+          <p class="bl-card-loc">Plaza de Espa&ntilde;a &middot; Seville, Spain</p>
+        </div>
+      </div>
+
+      <div class="bl-card bl-card--photo">
+        <img src="" data-k="hp-fontelina" alt="La Fontelina Beach Club, Capri" class="bl-card-bg" style="object-position: center 55%" />
+        <div class="bl-card-veil"></div>
+        <span class="bl-card-n">08</span>
+        <div class="bl-card-body">
+          <h3 class="bl-card-title">Amalfi Coast Beach Club</h3>
+          <p class="bl-card-loc">La Fontelina, Capri &middot; Italy</p>
+        </div>
+      </div>
+
+      <div class="bl-card bl-card--photo">
+        <img src="" data-k="hp-tulips" alt="Tulip season, Keukenhof Gardens" class="bl-card-bg" />
+        <div class="bl-card-veil"></div>
+        <span class="bl-card-n">09</span>
+        <div class="bl-card-body">
+          <h3 class="bl-card-title">Tulip Season</h3>
+          <p class="bl-card-loc">Keukenhof Gardens &middot; Amsterdam</p>
+        </div>
+      </div>
+
+      <div class="bl-card bl-card--photo">
+        <img src="" data-k="hp-lisbon-tram" alt="Tram 28, Lisbon" class="bl-card-bg" style="object-position: center 40%" />
+        <div class="bl-card-veil"></div>
+        <span class="bl-card-n">10</span>
+        <div class="bl-card-body">
+          <h3 class="bl-card-title">Tram 28</h3>
+          <p class="bl-card-loc">Alfama &middot; Lisbon, Portugal</p>
+        </div>
+      </div>
+
+    </div><!-- /bl-grid -->
+
+    <!-- ── Santorini photo strip ──────────────────────────────── -->
+    <div class="bl-strip">
+      <div class="bl-strip-img">
+        <img src="" data-k="santorini-pool" alt="Infinity pool, Santorini" />
+      </div>
+      <div class="bl-strip-img">
+        <img src="" data-k="santorini-arch" alt="Archway, Santorini" />
+      </div>
+      <div class="bl-strip-img">
+        <img src="" data-k="hp-capri-frags" alt="Faraglioni sea stacks, Capri" />
       </div>
     </div>
 
-    <section class="sec">
+    <!-- ── Full-bleed editorial quote ────────────────────────── -->
+    <div class="bl-pullquote">
+      <img src="" data-k="hp-baroque" alt="" class="bl-pullquote-img" />
+      <div class="bl-pullquote-veil"></div>
+      <div class="bl-pullquote-body">
+        <p class="bl-pullquote-q">&ldquo;With a world so vast and beautiful, it can be hard to narrow down your next destination.&rdquo;</p>
+        <span class="bl-pullquote-byline">— Becca Ruffalo</span>
+      </div>
+    </div>
+
+    <!-- ── Future bucket list ─────────────────────────────────── -->
+    <section class="bl-dream">
       <div class="wrap-sm">
-        <a class="back" onclick="go('home')">All Posts</a>
-        <p class="lede" style="margin-top:2.4rem">Everyone needs a bit of inspiration from time to time. With a world so vast and beautiful it can be hard to narrow down your next destination. To help guide your next adventure, I&rsquo;ve curated a list of bucket-list experiences &mdash; some I can personally recommend, and others I&rsquo;m still dreaming of &mdash; to inspire your next vision board.</p>
-
-        <div class="img-trio">
-          <img src="" data-k="santorini-pool" alt="Infinity pool, Santorini" />
-          <img src="" data-k="santorini-arch" alt="Archway view, Santorini" />
-          <img src="" data-k="capri"          alt="La Fontelina beach club, Capri" />
+        <div class="bl-dream-head">
+          <span class="label" style="color:var(--tan)">On the Horizon</span>
+          <h2 class="bl-sec-title" style="color:var(--ink)">Still Dreaming</h2>
+          <p style="color:var(--mid);font-family:'Jost',sans-serif;font-size:.65rem;letter-spacing:.16em;text-transform:uppercase">The list that keeps the wanderlust alive.</p>
         </div>
-
-        <div class="bucket-grid">
-
-          <!-- Column 1: Done it -->
-          <div class="bucket-col bucket-col--done">
-            <h3>My Top 10 Bucket List Experiences</h3>
-            <div class="b-item"><span class="b-num">01</span><span class="b-text"><strong>Cliffs of Moher</strong>County Clare, Ireland</span></div>
-            <div class="b-item"><span class="b-num">02</span><span class="b-text"><strong>Dinner at the top of the Eiffel Tower</strong>Paris, France</span></div>
-            <div class="b-item"><span class="b-num">03</span><span class="b-text"><strong>Elephant Sanctuary</strong>Chiang Mai, Thailand</span></div>
-            <div class="b-item"><span class="b-num">04</span><span class="b-text"><strong>The Colosseum at Sunset</strong>Rome, Italy</span></div>
-            <div class="b-item"><span class="b-num">05</span><span class="b-text"><strong>Oia Sunset</strong>Santorini, Greece</span></div>
-            <div class="b-item"><span class="b-num">06</span><span class="b-text"><strong>Swimming in the Blue Lagoon</strong>Blue Lagoon, Malta</span></div>
-            <div class="b-item"><span class="b-num">07</span><span class="b-text"><strong>Live Flamenco</strong>Plaza de Espana, Seville, Spain</span></div>
-            <div class="b-item"><span class="b-num">08</span><span class="b-text"><strong>Amalfi Coast Beach Club</strong>La Fontelina, Capri, Italy</span></div>
-            <div class="b-item"><span class="b-num">09</span><span class="b-text"><strong>Tulip Season</strong>Keukenhof Gardens, Amsterdam</span></div>
-            <div class="b-item"><span class="b-num">10</span><span class="b-text"><strong>Tram 28</strong>Lisbon, Portugal</span></div>
+        <div class="bl-dream-list">
+          <div class="bl-dream-item">
+            <span class="bl-dream-n">01</span>
+            <div class="bl-dream-text"><strong>Helicopter Ride</strong><span>Christ the Redeemer, Rio &middot; Brazil</span></div>
           </div>
-
-          <!-- Column 2: Dream list -->
-          <div class="bucket-col bucket-col--dream">
-            <h3>My Top 10 Future Bucket List</h3>
-            <div class="b-item"><span class="b-num">01</span><span class="b-text"><strong>Helicopter Ride</strong>Christ the Redeemer, Rio, Brazil</span></div>
-            <div class="b-item"><span class="b-num">02</span><span class="b-text"><strong>Camel Ride</strong>The Sahara Desert, Morocco</span></div>
-            <div class="b-item"><span class="b-num">03</span><span class="b-text"><strong>Skydiving</strong>Interlaken, Switzerland</span></div>
-            <div class="b-item"><span class="b-num">04</span><span class="b-text"><strong>Scuba Diving</strong>The Great Barrier Reef, Australia</span></div>
-            <div class="b-item"><span class="b-num">05</span><span class="b-text"><strong>Hiking Machu Picchu</strong>Peru</span></div>
-            <div class="b-item"><span class="b-num">06</span><span class="b-text"><strong>Hot Air Balloon</strong>Cappadocia, Turkey</span></div>
-            <div class="b-item"><span class="b-num">07</span><span class="b-text"><strong>Sleep Under the Northern Lights</strong>Lapland, Finland</span></div>
-            <div class="b-item"><span class="b-num">08</span><span class="b-text"><strong>Cherry Blossom Season</strong>Kyoto, Japan</span></div>
-            <div class="b-item"><span class="b-num">09</span><span class="b-text"><strong>Serengeti National Park</strong>Tanzania</span></div>
-            <div class="b-item"><span class="b-num">10</span><span class="b-text"><strong>Swim with Whale Sharks</strong>The Philippines</span></div>
+          <div class="bl-dream-item">
+            <span class="bl-dream-n">02</span>
+            <div class="bl-dream-text"><strong>Camel Ride</strong><span>The Sahara Desert &middot; Morocco</span></div>
           </div>
-
+          <div class="bl-dream-item">
+            <span class="bl-dream-n">03</span>
+            <div class="bl-dream-text"><strong>Skydiving</strong><span>Interlaken &middot; Switzerland</span></div>
+          </div>
+          <div class="bl-dream-item">
+            <span class="bl-dream-n">04</span>
+            <div class="bl-dream-text"><strong>Scuba Diving</strong><span>The Great Barrier Reef &middot; Australia</span></div>
+          </div>
+          <div class="bl-dream-item">
+            <span class="bl-dream-n">05</span>
+            <div class="bl-dream-text"><strong>Hike Machu Picchu</strong><span>Peru</span></div>
+          </div>
+          <div class="bl-dream-item">
+            <span class="bl-dream-n">06</span>
+            <div class="bl-dream-text"><strong>Hot Air Balloon</strong><span>Cappadocia &middot; Turkey</span></div>
+          </div>
+          <div class="bl-dream-item">
+            <span class="bl-dream-n">07</span>
+            <div class="bl-dream-text"><strong>Sleep Under the Northern Lights</strong><span>Lapland &middot; Finland</span></div>
+          </div>
+          <div class="bl-dream-item">
+            <span class="bl-dream-n">08</span>
+            <div class="bl-dream-text"><strong>Cherry Blossom Season</strong><span>Kyoto &middot; Japan</span></div>
+          </div>
+          <div class="bl-dream-item">
+            <span class="bl-dream-n">09</span>
+            <div class="bl-dream-text"><strong>Serengeti National Park</strong><span>Tanzania</span></div>
+          </div>
+          <div class="bl-dream-item">
+            <span class="bl-dream-n">10</span>
+            <div class="bl-dream-text"><strong>Swim with Whale Sharks</strong><span>The Philippines</span></div>
+          </div>
         </div>
+      </div>
+    </section>
+
+    <!-- ── Map ────────────────────────────────────────────────── -->
+    <section class="sec inspo-map-sec">
+      <div class="wrap">
+        <div class="inspo-map-header">
+          <span class="label">The Layover Atlas</span>
+          <h2 class="h-sec">Where We've Been</h2>
+          <p class="inspo-map-desc">Seventeen countries and counting. Tap any destination to explore the guide.</p>
+        </div>
+        <div id="inspo-map" class="inspo-map-canvas"></div>
       </div>
     </section>
 
@@ -503,34 +846,61 @@
       <span class="f-logo">LAYOVER</span>
       <span class="f-copy">&copy; 2025 Becca Ruffalo &middot; All Rights Reserved</span>
     </footer>
-  </div><!-- /bucket -->
+  </div><!-- /inspo -->
 
 
   <!-- ═══════════════════════════════════════════════════════
-       PAGE: PLANNING
+       PAGE: STRATEGY
   ════════════════════════════════════════════════════════════ -->
-  <div id="planning" class="page">
+  <div id="strategy" class="page">
 
     <div class="art-hero art-hero--title">
       <div class="art-hero-text">
-        <span class="label" style="color:var(--tan)">Travel Tips</span>
-        <h1>Your Plan, Planned</h1>
-        <p class="sub">The tools I use to find the best prices and the most interesting experiences.</p>
+        <span class="label" style="color:var(--tan)">Planning Philosophy</span>
+        <h1>Strategy</h1>
+        <p class="sub">The thinking, tools, and frameworks behind better trips.</p>
       </div>
     </div>
 
     <section class="sec">
-      <div class="wrap-sm art-body">
-        <a class="back" onclick="go('home')">All Posts</a>
+      <div class="wrap-sm">
 
-        <p class="lede" style="margin-top:2.4rem">One of the questions I&rsquo;m asked most often after a trip is, how did you even find that? There isn&rsquo;t a single answer. I genuinely love the search &mdash; the late-night digging, comparing, clicking through maps and menus until something finally feels right. Over time, I&rsquo;ve built a collection of free tools that help me find the best prices and the most interesting experiences &mdash; and I&rsquo;m sharing them here.</p>
-        <p>It&rsquo;s also worth noting that my travel style lives somewhere between backpacking and luxury. I don&rsquo;t aim for either extreme. My goal is always the best experience for the money spent, while staying safe, comfortable, and unhurried.</p>
-        <p>One important caveat: These tools aren&rsquo;t always the fastest way to plan a trip. Using them well takes time, curiosity, and a willingness to dig. If you enjoy the research process, they can be incredibly rewarding. If you&rsquo;d rather skip that step, the pre-planned itineraries on this site offer the same approach, just with the work already done.</p>
+        <!-- Article cards -->
+        <div class="strategy-cards">
 
-        <div class="img-duo">
-          <img src="" data-k="positano-art" alt="Art gallery, Positano" />
-          <img src="" data-k="positano"     alt="Positano hillside" />
+          <div class="strategy-card strategy-card--active"
+               onclick="document.getElementById('article-your-plan').scrollIntoView({behavior:'smooth'})">
+            <span class="strategy-card-label">Travel Tool Essentials</span>
+            <p class="strategy-card-title">The Booking Toolkit</p>
+            <span class="strategy-card-status">Read the Guide &rarr;</span>
+          </div>
+
+          <div class="strategy-card">
+            <span class="strategy-card-label">Balanced Budget</span>
+            <p class="strategy-card-title">Best Value for Money Spent</p>
+            <span class="strategy-card-status">Coming Soon</span>
+          </div>
+
+          <div class="strategy-card">
+            <span class="strategy-card-label">For Backpackers</span>
+            <p class="strategy-card-title">Budget Travel Hacks</p>
+            <span class="strategy-card-status">Coming Soon</span>
+          </div>
+
         </div>
+
+      </div>
+    </section>
+
+    <!-- ── Article: Travel Tool Essentials ────────────────────── -->
+    <section class="sec" id="article-your-plan" style="padding-top:0">
+      <div class="wrap-sm art-body">
+
+        <span class="label">Travel Tool Essentials</span>
+        <h2 class="h-sec" style="margin:.4rem 0 2.4rem">The Booking Toolkit</h2>
+
+        <p class="lede">One of the questions I&rsquo;m asked most often after a trip is, how did you even find that? There isn&rsquo;t a single answer. I genuinely love the search &mdash; the late-night digging, comparing, clicking through maps and menus until something finally feels right. Over time, I&rsquo;ve built a collection of free tools that help me find the best prices and the most interesting experiences &mdash; and I&rsquo;m sharing them here.</p>
+        <p>It&rsquo;s also worth noting that my travel style lives somewhere between backpacking and luxury. I don&rsquo;t aim for either extreme. My goal is always the best experience for the money spent, while staying safe, comfortable, and unhurried.</p>
 
         <!-- Flights -->
         <div class="tool-cat">
@@ -562,23 +932,6 @@
           </div>
         </div>
 
-        <!-- Adventures -->
-        <div class="tool-cat">
-          <h2 class="tool-cat-h">Adventures</h2>
-          <div class="tool">
-            <p class="tool-n">Get Your Guide</p>
-            <p class="tool-d">This is my go-to for booking experiences once I know where I&rsquo;m going. I use it to get the best price for activities that require logistics I don&rsquo;t want to deal with myself &mdash; boat tours, food tours, day trips, skip-the-line tickets, and guided activities. The reviews are usually reliable, and it&rsquo;s great for locking in plans ahead of time without committing to a full tour-style vacation.</p>
-          </div>
-          <div class="tool">
-            <p class="tool-n">TikTok</p>
-            <p class="tool-d">TikTok is a great source for out of the box adventure ideas, food recommendations, and &ldquo;is it worth it&rdquo; reviews. Although there is an immense amount of information available on TikTok, reviews, itineraries, and inspiration guides can help you find unique adventures &amp; decide if they are truly worth it.</p>
-          </div>
-          <div class="tool">
-            <p class="tool-n">Pinterest</p>
-            <p class="tool-d">The perfect source for visual planning and trip flow. I use it to save scenic spots, aesthetic caf&eacute;s, outfit inspo, and loose day-by-day ideas. It&rsquo;s less about exact logistics and more about shaping the vibe of a trip and making sure I don&rsquo;t miss beautiful or iconic stops.</p>
-          </div>
-        </div>
-
         <!-- Logistics -->
         <div class="tool-cat">
           <h2 class="tool-cat-h">Logistics</h2>
@@ -597,13 +950,13 @@
         </div>
 
       </div>
-    </section>
+    </section><!-- /article-your-plan -->
 
     <footer>
       <span class="f-logo">LAYOVER</span>
       <span class="f-copy">&copy; 2025 Becca Ruffalo &middot; All Rights Reserved</span>
     </footer>
-  </div><!-- /planning -->
+  </div><!-- /strategy -->
 
 
   <!-- ═══════════════════════════════════════════════════════
@@ -611,34 +964,106 @@
   ════════════════════════════════════════════════════════════ -->
   <div id="about" class="page">
 
-    <section style="padding-top:6.5rem; background:var(--cream)">
+    <!-- ── 3-panel hero ──────────────────────────────────────── -->
+    <section class="about-hero">
+      <div class="about-hero-panel">
+        <img src="" data-k="becca-monaco" alt="Becca in Monaco" class="about-hero-bg" style="object-position: center 35%;" />
+      </div>
+      <div class="about-hero-panel about-hero-panel--main">
+        <img src="" data-k="becca-santorini-orange" alt="Becca in Santorini" class="about-hero-bg" style="object-position: center 30%;" />
+        <div class="about-hero-veil"></div>
+        <div class="about-hero-text">
+          <span class="label" style="color:var(--tan)">About</span>
+          <h1 class="about-hero-h">HI,<br>I&rsquo;M<br>BECCA.</h1>
+          <p class="about-hero-tag">A twenty-something who lives for traveling.</p>
+        </div>
+      </div>
+      <div class="about-hero-panel">
+        <img src="" data-k="becca-tulips" alt="Becca at Keukenhof" class="about-hero-bg" style="object-position: center bottom;" />
+      </div>
+    </section>
+
+    <!-- ── Stats strip ────────────────────────────────────────── -->
+    <div class="about-facts">
+      <div class="about-fact">
+        <span class="about-fact-n">17+</span>
+        <span class="about-fact-l">Countries<br>Explored</span>
+      </div>
+      <div class="about-fact-div"></div>
+      <div class="about-fact">
+        <span class="about-fact-n">3</span>
+        <span class="about-fact-l">Continents<br>Visited</span>
+      </div>
+      <div class="about-fact-div"></div>
+      <div class="about-fact">
+        <span class="about-fact-n">10</span>
+        <span class="about-fact-l">Bucket List<br>Experiences</span>
+      </div>
+      <div class="about-fact-div"></div>
+      <div class="about-fact">
+        <span class="about-fact-n">&infin;</span>
+        <span class="about-fact-l">Trips Left<br>to Plan</span>
+      </div>
+    </div>
+
+    <!-- ── Text intro ─────────────────────────────────────────── -->
+    <section class="about-intro">
       <div class="wrap">
-        <div class="about-grid">
-
-          <div class="sticky-img">
-            <img src="" data-k="becca-spain" alt="Becca on the Costa Brava, Spain" />
-          </div>
-
-          <div class="about-text">
-            <span class="label">About</span>
-            <h1>Hi, I&rsquo;m Becca.</h1>
-            <span class="it">A twenty-something who lives for traveling.</span>
-            <p>Not cruises or all-inclusive resorts. I mean digging for hidden gems, learning public transportation without speaking the language, checking off bucket list moments, and sometimes hitting three countries in one week.</p>
-            <p>I love the research, the planning, and the logistics that turn traveling into a real trip. That started when I studied abroad in Milan, cramming weekends with Ryanair flights, risky hotel rooms, and a backpack stuffed to the brim. Since then, I&rsquo;ve taken every chance I can to keep exploring and get better at doing it well.</p>
-            <p>My travel style lives somewhere between backpacking and luxury. I don&rsquo;t aim for either extreme. I care about getting the best experience for the money spent while staying safe, comfortable, and unhurried.</p>
-            <p>Here I hope to share the process behind the destinations. How to plan better trips. How to maximize your budget. How to see beautiful, incredible things and leave inspired to book your next adventure.</p>
-            <p>The name comes from my favorite part of a trip &mdash; the in-between.</p>
-            <div class="mantra">
-              <p>&ldquo;I&rsquo;m Becca Ruffalo, and this is LAYOVER.&rdquo;</p>
-              <span class="ms">Plan &middot; Discover &middot; Repeat</span>
-            </div>
-          </div>
-
+        <span class="label" style="color:var(--tan)">The Story</span>
+        <h2 class="about-intro-h">Not cruises.<br><em>Not all-inclusive.</em></h2>
+        <div class="about-intro-cols">
+          <p>I mean digging for hidden gems, learning public transportation without speaking the language, checking off bucket list moments, and sometimes hitting three countries in one week.</p>
+          <p>It started when I studied abroad in Milan, cramming weekends with Ryanair flights, risky hotel rooms, and a backpack stuffed to the brim. Since then, I&rsquo;ve taken every chance I can to keep exploring and get better at doing it well.</p>
         </div>
       </div>
     </section>
 
-    <footer style="margin-top:5rem">
+    <!-- ── Travel style cards ─────────────────────────────────── -->
+    <section class="about-style">
+      <div class="wrap">
+        <div class="about-style-head">
+          <span class="label" style="color:var(--tan)">My Travel Style</span>
+          <h2 class="about-style-title">The Layover Way</h2>
+        </div>
+        <div class="about-style-grid">
+          <div class="about-style-card">
+            <span class="about-style-n">01</span>
+            <h3 class="about-style-cardh">Research<br>Obsessed</h3>
+            <p>I genuinely love the search &mdash; the late-night digging, comparing, clicking through maps and menus until something finally feels right.</p>
+          </div>
+          <div class="about-style-card">
+            <span class="about-style-n">02</span>
+            <h3 class="about-style-cardh">Best Value<br>Always</h3>
+            <p>My travel style lives somewhere between backpacking and luxury. The goal is always the best experience for the money spent.</p>
+          </div>
+          <div class="about-style-card">
+            <span class="about-style-n">03</span>
+            <h3 class="about-style-cardh">Safe &amp;<br>Unhurried</h3>
+            <p>Staying comfortable and present in every place. The trip is the point &mdash; not just the destination.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Mission: text only ─────────────────────────────────── -->
+    <section class="about-mission">
+      <div class="about-mission-inner wrap">
+        <span class="label" style="color:var(--tan)">The Mission</span>
+        <h2 class="about-mission-h">Here to share<br>the process.</h2>
+        <div class="about-mission-cols">
+          <p>How to plan better trips. How to maximize your budget. How to see beautiful, incredible things and leave inspired to book your next adventure.</p>
+          <p>The name comes from my favorite part of a trip &mdash; the in-between.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Closing mantra ─────────────────────────────────────── -->
+    <section class="about-mantra">
+      <h2 class="about-mantra-q">&ldquo;I&rsquo;m Becca Ruffalo,<br>and this is LAYOVER.&rdquo;</h2>
+      <span class="about-mantra-sub">Plan &middot; Discover &middot; Repeat</span>
+    </section>
+
+    <footer>
       <span class="f-logo">LAYOVER</span>
       <span class="f-copy">&copy; 2025 Becca Ruffalo &middot; All Rights Reserved</span>
     </footer>
@@ -653,12 +1078,12 @@
        data-date="2024-09-15"
        data-feat-img="seville-plaza"
        data-feat-title="Seville, Planned"
-       data-feat-tag="Spain &middot; Weekend Itinerary"
+       data-feat-tag="Spain &middot; Weekend Plan"
        data-feat-cta="View Itinerary">
 
     <div class="art-hero art-hero--title">
       <div class="art-hero-text">
-        <span class="label" style="color:var(--tan)">Spain &middot; Weekend Itinerary</span>
+        <span class="label" style="color:var(--tan)">Spain &middot; Weekend Plan</span>
         <h1>Seville, Planned</h1>
         <p class="sub">Warm, colorful, and romantic &mdash; a fairytale town frozen in time.</p>
         <div class="art-meta">
@@ -672,7 +1097,7 @@
     </div>
 
     <div class="wrap-sm art-body">
-      <a class="back" onclick="go('itineraries')">All Itineraries</a>
+      <a class="back" onclick="go('weekend-plans')">Weekend Plans</a>
 
       <p class="lede" style="margin-top:2.4rem">Seville is warm, colorful, and romantic. With tile and warm brick illuminated by golden sunlight, lush gardens filled with orange trees, and every corner bursting with flamenco culture, Seville feels like a fairytale town frozen in time.</p>
 
@@ -873,7 +1298,7 @@
       </div>
     </div>
     <div class="wrap-sm art-body">
-      <a class="back" onclick="go('city-guides')">All City Guides</a>
+      <a class="back" onclick="go('travel')">All Destinations</a>
       <p class="lede" style="margin-top:2.4rem">Your intro paragraph here...</p>
     </div>
     <footer>
@@ -894,6 +1319,7 @@
 
 
   <!-- Site JS (load last) -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="js/main.js"></script>
 
 </body>

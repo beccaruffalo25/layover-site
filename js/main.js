@@ -19,7 +19,12 @@ const IMAGES = {
   "capri":            "layover_assets/embedded-07-fc395f63a0.jpg",
   "positano-town":    "layover_assets/embedded-08-9ef47c2ffd.jpg",
   "positano-art":     "layover_assets/embedded-09-1259eb7bd7.jpg",
-  "becca-spain":      "layover_assets/embedded-10-f91dbc4772.jpg",
+  "becca-spain":           "layover_assets/embedded-10-f91dbc4772.jpg",
+  "becca-monaco":          "layover_assets/becca-monaco.jpg",
+  "becca-santorini-orange":"layover_assets/becca-santorini-orange.jpg",
+  "becca-santorini-white": "layover_assets/becca-santorini-white.jpg",
+  "becca-barcelona":       "layover_assets/becca-barcelona.jpg",
+  "becca-tulips":          "layover_assets/becca-tulips.jpg",
 
   /* ── Milan food photos ─────────────────────────────────────
      3 HEIC files still need manual conversion (see README):
@@ -50,6 +55,25 @@ const IMAGES = {
   "seville-12-columbus-tomb":  "layover_assets/seville-12-columbus-tomb.jpg",
   "seville-13-park-sign":      "layover_assets/seville-13-park-sign.jpg",
   "seville-flamenco":          "layover_assets/seville-01-flamenco.jpg",
+
+  "hp-colosseum":      "layover_assets/hp-colosseum-sunset.jpg",
+  "hp-baroque":        "layover_assets/hp-baroque-ceiling.jpg",
+  "hp-capri-frags":    "layover_assets/hp-capri-faraglioni.jpg",
+  "hp-como":           "layover_assets/hp-como.jpg",
+  "hp-lisbon-arch":    "layover_assets/hp-lisbon-arch.jpg",
+  "hp-lisbon-alley":   "layover_assets/hp-lisbon-alley.jpg",
+  "hp-seville-plaza":  "layover_assets/hp-seville-plaza.jpg",
+  "hp-beach-club":     "layover_assets/hp-beach-club.jpg",
+  "hp-amalfi-market":  "layover_assets/hp-amalfi-market.jpg",
+  "hp-elephant-touch": "layover_assets/hp-elephant-touch.jpg",
+  "hp-elephant-smile": "layover_assets/hp-elephant-smile.jpg",
+  "hp-cliffs-moher":   "layover_assets/hp-cliffs-moher.jpg",
+  "hp-eiffel-night":   "layover_assets/hp-eiffel-night.jpg",
+  "hp-oia-town":       "layover_assets/hp-oia-town.jpg",
+  "hp-blue-lagoon":    "layover_assets/hp-blue-lagoon.jpg",
+  "hp-fontelina":      "layover_assets/hp-fontelina.jpg",
+  "hp-tulips":         "layover_assets/hp-tulips.jpg",
+  "hp-lisbon-tram":    "layover_assets/hp-lisbon-tram.jpg",
 
   /* ── ADD NEW IMAGES HERE ───────────────────────────────────
      Example:
@@ -143,8 +167,25 @@ function closeMenu() {
   toggle.classList.remove('open');
   toggle.setAttribute('aria-expanded', 'false');
   document.body.style.overflow = '';
-  document.querySelectorAll('.has-dropdown.open-mobile')
-    .forEach(el => el.classList.remove('open-mobile'));
+  document.querySelectorAll('.has-dropdown.open').forEach(li => {
+    li.classList.remove('open');
+    const btn = li.querySelector('.drop-toggle');
+    if (btn) btn.setAttribute('aria-expanded', 'false');
+  });
+}
+
+function toggleSubnav(btn) {
+  const li = btn.closest('.has-dropdown');
+  const opening = !li.classList.contains('open');
+  document.querySelectorAll('.has-dropdown.open').forEach(el => {
+    el.classList.remove('open');
+    const b = el.querySelector('.drop-toggle');
+    if (b) b.setAttribute('aria-expanded', 'false');
+  });
+  if (opening) {
+    li.classList.add('open');
+    btn.setAttribute('aria-expanded', 'true');
+  }
 }
 
 
@@ -164,6 +205,11 @@ function go(id) {
   initLightbox(pageEl);
   initReveal();
   setActiveNav(id);
+  document.getElementById('nav').classList.toggle('hero-mode', id === 'home');
+  if (id === 'inspo') requestAnimationFrame(() => {
+    initInspoMap();
+    if (inspoMap) inspoMap.invalidateSize();
+  });
 }
 
 
@@ -183,10 +229,20 @@ window.addEventListener('resize', applyNavHeight);
 
 /* ── Active nav link ───────────────────────────────────────── */
 function setActiveNav(id) {
+  const parentMap = {
+    'milan':         'travel',
+    'seville':       'travel',
+    'city-guides':   'travel',
+    'itineraries':   'travel',
+    'experiences':   'travel',
+    'weekend-plans': 'travel',
+    'planning':      'strategy',
+    'bucket':        'inspo',
+  };
+  const activeId = parentMap[id] || id;
   document.querySelectorAll('.nav-links a').forEach(a => {
     a.classList.remove('active');
-    // Match the nav link by its onclick target
-    if (a.getAttribute('onclick') === `go('${id}')`) {
+    if (a.getAttribute('onclick') === `go('${activeId}')`) {
       a.classList.add('active');
     }
   });
@@ -246,10 +302,9 @@ function buildFooters() {
         <span class="f-copy">&copy; 2025 Becca Ruffalo &middot; All Rights Reserved</span>
       </div>
       <nav class="f-nav" aria-label="Footer">
-        <a onclick="go('city-guides')">City Guides</a>
-        <a onclick="go('itineraries')">Itineraries</a>
-        <a onclick="go('planning')">Planning</a>
-        <a onclick="go('bucket')">Bucket List</a>
+        <a onclick="go('travel')">Travel</a>
+        <a onclick="go('strategy')">Strategy</a>
+        <a onclick="go('inspo')">Inspo</a>
         <a onclick="go('about')">About</a>
       </nav>
       <div class="f-social">
@@ -337,7 +392,17 @@ function initReveal() {
     '.page.active .about-text > p, ' +
     '.page.active .mantra, ' +
     '.page.active .lede, ' +
-    '.page.active .tool-cat'
+    '.page.active .tool-cat, ' +
+    '.page.active .about-intro-h, ' +
+    '.page.active .about-intro-cols, ' +
+    '.page.active .about-voice-head, ' +
+    '.page.active .about-voice-body, ' +
+    '.page.active .about-style-card, ' +
+    '.page.active .about-essay-pull, ' +
+    '.page.active .about-essay-body, ' +
+    '.page.active .about-mission-h, ' +
+    '.page.active .about-mission-cols, ' +
+    '.page.active .about-mantra'
   );
 
   revealObserver = new IntersectionObserver((entries) => {
@@ -356,25 +421,131 @@ function initReveal() {
 }
 
 
-/* ── Mobile dropdown tap-to-expand ─────────────────────────── */
-// Capture phase on the <li> fires before the child <a>'s inline go()
-document.querySelectorAll('.nav-links .has-dropdown').forEach(li => {
-  li.addEventListener('click', e => {
-    if (window.innerWidth > 768) return;
-    const a = e.target.closest('a');
-    if (!a || a.closest('.dropdown')) return; // sub-item click: let go() run
-    e.stopImmediatePropagation();
-    document.querySelectorAll('.has-dropdown.open-mobile')
-      .forEach(el => { if (el !== li) el.classList.remove('open-mobile'); });
-    li.classList.toggle('open-mobile');
-  }, true);
-});
+/* ── Inspo Map ─────────────────────────────────────────────── */
+const MAP_PINS = [
+  // ── Pins with linked content ─────────────────────────────
+  {
+    name: 'Seville', country: 'Spain',
+    desc: 'Three days of flamenco, tapas, and golden Andalusian light.',
+    type: 'Weekend Plan', page: 'seville',
+    lat: 37.3891, lng: -5.9845,
+  },
+  {
+    name: 'Milan', country: 'Italy',
+    desc: 'Fashion, aperitivo, and the world\'s greatest cathedral.',
+    type: 'City Guide', page: 'milan',
+    lat: 45.4642, lng: 9.1900,
+  },
+
+  // ── Visited — no guide yet ────────────────────────────────
+  { name: 'Dublin',        country: 'Ireland',          lat: 53.3498, lng:  -6.2603 },
+  { name: 'London',        country: 'England',          lat: 51.5074, lng:  -0.1278 },
+  { name: 'Budapest',      country: 'Hungary',          lat: 47.4979, lng:  18.9705 },
+  { name: 'Paris',         country: 'France',           lat: 48.8566, lng:   2.3522 },
+  { name: 'Lisbon',        country: 'Portugal',         lat: 38.7223, lng:  -9.1393 },
+  { name: 'Santorini',     country: 'Greece',           lat: 36.3932, lng:  25.4615 },
+  { name: 'Monaco',        country: 'Monaco',           lat: 43.7384, lng:   7.4246 },
+  { name: 'Vatican City',  country: 'Vatican',          lat: 41.9029, lng:  12.4534 },
+  { name: 'Amsterdam',     country: 'Netherlands',      lat: 52.3676, lng:   4.9041 },
+  { name: 'Valletta',      country: 'Malta',            lat: 35.8997, lng:  14.5147 },
+  { name: 'Reykjavik',     country: 'Iceland',          lat: 64.1265, lng: -21.8174 },
+  { name: 'Philipsburg',   country: 'St. Maarten',      lat: 18.0209, lng: -63.0510 },
+  { name: 'Grand Cayman',  country: 'Cayman Islands',   lat: 19.3133, lng: -81.2546 },
+  { name: 'Jamaica',       country: 'Jamaica',          lat: 18.1096, lng: -77.2975 },
+  { name: 'Bangkok',       country: 'Thailand',         lat: 13.7563, lng: 100.5018 },
+];
+
+let inspoMap = null;
+
+function initInspoMap() {
+  if (inspoMap) return;
+
+  inspoMap = L.map('inspo-map', {
+    center: [35, 18],
+    zoom: 2,
+    minZoom: 2,
+    maxZoom: 8,
+    zoomControl: false,
+    attributionControl: true,
+    scrollWheelZoom: false,
+    worldCopyJump: true,
+  });
+
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
+    subdomains: 'abcd',
+    maxZoom: 19,
+  }).addTo(inspoMap);
+
+  L.control.zoom({ position: 'bottomright' }).addTo(inspoMap);
+
+  MAP_PINS.forEach(pin => {
+    const hasContent = !!pin.page;
+    const size = hasContent ? 12 : 9;
+    const icon = L.divIcon({
+      className: '',
+      html: `<div class="map-pin${hasContent ? ' map-pin--content' : ''}"></div>`,
+      iconSize: [size, size],
+      iconAnchor: [size / 2, size / 2],
+    });
+
+    const marker = L.marker([pin.lat, pin.lng], { icon }).addTo(inspoMap);
+
+    const html = hasContent
+      ? `<div class="map-popup">
+           <span class="map-pop-type">${pin.type}</span>
+           <strong class="map-pop-name">${pin.name}</strong>
+           <span class="map-pop-country">${pin.country}</span>
+           <p class="map-pop-desc">${pin.desc}</p>
+           <a class="map-pop-cta" onclick="go('${pin.page}')">Read the Guide &rarr;</a>
+         </div>`
+      : `<div class="map-popup map-popup--simple">
+           <strong class="map-pop-name">${pin.name}</strong>
+           <span class="map-pop-country">${pin.country}</span>
+         </div>`;
+
+    const popupClass = hasContent
+      ? 'map-leaflet-popup map-leaflet-popup--content'
+      : 'map-leaflet-popup';
+
+    marker.bindPopup(html, {
+      closeButton: false,
+      offset: [0, -5],
+      maxWidth: 230,
+      className: popupClass,
+    });
+
+    marker.on('click', () => marker.openPopup());
+  });
+}
+
+
+/* ── Card 3D tilt (type-cards) ─────────────────────────────── */
+function initCardTilt() {
+  document.querySelectorAll('.type-card').forEach(card => {
+    card.addEventListener('mouseenter', () => {
+      card.style.transition = 'background .3s, box-shadow .4s';
+    });
+    card.addEventListener('mousemove', e => {
+      const r = card.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width  - 0.5;
+      const y = (e.clientY - r.top)  / r.height - 0.5;
+      card.style.transform = `perspective(900px) rotateX(${-y * 9}deg) rotateY(${x * 11}deg) translateZ(14px)`;
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transition = 'transform .55s cubic-bezier(.25,.46,.45,.94), background .3s, box-shadow .4s';
+      card.style.transform  = '';
+    });
+  });
+}
 
 
 /* ── Init on load ──────────────────────────────────────────── */
 document.addEventListener('DOMContentLoaded', () => {
   buildFooters();
   buildJustLanded();
+  initCardTilt();
+  document.getElementById('nav').classList.add('hero-mode');
   const homeEl = document.getElementById('home');
   initShimmer(homeEl);
   loadImages();
