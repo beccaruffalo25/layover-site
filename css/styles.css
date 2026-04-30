@@ -2655,6 +2655,8 @@ footer {
     overflow-y: auto;
   }
   nav.open .nav-links { display: flex; }
+  #nav.hero-mode.open .nav-links a,
+  #nav.hero-mode.open .nav-links a:hover { color: var(--mid); }
   .nav-links > li + li { border-top: 1px solid rgba(168,132,58,.13); }
   .nav-links a {
     font-size: .72rem;
@@ -2703,7 +2705,7 @@ footer {
   .art-hero-text .sub { font-size: .95rem; }
 
   /* Article body */
-  .art-body { padding: 3rem 0 4.5rem; }
+  .art-body { padding: 3rem 1.4rem 4.5rem; }
 
   /* Reduce asymmetric left-indents so right side isn't cramped */
   .lede                          { padding-left: .9rem; }
