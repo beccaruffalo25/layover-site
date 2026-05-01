@@ -375,13 +375,13 @@ img { image-rendering: auto; }
 .hero-tag {
   font-family: 'Cormorant Garamond', serif;
   font-style: italic;
-  font-size: 1.05rem;
+  font-size: 1.2rem;
   font-weight: 300;
   letter-spacing: .04em;
   color: var(--cream);
-  opacity: .82;
+  opacity: 1;
   margin-top: 1.6rem;
-  text-shadow: 0 2px 14px rgba(0,0,0,.5);
+  text-shadow: 0 2px 20px rgba(0,0,0,.75), 0 1px 6px rgba(0,0,0,.5);
 }
 .scroll-cue {
   position: absolute;
