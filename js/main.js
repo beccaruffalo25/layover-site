@@ -453,6 +453,30 @@ const MAP_PINS = [
   { name: 'Grand Cayman',  country: 'Cayman Islands',   lat: 19.3133, lng: -81.2546 },
   { name: 'Jamaica',       country: 'Jamaica',          lat: 18.1096, lng: -77.2975 },
   { name: 'Bangkok',       country: 'Thailand',         lat: 13.7563, lng: 100.5018 },
+  { name: 'Cozumel',       country: 'Mexico',           lat: 20.5069, lng: -86.9580 },
+  { name: 'Puerto Rico',   country: 'Puerto Rico',      lat: 18.2208, lng: -66.5901 },
+  { name: 'Anguilla',      country: 'Anguilla',         lat: 18.2206, lng: -63.0686 },
+
+  // ── US States ─────────────────────────────────────────────
+  { name: 'Arizona',        country: 'United States',   lat: 34.0489, lng: -111.0937 },
+  { name: 'California',     country: 'United States',   lat: 36.7783, lng: -119.4179 },
+  { name: 'Colorado',       country: 'United States',   lat: 39.5501, lng: -105.7821 },
+  { name: 'Florida',        country: 'United States',   lat: 27.9944, lng:  -81.7603 },
+  { name: 'Georgia',        country: 'United States',   lat: 32.1656, lng:  -82.9001 },
+  { name: 'Illinois',       country: 'United States',   lat: 40.3495, lng:  -88.9861 },
+  { name: 'Indiana',        country: 'United States',   lat: 39.8494, lng:  -86.2583 },
+  { name: 'Iowa',           country: 'United States',   lat: 41.8780, lng:  -93.0977 },
+  { name: 'Kentucky',       country: 'United States',   lat: 37.6681, lng:  -84.6701 },
+  { name: 'Louisiana',      country: 'United States',   lat: 31.1695, lng:  -91.8678 },
+  { name: 'Michigan',       country: 'United States',   lat: 44.3148, lng:  -85.6024 },
+  { name: 'Missouri',       country: 'United States',   lat: 38.4561, lng:  -92.2884 },
+  { name: 'Nevada',         country: 'United States',   lat: 38.8026, lng: -116.4194 },
+  { name: 'New York',       country: 'United States',   lat: 42.1657, lng:  -74.9481 },
+  { name: 'Ohio',           country: 'United States',   lat: 40.4173, lng:  -82.9071 },
+  { name: 'Oklahoma',       country: 'United States',   lat: 35.5653, lng:  -96.9289 },
+  { name: 'South Carolina', country: 'United States',   lat: 33.8569, lng:  -80.9450 },
+  { name: 'Texas',          country: 'United States',   lat: 31.9686, lng:  -99.9018 },
+  { name: 'Wisconsin',      country: 'United States',   lat: 44.2685, lng:  -89.6165 },
 ];
 
 let inspoMap = null;
