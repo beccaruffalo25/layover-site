@@ -1339,18 +1339,11 @@ footer {
 
 /* CSS-only title header — replaces photo banners on section pages */
 .art-hero--title {
-  background: linear-gradient(160deg, var(--ink) 0%, #2a1508 60%, var(--brown) 100%);
+  background: var(--cream);
   display: flex;
   align-items: center;
   justify-content: center;
-}
-/* Warm radial glow at center */
-.art-hero--title::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse 70% 60% at 50% 60%, rgba(168,132,58,.1) 0%, transparent 100%);
-  pointer-events: none;
+  border-bottom: 1px solid rgba(168,132,58,.15);
 }
 /* Thin gold rule above title text */
 .art-hero--title .art-hero-text::before {
@@ -1372,6 +1365,17 @@ footer {
   width: 85%;
   max-width: 860px;
   z-index: 2;
+}
+.art-hero--title .art-hero-text h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  color: var(--ink);
+}
+.art-hero--title .art-hero-text .sub {
+  color: var(--mid);
+}
+.art-hero--title .art-hero-text .label {
+  color: var(--tan);
 }
 
 .art-hero-text {
@@ -1672,6 +1676,11 @@ footer {
 /* Hero: cream editorial — centered vertical stack */
 .inspo-hero {
   background: var(--cream);
+  min-height: 360px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   padding: 2.8rem 8% 3.2rem;
   text-align: center;
   border-bottom: 1px solid rgba(50,33,18,.1);
