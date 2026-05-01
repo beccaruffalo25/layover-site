@@ -2869,7 +2869,7 @@ footer {
   .art-hero    { height: 38vh; min-height: 240px; }
 
   /* Article — keep indents small so right side has room */
-  .art-body    { padding: 2.4rem 0 3.5rem; }
+  .art-body    { padding: 2.4rem 1.4rem 3.5rem; }
   .back        { margin: 2rem 0 0; }
   .lede                          { padding-left: .7rem; }
   .art-body blockquote,
