@@ -801,7 +801,7 @@ img { image-rendering: auto; }
 
 /* ── 7. Featured editorial cards (homepage) ────────────────── */
 .feat {
-  background: var(--ink);
+  background: var(--cream);
   padding: 6rem 2.5rem;
   border-top: 1px solid rgba(168,132,58,.1);
 }
@@ -811,18 +811,18 @@ img { image-rendering: auto; }
   font-weight: 300;
   letter-spacing: .42em;
   text-transform: uppercase;
-  color: var(--gold);
-  opacity: .75;
+  color: var(--tan);
+  opacity: .9;
   display: block;
   text-align: center;
   margin-bottom: .6rem;
 }
 .feat-h {
-  font-family: 'Cormorant SC', serif;
+  font-family: 'Cormorant Garamond', serif;
   font-size: clamp(1.8rem, 3.5vw, 2.8rem);
   font-weight: 300;
-  letter-spacing: .1em;
-  color: var(--cream);
+  letter-spacing: .04em;
+  color: var(--ink);
   text-align: center;
   margin-bottom: 2.8rem;
 }
@@ -832,6 +832,9 @@ img { image-rendering: auto; }
   gap: 1.6rem;
   max-width: 1180px;
   margin: 0 auto;
+  background: var(--ink);
+  padding: 1.6rem;
+  border-radius: 8px;
 }
 .feat-card {
   position: relative;
@@ -1714,15 +1717,16 @@ footer {
 
 /* Section headers */
 .bl-sec-head {
-  background: var(--ink);
+  background: var(--cream);
   padding: 3.5rem 3rem 3rem;
   text-align: center;
+  border-bottom: 1px solid rgba(168,132,58,.15);
 }
 .bl-sec-title {
   font-family: 'Cormorant Garamond', serif;
   font-size: clamp(2rem, 4.5vw, 4rem);
   font-weight: 300;
-  color: var(--cream);
+  color: var(--ink);
   line-height: 1.05;
   margin: .6rem 0 .8rem;
   letter-spacing: -.01em;
