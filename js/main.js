@@ -578,4 +578,57 @@ document.addEventListener('DOMContentLoaded', () => {
   initLightbox(homeEl);
   initReveal();
   setActiveNav('home');
+  initNewsletterForms();
 });
+
+/* ── Newsletter subscription ───────────────────────────────── */
+const API_BASE = 'https://layover-api.onrender.com';
+
+function initNewsletterForms() {
+  document.querySelectorAll('[data-nl-form]').forEach(form => {
+    form.addEventListener('submit', handleSubscribe);
+  });
+}
+
+async function handleSubscribe(e) {
+  e.preventDefault();
+  const form = e.currentTarget;
+  const input = form.querySelector('input[type="email"]');
+  const btn   = form.querySelector('button');
+  const msg   = form.nextElementSibling;
+
+  const email  = input.value.trim();
+  const source = form.dataset.source || 'homepage';
+
+  btn.disabled = true;
+  btn.textContent = 'Sending…';
+  msg.textContent = '';
+  msg.className = 'nl-msg';
+
+  try {
+    const res = await fetch(`${API_BASE}/api/subscribe`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, source }),
+    });
+
+    const data = await res.json();
+
+    if (res.ok) {
+      msg.textContent = data.message;
+      msg.className = 'nl-msg success';
+      input.value = '';
+      btn.textContent = 'Done';
+    } else {
+      msg.textContent = data.error || 'Something went wrong. Please try again.';
+      msg.className = 'nl-msg error';
+      btn.disabled = false;
+      btn.textContent = 'Subscribe';
+    }
+  } catch {
+    msg.textContent = 'Unable to connect. Please try again later.';
+    msg.className = 'nl-msg error';
+    btn.disabled = false;
+    btn.textContent = 'Subscribe';
+  }
+}
