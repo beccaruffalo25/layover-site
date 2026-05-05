@@ -75,6 +75,21 @@ const IMAGES = {
   "hp-tulips":         "layover_assets/hp-tulips.jpg",
   "hp-lisbon-tram":    "layover_assets/hp-lisbon-tram.jpg",
 
+  /* ── Lisbon photos ─────────────────────────────────────────
+     Upload all files below to your layover_assets/ folder.
+  ─────────────────────────────────────────────────────────── */
+  "lisbon-hero":   "layover_assets/lisbon-hero.jpg",
+  "lisbon-01":     "layover_assets/lisbon-01.jpg",
+  "lisbon-02":     "layover_assets/lisbon-02.jpg",
+  "lisbon-03":     "layover_assets/lisbon-03.jpg",
+  "lisbon-04":     "layover_assets/lisbon-04.jpg",
+  "lisbon-05":     "layover_assets/lisbon-05.jpg",
+  "lisbon-06":     "layover_assets/lisbon-06.jpg",
+  "lisbon-07":     "layover_assets/lisbon-07.jpg",
+  "lisbon-08":     "layover_assets/lisbon-08.jpg",
+  "lisbon-09":     "layover_assets/lisbon-09.jpg",
+  "lisbon-10":     "layover_assets/lisbon-10.jpg",
+
   /* ── ADD NEW IMAGES HERE ───────────────────────────────────
      Example:
      "barcelona-beach": "layover_assets/barcelona-beach.jpg",
@@ -232,6 +247,7 @@ function setActiveNav(id) {
   const parentMap = {
     'milan':         'travel',
     'seville':       'travel',
+    'lisbon':        'travel',
     'city-guides':   'travel',
     'itineraries':   'travel',
     'experiences':   'travel',
@@ -442,7 +458,12 @@ const MAP_PINS = [
   { name: 'London',        country: 'England',          lat: 51.5074, lng:  -0.1278 },
   { name: 'Budapest',      country: 'Hungary',          lat: 47.4979, lng:  18.9705 },
   { name: 'Paris',         country: 'France',           lat: 48.8566, lng:   2.3522 },
-  { name: 'Lisbon',        country: 'Portugal',         lat: 38.7223, lng:  -9.1393 },
+  {
+    name: 'Lisbon', country: 'Portugal',
+    desc: 'Pastel hills, yellow trams, and the golden light of the Tagus River.',
+    type: 'Weekend Plan', page: 'lisbon',
+    lat: 38.7223, lng: -9.1393,
+  },
   { name: 'Santorini',     country: 'Greece',           lat: 36.3932, lng:  25.4615 },
   { name: 'Monaco',        country: 'Monaco',           lat: 43.7384, lng:   7.4246 },
   { name: 'Vatican City',  country: 'Vatican',          lat: 41.9029, lng:  12.4534 },
