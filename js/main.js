@@ -89,6 +89,10 @@ const IMAGES = {
   "lisbon-08":     "layover_assets/lisbon-08.jpg",
   "lisbon-09":     "layover_assets/lisbon-09.jpg",
   "lisbon-10":     "layover_assets/lisbon-10.jpg",
+  "lisbon-11":     "layover_assets/lisbon-11.jpg",
+  "lisbon-12":     "layover_assets/lisbon-12.jpg",
+  "lisbon-13":     "layover_assets/lisbon-13.jpg",
+  "lisbon-14":     "layover_assets/lisbon-14.jpg",
 
   /* ── ADD NEW IMAGES HERE ───────────────────────────────────
      Example:
