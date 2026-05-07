@@ -2634,6 +2634,21 @@ footer {
     padding: 2.5rem 2.2rem;
   }
   .f-social { align-items: flex-start; }
+
+  /* Keep dropdown inside viewport — anchor to right edge of trigger */
+  .dropdown {
+    left: auto;
+    right: 0;
+    transform: translateY(-5px);
+  }
+  .has-dropdown:hover .dropdown {
+    transform: translateY(0);
+  }
+  .dropdown::before {
+    left: auto;
+    right: 1.4rem;
+    transform: translateX(0) rotate(45deg);
+  }
 }
 
 /* ── Mobile (≤ 768px) ──────────────────────────────────────── */
