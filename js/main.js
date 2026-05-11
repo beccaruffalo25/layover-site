@@ -582,7 +582,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* ── Newsletter subscription ───────────────────────────────── */
-const API_BASE = 'https://layover-api.onrender.com';
+const FORMSPREE_URL = 'https://formspree.io/f/xlgzakao';
 
 function initNewsletterForms() {
   document.querySelectorAll('[data-nl-form]').forEach(form => {
@@ -606,21 +606,19 @@ async function handleSubscribe(e) {
   msg.className = 'nl-msg';
 
   try {
-    const res = await fetch(`${API_BASE}/api/subscribe`, {
+    const res = await fetch(FORMSPREE_URL, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
       body: JSON.stringify({ email, source }),
     });
 
-    const data = await res.json();
-
     if (res.ok) {
-      msg.textContent = data.message;
+      msg.textContent = "You're on the list! Expect good things.";
       msg.className = 'nl-msg success';
       input.value = '';
       btn.textContent = 'Done';
     } else {
-      msg.textContent = data.error || 'Something went wrong. Please try again.';
+      msg.textContent = 'Something went wrong. Please try again.';
       msg.className = 'nl-msg error';
       btn.disabled = false;
       btn.textContent = 'Subscribe';
