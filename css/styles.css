@@ -961,6 +961,17 @@ img { image-rendering: auto; }
   transition: background .2s;
 }
 .nl-form button:hover { background: var(--tan); }
+.nl-form button:disabled { opacity: .6; cursor: default; }
+.nl-msg {
+  margin-top: 1rem;
+  font-family: 'Jost', sans-serif;
+  font-size: .78rem;
+  font-weight: 300;
+  letter-spacing: .06em;
+  min-height: 1.2em;
+}
+.nl-msg.success { color: var(--tan); }
+.nl-msg.error   { color: #e07b6a; }
 
 
 /* ── 8. Photo Upload ───────────────────────────────────────── */

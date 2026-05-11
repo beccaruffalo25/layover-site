@@ -603,4 +603,55 @@ document.addEventListener('DOMContentLoaded', () => {
   initLightbox(homeEl);
   initReveal();
   setActiveNav('home');
+  initNewsletterForms();
 });
+
+/* ── Newsletter subscription ───────────────────────────────── */
+const FORMSPREE_URL = 'https://formspree.io/f/xlgzakao';
+
+function initNewsletterForms() {
+  document.querySelectorAll('[data-nl-form]').forEach(form => {
+    form.addEventListener('submit', handleSubscribe);
+  });
+}
+
+async function handleSubscribe(e) {
+  e.preventDefault();
+  const form = e.currentTarget;
+  const input = form.querySelector('input[type="email"]');
+  const btn   = form.querySelector('button');
+  const msg   = form.nextElementSibling;
+
+  const email  = input.value.trim();
+  const source = form.dataset.source || 'homepage';
+
+  btn.disabled = true;
+  btn.textContent = 'Sending…';
+  msg.textContent = '';
+  msg.className = 'nl-msg';
+
+  try {
+    const res = await fetch(FORMSPREE_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify({ email, source }),
+    });
+
+    if (res.ok) {
+      msg.textContent = "You're on the list! Expect good things.";
+      msg.className = 'nl-msg success';
+      input.value = '';
+      btn.textContent = 'Done';
+    } else {
+      msg.textContent = 'Something went wrong. Please try again.';
+      msg.className = 'nl-msg error';
+      btn.disabled = false;
+      btn.textContent = 'Subscribe';
+    }
+  } catch {
+    msg.textContent = 'Unable to connect. Please try again later.';
+    msg.className = 'nl-msg error';
+    btn.disabled = false;
+    btn.textContent = 'Subscribe';
+  }
+}
