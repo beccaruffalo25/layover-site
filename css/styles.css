@@ -1428,6 +1428,15 @@ footer {
 }
 .back:hover  { color: var(--terra); }
 .back::before { content: '←'; }
+.coming-soon {
+  font-family: 'Jost', sans-serif;
+  font-size: .78rem;
+  font-weight: 300;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--mid);
+  margin-top: 3rem;
+}
 
 .art-body           { padding: 4.5rem 0 6.5rem; }
 .art-body h2 {
