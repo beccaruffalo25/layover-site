@@ -1,13 +1,13 @@
-# LAYOVER by Becca Ruffalo
+# LAYOVER by Becca
 
 ## What it is
-LAYOVER is a travel blog and destination guide site written by Becca Ruffalo. It covers European travel with a focus on curated city guides, weekend escapes, travel strategy, and bucket-list inspiration — all written from personal experience.
+LAYOVER is a travel blog and destination guide site written by Becca. It covers European travel with a focus on curated city guides, weekend escapes, travel strategy, and bucket-list inspiration — all written from personal experience.
 
 ## Who it's for
 Travelers who want thoughtful, specific recommendations rather than generic listicles. The site is especially useful for people planning trips to Spain, Portugal, and Italy, or looking for a structured approach to booking and planning travel.
 
 ## Author
-Becca Ruffalo — travel writer and creator of LAYOVER. Based on personal travel experience across Europe and beyond.
+Becca — travel writer and creator of LAYOVER. Based on personal travel experience across Europe and beyond.
 
 ## Most important pages
 

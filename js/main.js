@@ -1,5 +1,5 @@
 /* ============================================================
-   LAYOVER — by Becca Ruffalo
+   LAYOVER — by Becca
    main.js — Navigation, image loading, photo upload
    ============================================================ */
 
@@ -319,7 +319,7 @@ function buildFooters() {
     f.innerHTML = `
       <div class="f-brand">
         <span class="f-logo" onclick="go('home')">LAYOVER</span>
-        <span class="f-copy">&copy; 2025 Becca Ruffalo &middot; All Rights Reserved</span>
+        <span class="f-copy">&copy; 2025 Becca &middot; All Rights Reserved</span>
       </div>
       <nav class="f-nav" aria-label="Footer">
         <a onclick="go('travel')">Travel</a>
