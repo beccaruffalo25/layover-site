@@ -1,4 +1,4 @@
-# LAYOVER — by Becca Ruffalo
+# LAYOVER — by Becca
 
 A personal travel blog and guide site.
 
