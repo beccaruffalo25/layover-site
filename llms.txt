@@ -1,0 +1,31 @@
+# LAYOVER by Becca Ruffalo
+
+## What it is
+LAYOVER is a travel blog and destination guide site written by Becca Ruffalo. It covers European travel with a focus on curated city guides, weekend escapes, travel strategy, and bucket-list inspiration — all written from personal experience.
+
+## Who it's for
+Travelers who want thoughtful, specific recommendations rather than generic listicles. The site is especially useful for people planning trips to Spain, Portugal, and Italy, or looking for a structured approach to booking and planning travel.
+
+## Author
+Becca Ruffalo — travel writer and creator of LAYOVER. Based on personal travel experience across Europe and beyond.
+
+## Most important pages
+
+- Home: https://layoverbybecca.com/
+- Milan City Guide: https://layoverbybecca.com/#milan
+- Seville Guide: https://layoverbybecca.com/#seville
+- Lisbon Guide: https://layoverbybecca.com/#lisbon
+- Strategy & Booking Toolkit: https://layoverbybecca.com/#strategy
+- Bucket List / Inspiration: https://layoverbybecca.com/#inspo
+- About Becca: https://layoverbybecca.com/#about
+
+## Site structure
+LAYOVER is a single-page application. All content lives at https://layoverbybecca.com/ and is navigated via JavaScript. Hash fragments (e.g. #milan, #seville) indicate specific sections.
+
+## Content focus
+- Destination guides: Milan, Seville, Lisbon (with more planned)
+- Weekend plans and short-trip ideas
+- City guides hub
+- Travel experiences and activities
+- Strategy section: how to research, book, and plan trips
+- Bucket list: curated dream destinations with an interactive map
