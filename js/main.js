@@ -94,6 +94,28 @@ const IMAGES = {
   "lisbon-13":     "layover_assets/lisbon-13.jpg",
   "lisbon-14":     "layover_assets/lisbon-14.jpg",
 
+  /* ── Lagos photos ─────────────────────────────────────────
+     Upload all files below to your layover_assets/ folder.
+  ─────────────────────────────────────────────────────────── */
+  "lagos-hero":              "layover_assets/lagos-hero.jpg",
+  "lagos-moment":            "layover_assets/lagos-moment.jpg",
+  "lagos-square":            "layover_assets/lagos-square.jpg",
+  "lagos-tiles":             "layover_assets/lagos-tiles.jpg",
+  "lagos-green-house":       "layover_assets/lagos-green-house.jpg",
+  "lagos-becca-balcony":     "layover_assets/lagos-becca-balcony.jpg",
+  "lagos-dona-ana":          "layover_assets/lagos-dona-ana.jpg",
+  "lagos-sea-stack":         "layover_assets/lagos-sea-stack.jpg",
+  "lagos-brunch":            "layover_assets/lagos-brunch.jpg",
+  "lagos-lighthouse":        "layover_assets/lagos-lighthouse.jpg",
+  "lagos-cave":              "layover_assets/lagos-cave.jpg",
+  "lagos-cliffs-boat":       "layover_assets/lagos-cliffs-boat.jpg",
+  "lagos-coffee-waves-ext":  "layover_assets/lagos-coffee-waves-ext.jpg",
+  "lagos-coffee-waves-int":  "layover_assets/lagos-coffee-waves-int.jpg",
+  "lagos-cliff-trail":       "layover_assets/lagos-cliff-trail.jpg",
+  "lagos-dona-ana-eve":      "layover_assets/lagos-dona-ana-eve.jpg",
+  "lagos-becca-beach":       "layover_assets/lagos-becca-beach.jpg",
+  "lagos-casa-margo":        "layover_assets/lagos-casa-margo.jpg",
+
   /* ── ADD NEW IMAGES HERE ───────────────────────────────────
      Example:
      "barcelona-beach": "layover_assets/barcelona-beach.jpg",
