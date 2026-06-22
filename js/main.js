@@ -112,7 +112,6 @@ const IMAGES = {
   "lagos-coffee-waves-ext":  "layover_assets/lagos-coffee-waves-ext.jpg",
   "lagos-coffee-waves-int":  "layover_assets/lagos-coffee-waves-int.jpg",
   "lagos-cliff-trail":       "layover_assets/lagos-cliff-trail.jpg",
-  "lagos-dona-ana-eve":      "layover_assets/lagos-dona-ana-eve.jpg",
   "lagos-becca-beach":       "layover_assets/lagos-becca-beach.jpg",
   "lagos-casa-margo":        "layover_assets/lagos-casa-margo.jpg",
 
