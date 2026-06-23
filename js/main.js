@@ -98,6 +98,9 @@ const IMAGES = {
      Upload all files below to your layover_assets/ folder.
   ─────────────────────────────────────────────────────────── */
   "lagos-hero":              "layover_assets/lagos-hero.JPG",
+  "lagos-street":            "layover_assets/lagos-street.jpg",
+  "lagos-batata":            "layover_assets/lagos-batata.jpg",
+  "lagos-estudantes":        "layover_assets/lagos-estudantes.jpg",
   "lagos-moment":            "layover_assets/lagos-moment.jpg",
   "lagos-square":            "layover_assets/lagos-square.jpg",
   "lagos-tiles":             "layover_assets/lagos-tiles.jpg",
