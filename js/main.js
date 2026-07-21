@@ -122,6 +122,10 @@ const IMAGES = {
      Example:
      "barcelona-beach": "layover_assets/barcelona-beach.jpg",
      "paris-eiffel":    "layover_assets/paris-eiffel.jpg",
+
+     Marrakech page is live but photos are pending (new upload
+     workflow in progress) — register "marrakech-hero" and
+     "marrakech-souks" here once images are added.
   ─────────────────────────────────────────────────────────── */
 };
 
@@ -276,6 +280,7 @@ function setActiveNav(id) {
     'milan':         'travel',
     'seville':       'travel',
     'lisbon':        'travel',
+    'marrakech':     'travel',
     'city-guides':   'travel',
     'itineraries':   'travel',
     'experiences':   'travel',
