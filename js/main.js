@@ -118,6 +118,24 @@ const IMAGES = {
   "lagos-becca-beach":       "layover_assets/lagos-becca-beach.jpg",
   "lagos-casa-margo":        "layover_assets/lagos-casa-margo.jpg",
 
+  /* ── Marrakech photos ──────────────────────────────────────
+  ─────────────────────────────────────────────────────────── */
+  "marrakech-hero":                    "layover_assets/marrakech-hero.jpg",
+  "marrakech-souks-alley":             "layover_assets/marrakech-souks-alley.jpg",
+  "marrakech-riad-mint-tea-welcome":   "layover_assets/marrakech-riad-mint-tea-welcome.jpg",
+  "marrakech-souks-cat":               "layover_assets/marrakech-souks-cat.jpg",
+  "marrakech-la-trattoria-poolside":   "layover_assets/marrakech-la-trattoria-poolside.jpg",
+  "marrakech-sahara-camel-shadows":    "layover_assets/marrakech-sahara-camel-shadows.jpg",
+  "marrakech-sahara-camelback-selfie": "layover_assets/marrakech-sahara-camelback-selfie.jpg",
+  "marrakech-madrasa-tiled-doorway":   "layover_assets/marrakech-madrasa-tiled-doorway.jpg",
+  "marrakech-madrasa-courtyard-pool":  "layover_assets/marrakech-madrasa-courtyard-pool.jpg",
+  "marrakech-madrasa-zellige-tilework":"layover_assets/marrakech-madrasa-zellige-tilework.jpg",
+  "marrakech-jardin-majorelle-cacti":  "layover_assets/marrakech-jardin-majorelle-cacti.jpg",
+  "marrakech-dardar-rooftop-cocktail": "layover_assets/marrakech-dardar-rooftop-cocktail.jpg",
+  "marrakech-riad-bathroom":           "layover_assets/marrakech-riad-bathroom.jpg",
+  "marrakech-riad-courtyard":          "layover_assets/marrakech-riad-courtyard.jpg",
+  "marrakech-riad-lantern-ceiling":    "layover_assets/marrakech-riad-lantern-ceiling.jpg",
+
   /* ── ADD NEW IMAGES HERE ───────────────────────────────────
      Example:
      "barcelona-beach": "layover_assets/barcelona-beach.jpg",
