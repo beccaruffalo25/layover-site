@@ -118,21 +118,30 @@ const IMAGES = {
   "lagos-becca-beach":       "layover_assets/lagos-becca-beach.jpg",
   "lagos-casa-margo":        "layover_assets/lagos-casa-margo.jpg",
 
+  /* ── Marrakech photos ──────────────────────────────────────
+     Drop these files into layover_assets/ using their original
+     camera filenames, exactly as-is — no renaming needed.
+  ─────────────────────────────────────────────────────────── */
+  "IMG_0566": "layover_assets/IMG_0566.JPG",
+  "IMG_4502": "layover_assets/IMG_4502.JPG",
+  "IMG_4491": "layover_assets/IMG_4491.JPG",
+  "IMG_4509": "layover_assets/IMG_4509.JPG",
+  "IMG_4535": "layover_assets/IMG_4535.JPG",
+  "IMG_0403": "layover_assets/IMG_0403.JPG",
+  "IMG_0436": "layover_assets/IMG_0436.JPG",
+  "IMG_0553": "layover_assets/IMG_0553.JPG",
+  "IMG_0561": "layover_assets/IMG_0561.JPG",
+  "IMG_0563": "layover_assets/IMG_0563.JPG",
+  "IMG_0502": "layover_assets/IMG_0502.JPG",
+  "IMG_5010": "layover_assets/IMG_5010.JPG",
+  "IMG_4486": "layover_assets/IMG_4486.JPG",
+  "IMG_4490": "layover_assets/IMG_4490.JPG",
+  "IMG_5014": "layover_assets/IMG_5014.JPG",
+
   /* ── ADD NEW IMAGES HERE ───────────────────────────────────
      Example:
      "barcelona-beach": "layover_assets/barcelona-beach.jpg",
      "paris-eiffel":    "layover_assets/paris-eiffel.jpg",
-
-     Marrakech page is live but photos are pending. Once Becca
-     renames + sends the files per the rename map, register:
-     "marrakech-hero", "marrakech-souks-alley",
-     "marrakech-riad-mint-tea-welcome", "marrakech-souks-cat",
-     "marrakech-la-trattoria-poolside", "marrakech-sahara-camel-shadows",
-     "marrakech-sahara-camelback-selfie", "marrakech-madrasa-tiled-doorway",
-     "marrakech-madrasa-courtyard-pool", "marrakech-madrasa-zellige-tilework",
-     "marrakech-jardin-majorelle-cacti", "marrakech-dardar-rooftop-cocktail",
-     "marrakech-riad-bathroom", "marrakech-riad-courtyard",
-     "marrakech-riad-lantern-ceiling"
   ─────────────────────────────────────────────────────────── */
 };
 
