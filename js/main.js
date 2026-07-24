@@ -505,6 +505,7 @@ const MAP_PINS = [
   { name: 'Cozumel',       country: 'Mexico',           lat: 20.5069, lng: -86.9580 },
   { name: 'Puerto Rico',   country: 'Puerto Rico',      lat: 18.2208, lng: -66.5901 },
   { name: 'Anguilla',      country: 'Anguilla',         lat: 18.2206, lng: -63.0686 },
+  { name: 'Marrakech',     country: 'Morocco',          lat: 31.6295, lng:  -7.9811 },
 
   // ── US States ─────────────────────────────────────────────
   { name: 'Arizona',        country: 'United States',   lat: 34.0489, lng: -111.0937 },
