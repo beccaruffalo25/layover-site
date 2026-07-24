@@ -123,9 +123,16 @@ const IMAGES = {
      "barcelona-beach": "layover_assets/barcelona-beach.jpg",
      "paris-eiffel":    "layover_assets/paris-eiffel.jpg",
 
-     Marrakech page is live but photos are pending (new upload
-     workflow in progress) — register "marrakech-hero" and
-     "marrakech-souks" here once images are added.
+     Marrakech page is live but photos are pending. Once Becca
+     renames + sends the files per the rename map, register:
+     "marrakech-hero", "marrakech-souks-alley",
+     "marrakech-riad-mint-tea-welcome", "marrakech-souks-cat",
+     "marrakech-la-trattoria-poolside", "marrakech-sahara-camel-shadows",
+     "marrakech-sahara-camelback-selfie", "marrakech-madrasa-tiled-doorway",
+     "marrakech-madrasa-courtyard-pool", "marrakech-madrasa-zellige-tilework",
+     "marrakech-jardin-majorelle-cacti", "marrakech-dardar-rooftop-cocktail",
+     "marrakech-riad-bathroom", "marrakech-riad-courtyard",
+     "marrakech-riad-lantern-ceiling"
   ─────────────────────────────────────────────────────────── */
 };
 
