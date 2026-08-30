@@ -1548,6 +1548,201 @@ footer {
   text-align: center;
 }
 
+/* ── Experience article callouts ─────────────────────────────
+   Reusable boxed components for "Experiences" articles:
+   booking summary, before-you-go lists, verdict, and CTA.
+──────────────────────────────────────────────────────────── */
+
+/* Booking / what-you-get summary */
+.exp-stat {
+  background: var(--ink);
+  border-radius: 16px;
+  padding: 2.6rem 2.8rem;
+  margin: 2.8rem 0 3.2rem;
+  box-shadow: 0 10px 30px rgba(41,26,16,.18);
+}
+.exp-stat-eyebrow {
+  font-family: 'Jost', sans-serif;
+  font-size: .68rem;
+  font-weight: 300;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: block;
+  margin-bottom: .9rem;
+}
+.exp-stat-title {
+  font-family: 'Cormorant SC', serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+  letter-spacing: .04em;
+  color: var(--cream);
+  margin-bottom: .3rem;
+}
+.exp-stat-meta {
+  font-family: 'Jost', sans-serif;
+  font-size: .82rem;
+  font-weight: 300;
+  color: rgba(247,242,232,.6);
+  margin-bottom: 1.6rem;
+}
+.exp-stat-price {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 2rem;
+  color: var(--tan);
+}
+.exp-stat-price span {
+  font-family: 'Jost', sans-serif;
+  font-style: normal;
+  font-size: .64rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: rgba(247,242,232,.5);
+  margin-left: .6rem;
+}
+.exp-stat-divider {
+  height: 1px;
+  background: rgba(247,242,232,.14);
+  margin: 1.8rem 0;
+}
+.exp-stat-includes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: .7rem 1.4rem;
+  list-style: none;
+}
+.exp-stat-includes li {
+  font-family: 'Jost', sans-serif;
+  font-size: .84rem;
+  font-weight: 300;
+  color: rgba(247,242,232,.85);
+  padding-left: 1.3rem;
+  position: relative;
+  line-height: 1.6;
+}
+.exp-stat-includes li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--terra);
+  font-weight: 600;
+}
+
+/* Before-you-go callout pair (packing / physical reality) */
+.exp-callouts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin: 2.4rem 0 3rem;
+}
+.exp-callout {
+  background: #fff;
+  border-radius: 14px;
+  border-top: 3px solid var(--terra);
+  padding: 2.2rem 2.2rem 1.6rem;
+  box-shadow: 0 2px 14px rgba(41,26,16,.07), 0 1px 3px rgba(41,26,16,.04);
+}
+.exp-callout-h {
+  font-family: 'Cormorant SC', serif;
+  font-size: 1.05rem;
+  font-weight: 400;
+  letter-spacing: .08em;
+  color: var(--brown);
+  margin-bottom: 1.2rem;
+  padding-bottom: .6rem;
+  border-bottom: 1px solid rgba(168,132,58,.22);
+}
+.exp-callout ul { list-style: none; }
+.exp-callout li {
+  font-family: 'Jost', sans-serif;
+  font-size: .86rem;
+  font-weight: 300;
+  color: var(--mid);
+  line-height: 1.7;
+  padding-left: 1.2rem;
+  position: relative;
+  margin-bottom: .6rem;
+}
+.exp-callout li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+}
+
+/* Verdict pull-box */
+.exp-verdict {
+  background: linear-gradient(160deg, var(--brown) 0%, var(--ink) 100%);
+  border-radius: 16px;
+  padding: 3.2rem 3rem;
+  margin: 3rem 0;
+  text-align: center;
+}
+.exp-verdict-label {
+  font-family: 'Jost', sans-serif;
+  font-size: .68rem;
+  font-weight: 300;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 1.2rem;
+}
+.exp-verdict p {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.4rem !important;
+  color: var(--cream) !important;
+  line-height: 1.6 !important;
+  max-width: 620px;
+  margin: 0 auto !important;
+}
+
+/* Booking CTA box */
+.exp-book {
+  background: var(--terra);
+  border-radius: 16px;
+  padding: 2.4rem 2.8rem;
+  margin: 2.8rem 0 3.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.6rem 2rem;
+  flex-wrap: wrap;
+}
+.exp-book-label {
+  font-family: 'Cormorant SC', serif;
+  font-size: 1.15rem;
+  font-weight: 400;
+  letter-spacing: .04em;
+  color: var(--cream);
+  margin-bottom: .35rem;
+}
+.exp-book-sub {
+  font-family: 'Jost', sans-serif;
+  font-size: .82rem;
+  font-weight: 300;
+  color: rgba(247,242,232,.85);
+}
+.exp-book-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: 1rem 1.8rem;
+  background: var(--ink);
+  color: var(--cream);
+  font-family: 'Jost', sans-serif;
+  font-size: .68rem;
+  font-weight: 300;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background .2s;
+}
+.exp-book-btn:hover { background: var(--brown); }
+
 /* Tools (Strategy page) */
 .tool-cat {
   background: #fff;
@@ -2774,6 +2969,14 @@ footer {
   .img-trio        { grid-template-columns: 1fr; gap: .7rem; }
   .img-duo img     { aspect-ratio: 16/9; }
   .img-trio img    { aspect-ratio: 16/9; }
+
+  /* Experience callouts — stack on mobile */
+  .exp-stat          { padding: 2.2rem 1.8rem; }
+  .exp-stat-includes { grid-template-columns: 1fr; }
+  .exp-callouts      { grid-template-columns: 1fr; gap: 1.4rem; }
+  .exp-verdict       { padding: 2.4rem 1.8rem; }
+  .exp-book          { padding: 2.2rem 1.8rem; flex-direction: column; align-items: flex-start; }
+  .exp-book-btn      { width: 100%; justify-content: center; }
 
   /* About */
   .about-grid        { gap: 2rem; padding: 3rem 0; }

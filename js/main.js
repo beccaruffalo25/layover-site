@@ -136,6 +136,20 @@ const IMAGES = {
   "marrakech-riad-courtyard":          "layover_assets/marrakech-riad-courtyard.jpg",
   "marrakech-riad-lantern-ceiling":    "layover_assets/marrakech-riad-lantern-ceiling.jpg",
 
+  /* ── Merzouga / Sahara Desert tour photos ──────────────────
+     Upload all files below to your layover_assets/ folder.
+  ─────────────────────────────────────────────────────────── */
+  "merzouga-hero":                 "layover_assets/merzouga-hero.jpg",
+  "merzouga-atlas-mountains":      "layover_assets/merzouga-atlas-mountains.jpg",
+  "merzouga-argan-oil-collective": "layover_assets/merzouga-argan-oil-collective.jpg",
+  "merzouga-berber-ruins":         "layover_assets/merzouga-berber-ruins.jpg",
+  "merzouga-camel-caravan":        "layover_assets/merzouga-camel-caravan.jpg",
+  "merzouga-sandboarding":         "layover_assets/merzouga-sandboarding.jpg",
+  "merzouga-glamping-tent":        "layover_assets/merzouga-glamping-tent.jpg",
+  "merzouga-campfire-dinner":      "layover_assets/merzouga-campfire-dinner.jpg",
+  "merzouga-dune-stars":           "layover_assets/merzouga-dune-stars.jpg",
+  "merzouga-atv-sunrise":          "layover_assets/merzouga-atv-sunrise.jpg",
+
   /* ── ADD NEW IMAGES HERE ───────────────────────────────────
      Example:
      "barcelona-beach": "layover_assets/barcelona-beach.jpg",
