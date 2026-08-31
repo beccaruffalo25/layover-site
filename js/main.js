@@ -136,6 +136,27 @@ const IMAGES = {
   "marrakech-riad-courtyard":          "layover_assets/marrakech-riad-courtyard.jpg",
   "marrakech-riad-lantern-ceiling":    "layover_assets/marrakech-riad-lantern-ceiling.jpg",
 
+  /* ── Merzouga / Sahara Desert tour photos ──────────────────
+     Upload all files below to your layover_assets/ folder.
+  ─────────────────────────────────────────────────────────── */
+  "merzouga-hero":                 "layover_assets/merzouga-hero.jpg",
+  "merzouga-atlas-mountains":      "layover_assets/merzouga-atlas-mountains.jpg",
+  "merzouga-argan-oil-collective": "layover_assets/merzouga-argan-oil-collective.jpg",
+  "merzouga-ait-benhaddou":        "layover_assets/merzouga-ait-benhaddou.jpg",
+  "merzouga-kasbah-camels":        "layover_assets/merzouga-kasbah-camels.jpg",
+  "merzouga-market-bags":          "layover_assets/merzouga-market-bags.jpg",
+  "merzouga-rug-shop":             "layover_assets/merzouga-rug-shop.jpg",
+  "merzouga-desert-hotel":         "layover_assets/merzouga-desert-hotel.jpg",
+  "merzouga-valley-view":          "layover_assets/merzouga-valley-view.jpg",
+  "merzouga-valley-view-wide":     "layover_assets/merzouga-valley-view-wide.jpg",
+  "merzouga-camel-portrait":       "layover_assets/merzouga-camel-portrait.jpg",
+  "merzouga-camel-caravan":        "layover_assets/merzouga-camel-caravan.jpg",
+  "merzouga-camelback-selfie":     "layover_assets/merzouga-camelback-selfie.jpg",
+  "merzouga-camp-dusk":            "layover_assets/merzouga-camp-dusk.jpg",
+  "merzouga-atv-sunrise":          "layover_assets/merzouga-atv-sunrise.jpg",
+  "merzouga-atv-sunrise-wide":     "layover_assets/merzouga-atv-sunrise-wide.jpg",
+  "merzouga-atv-couple":           "layover_assets/merzouga-atv-couple.jpg",
+
   /* ── ADD NEW IMAGES HERE ───────────────────────────────────
      Example:
      "barcelona-beach": "layover_assets/barcelona-beach.jpg",
