@@ -143,6 +143,9 @@ const IMAGES = {
   "merzouga-atlas-mountains":      "layover_assets/merzouga-atlas-mountains.jpg",
   "merzouga-argan-oil-collective": "layover_assets/merzouga-argan-oil-collective.jpg",
   "merzouga-ait-benhaddou":        "layover_assets/merzouga-ait-benhaddou.jpg",
+  "merzouga-kasbah-camels":        "layover_assets/merzouga-kasbah-camels.jpg",
+  "merzouga-market-bags":          "layover_assets/merzouga-market-bags.jpg",
+  "merzouga-rug-shop":             "layover_assets/merzouga-rug-shop.jpg",
   "merzouga-desert-hotel":         "layover_assets/merzouga-desert-hotel.jpg",
   "merzouga-valley-view":          "layover_assets/merzouga-valley-view.jpg",
   "merzouga-valley-view-wide":     "layover_assets/merzouga-valley-view-wide.jpg",
@@ -154,6 +157,8 @@ const IMAGES = {
   "merzouga-campfire-dinner":      "layover_assets/merzouga-campfire-dinner.jpg",
   "merzouga-dune-stars":           "layover_assets/merzouga-dune-stars.jpg",
   "merzouga-atv-sunrise":          "layover_assets/merzouga-atv-sunrise.jpg",
+  "merzouga-atv-sunrise-wide":     "layover_assets/merzouga-atv-sunrise-wide.jpg",
+  "merzouga-atv-couple":           "layover_assets/merzouga-atv-couple.jpg",
 
   /* ── ADD NEW IMAGES HERE ───────────────────────────────────
      Example:
