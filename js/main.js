@@ -273,7 +273,9 @@ function toggleSubnav(btn) {
 
 
 /* ── Page navigation (SPA) ─────────────────────────────────── */
-function go(id) {
+// `updateHash` is false when go() is called *from* a hash change
+// (initial load, back/forward) so we don't re-push the same state.
+function go(id, updateHash = true) {
   closeMenu();
   // Explicitly reset nav state — scroll event may lag a frame behind scrollTo
   document.getElementById('nav').classList.remove('on');
@@ -293,7 +295,21 @@ function go(id) {
     initInspoMap();
     if (inspoMap) inspoMap.invalidateSize();
   });
+  if (updateHash) {
+    const url = id === 'home' ? location.pathname + location.search : `#${id}`;
+    history.pushState({ id }, '', url);
+  }
 }
+
+/* ── URL hash → page id (for shareable/bookmarkable links) ─── */
+function pageIdFromHash() {
+  const id = location.hash.slice(1);
+  const el = id && document.getElementById(id);
+  return (el && el.classList.contains('page')) ? id : 'home';
+}
+
+// Back/forward browser navigation
+window.addEventListener('popstate', () => go(pageIdFromHash(), false));
 
 
 /* ── Sticky nav ────────────────────────────────────────────── */
@@ -659,16 +675,8 @@ document.addEventListener('DOMContentLoaded', () => {
   buildFooters();
   buildJustLanded();
   initCardTilt();
-  document.getElementById('nav').classList.add('hero-mode');
-  const homeEl = document.getElementById('home');
-  initShimmer(homeEl);
-  loadImages();
-  addReadingTime(homeEl);
-  buildTOC(homeEl);
-  initLightbox(homeEl);
-  initReveal();
-  setActiveNav('home');
   initNewsletterForms();
+  go(pageIdFromHash(), false);
 });
 
 /* ── Newsletter subscription ───────────────────────────────── */
