@@ -1576,21 +1576,21 @@ footer {
   font-size: 1.5rem;
   font-weight: 400;
   letter-spacing: .04em;
-  color: var(--cream);
+  color: var(--cream) !important;
   margin-bottom: .3rem;
 }
 .exp-stat-meta {
   font-family: 'Jost', sans-serif;
   font-size: .82rem;
   font-weight: 300;
-  color: rgba(247,242,232,.6);
+  color: rgba(247,242,232,.6) !important;
   margin-bottom: 1.6rem;
 }
 .exp-stat-price {
   font-family: 'Cormorant Garamond', serif;
   font-style: italic;
   font-size: 2rem;
-  color: var(--tan);
+  color: var(--tan) !important;
 }
 .exp-stat-price span {
   font-family: 'Jost', sans-serif;
@@ -1648,7 +1648,7 @@ footer {
   font-size: 1.05rem;
   font-weight: 400;
   letter-spacing: .08em;
-  color: var(--brown);
+  color: var(--brown) !important;
   margin-bottom: 1.2rem;
   padding-bottom: .6rem;
   border-bottom: 1px solid rgba(168,132,58,.22);
@@ -1716,14 +1716,14 @@ footer {
   font-size: 1.15rem;
   font-weight: 400;
   letter-spacing: .04em;
-  color: var(--cream);
+  color: var(--cream) !important;
   margin-bottom: .35rem;
 }
 .exp-book-sub {
   font-family: 'Jost', sans-serif;
   font-size: .82rem;
   font-weight: 300;
-  color: rgba(247,242,232,.85);
+  color: rgba(247,242,232,.85) !important;
 }
 .exp-book-btn {
   display: inline-flex;
