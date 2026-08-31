@@ -140,6 +140,7 @@ const IMAGES = {
      Upload all files below to your layover_assets/ folder.
   ─────────────────────────────────────────────────────────── */
   "merzouga-hero":                 "layover_assets/merzouga-hero.jpg",
+  "merzouga-camels-dusk":          "layover_assets/merzouga-camels-dusk.jpg",
   "merzouga-atlas-mountains":      "layover_assets/merzouga-atlas-mountains.jpg",
   "merzouga-argan-oil-collective": "layover_assets/merzouga-argan-oil-collective.jpg",
   "merzouga-ait-benhaddou":        "layover_assets/merzouga-ait-benhaddou.jpg",
